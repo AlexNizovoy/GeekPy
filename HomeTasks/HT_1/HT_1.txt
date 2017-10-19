@@ -1,0 +1,67 @@
+1. Create GITHUB repository
+https://help.github.com/articles/create-a-repo/
+2. Create folder HT_1
+3. Than create files #.py for each of tasks
+4. Add multiline comments to the begining of file with the text of task
+
+
+####################################Tasks:
+
+1 .Write a script which accepts a sequence of comma-separated numbers from user and generate a list and a tuple with those numbers. 
+		Sample data : 1, 5, 7, 23
+		Output : 
+		List : [‘1', ' 5', ' 7', ' 23'] 
+		Tuple : (‘1', ' 5', ' 7', ' 23')
+
+2. Write a script to print out a set containing all the colours from color_list_1 which are not present in color_list_2. 
+		Test Data : 
+		color_list_1 = set(["White", "Black", "Red"]) 
+		color_list_2 = set(["Red", "Green"])
+		Expected Output : 
+		{'Black', 'White'}
+
+3. Write a script to sum of the first n positive integers.
+
+4. Write a script to concatenate N strings.
+
+5. Write a script to convert decimal to hexadecimal
+		Sample decimal number: 30, 4
+		Expected output: 1e, 04
+
+6. Write a script to check whether a specified value is contained in a group of values. 
+		Test Data : 
+		3 -> [1, 5, 8, 3] : True
+		-1 -> (1, 5, 8, 3) : False
+
+7. Write a script to concatenate all elements in a list into a string and print it.
+
+8. Write a script to replace last value of tuples in a list. 
+		Sample list: [(10, 20, 40), (40, 50, 60), (70, 80, 90)]
+		Expected Output: [(10, 20, 100), (40, 50, 100), (70, 80, 100)]
+
+9. Write a script to replace last value of tuples in a list.
+		Sample data: [(), (), ('',), ('a', 'b'), ('a', 'b', 'c'), ('d')]
+		Expected output: [('',), ('a', 'b'), ('a', 'b', 'c'), 'd']
+
+10. Write a script to concatenate following dictionaries to create a new one.
+		Sample Dictionary : 
+		dic1={1:10, 2:20} 
+		dic2={3:30, 4:40} 
+		dic3={5:50,6:60}
+		Expected Result : {1: 10, 2: 20, 3: 30, 4: 40, 5: 50, 6: 60}
+
+11. Write a script to remove duplicates from Dictionary.
+
+12. Write a script to concatenate following dictionaries to create a new one. 
+		Sample Dictionary : 
+		dic1={1:10, 2:20} 
+		dic2={3:30, 4:40} 
+		dic3={5:50,6:60}
+		Expected Result : {1: 10, 2: 20, 3: 30, 4: 40, 5: 50, 6: 60}	
+
+13. Write a script to get the maximum and minimum value in a dictionary.
+
+14. Write a script to generate and print a dictionary that contains a number (between 1 and n) in the form (x, x*x).
+		Sample Dictionary ( n = 5) : 
+		Expected Output : {1: 1, 2: 4, 3: 9, 4: 16, 5: 25}
+
