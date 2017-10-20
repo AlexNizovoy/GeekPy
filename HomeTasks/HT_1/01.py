@@ -3,6 +3,7 @@
 # 		Output :
 # 		List : [‘1', ' 5', ' 7', ' 23']
 # 		Tuple : (‘1', ' 5', ' 7', ' 23')
+
 sequence = input("Enter a comma-separated numbers: ")
 lst = sequence.split(",")
 tpl = tuple(lst)
