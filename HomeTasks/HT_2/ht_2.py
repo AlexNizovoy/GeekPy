@@ -1,26 +1,55 @@
 # 1. (таких ф-цiй потрiбно написати 3 -> рiзними варiантами) Написати функцiю season, приймаючу 1 аргумент — номер мiсяця (вiд 1 до 12), яка буде повертати пору року, якiй цей мiсяць належить (зима, весна, лiто або осiнь).
+def season_1(month):
+    """season_1(...)
+            season_1(month)
+
+            Return the season to whitch the entered month belongs"""
+    season = (month % 12) // 3
+    return {
+        0: "зима",
+        1: "весна",
+        2: "лiто",
+        3: "осiнь",
+    }.get(season, "Щось не так :(")
+
+
+def season_2(month):
+    """season_2(...)
+            season_2(month)
+
+            Return the season to whitch the entered month belongs"""
+    if month in (12, 1, 2):
+        return "зима"
+    elif month in (3, 4, 5):
+        return "весна"
+    elif month in (6, 7, 8):
+        return "лiто"
+    elif month in (9, 10, 11):
+        return "осiнь"
+    else:
+        return "Невiдомий мiсяць"
+
+
+def season_3(month):
+    """season_3(...)
+            season_3(month)
+
+            Return the season to whitch the entered month belongs"""
+
+    if 1 <= month <= 2 or month == 12:
+        return "зима"
+    elif 3 <= month <= 5:
+        return "весна"
+    elif 6 <= month <= 8:
+        return "лiто"
+    elif 9 <= month <= 11:
+        return "осiнь"
+    else:
+        return "Невiдомий мiсяць"
 
 
 def task_1():
-
-    def season_1(month):
-        """season_1(...)
-                season_1(month)
-
-                Return the season to whitch the entered month belongs"""
-        season = (month % 12) // 3
-        return {
-            0: "зима",
-            1: "весна",
-            2: "лiто",
-            3: "осiнь",
-        }.get(season, "Щось не так :(")
-
-    def season_2():
-        pass
-
-    def season_3():
-        pass
+    """1. (таких ф-цiй потрiбно написати 3 -> рiзними варiантами) Написати функцiю season, приймаючу 1 аргумент — номер мiсяця (вiд 1 до 12), яка буде повертати пору року, якiй цей мiсяць належить (зима, весна, лiто або осiнь)."""
 
     print("\nНаписати функцiю season, приймаючу 1 аргумент - номер мiсяця (вiд 1 до 12), яка буде повертати пору року, якiй цей мiсяць належить (зима, весна, лiто або осiнь).")
     print("(таких ф-цiй потрiбно написати 3 -> рiзними варiантами)")
