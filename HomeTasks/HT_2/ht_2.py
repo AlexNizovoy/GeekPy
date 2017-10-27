@@ -3,7 +3,8 @@ def season_1(month):
     """season_1(...)
             season_1(month)
 
-            Return the season to whitch the entered month belongs"""
+            Return the season to whitch the entered month belongs
+    """
 
     season = (month % 12) // 3
     return {
@@ -18,7 +19,8 @@ def season_2(month):
     """season_2(...)
             season_2(month)
 
-            Return the season to whitch the entered month belongs"""
+            Return the season to whitch the entered month belongs
+    """
 
     if month in (12, 1, 2):
         return "зима"
@@ -36,7 +38,8 @@ def season_3(month):
     """season_3(...)
             season_3(month)
 
-            Return the season to whitch the entered month belongs"""
+            Return the season to whitch the entered month belongs
+    """
 
     if 1 <= month <= 2 or month == 12:
         return "зима"
@@ -80,11 +83,11 @@ def _task_1():
         print("Мiсяць №{} - це {}.\n".format(month, func(month)))
 
 
-def func_task_2(numbers, base=None):
+def task_2_fn(numbers, base=None):
     """func_task_2(numbers, base=None)
 
             Compute the sum of integers in iterable 'numbers' and return result in 'base' number system. If 'base' not specefied - use decimal
-            """
+    """
 
     def dec(n):
         return n
@@ -107,9 +110,9 @@ def func_task_2(numbers, base=None):
 
 
 def _task_2():
-    # """2. Написати функцiю, яка буде приймати декiлька значень, одне з яких значення за замовченням(повинна бути перевiрка на наявнiсть), i у випадку якщо воно є додати його до iншого агрументу, якщо немає - придумайте логiку що робити программi."""
+    # """2. Написати функцiю, яка буде приймати декiлька значень, одне з яких значення за замовченням(повинна бути перевiрка на наявнiсть), i у випадку якщо воно е додати його до iншого агрументу, якщо немае - придумайте логiку що робити программi."""
 
-    print("\nНаписати функцiю, яка буде приймати декiлька значень, одне з яких значення за замовченням(повинна бути перевiрка на наявнiсть), i у випадку якщо воно є додати його до iншого агрументу, якщо немає - придумайте логiку що робити программi.")
+    print("\nНаписати функцiю, яка буде приймати декiлька значень, одне з яких значення за замовченням(повинна бути перевiрка на наявнiсть), i у випадку якщо воно е додати його до iншого агрументу, якщо немае - придумайте логiку що робити программi.")
     print("\nФункцiя, що сумуе введенi агрументи (цiлi числа), а при наявностi iменованого аргумента 'base', що е основою счислення, виводить результат у вибранiй системi (2, 8, 10, 16)")
     numbers = input("\nВведiть групу цiлих чисел (через пробiл): ").split()
     # convert space-separated string into list
@@ -123,14 +126,14 @@ def _task_2():
         base = int(input("Введiть цiле число: "))
     except:
         base = None
-    print("\n------Вивiд функцii------\n{}".format(func_task_2(numbers, base)))
+    print("\n------Вивiд функцii------\n{}".format(task_2_fn(numbers, base)))
 
 
 def task_3_fn1(start, count, step=1):
     """task_3_fn1(start, count, step=1)
 
             Return a tuple with 'count' elements starts from 'start' with 'step' increment/decrement
-            """
+    """
     try:
         step = int(step)
     except:
@@ -148,7 +151,7 @@ def task_3_fn2(iterable, map_fnc=None, *args):
 
             Return a list with elements from 'iterable' treated by function 'map_fnc' ('map_fnc(iterable[n])')
             If 'map_fnc' is None or not-a-function - return 'iterable'
-            """
+    """
     if not map_fnc or not callable(map_fnc):
         return iterable
 
@@ -163,7 +166,7 @@ def task_3_fn3(x, *args):
     """task_3_fn3(x, *args)
 
             Return a result of multiplication 'x' to each elements in 'args'
-            """
+    """
     result = x
     for i in args:
         result *= i
@@ -175,7 +178,7 @@ def task_3_fn4(start, count, step, multiplicator):
 
             Return tuple of 'count' elements from 'start' with 'step' increment multiply by 'multiplicator'
             'multiplicator' may be iterable
-            """
+    """
     tpl = task_3_fn1(start, count, step)
     try:
         result = task_3_fn2(tpl, task_3_fn3, *multiplicator)
@@ -185,8 +188,8 @@ def task_3_fn4(start, count, step, multiplicator):
 
 
 def _task_3():
-    # 3. Створiть 3 рiзних функцiї(на ваш вибiр), кожна з цих функцiй повинна повертати якийсь результат. Також створiть четверу ф-цiю, яка в тiлi викликає 3 попереднiб обробляє повернутий ними результат та також повертає результат. Таким чином ми будемо викликати 1 функцiю, а вона в своєму тiлi ще 3
-    print("3. Створено функцiю, яка за допомогою трьох iнших повертає кортеж, який складається з послiдовностi N елементiв, починаючи з позицii START з кроком STEP. Кожен з цих елементiв помножений на деяке число M")
+    # 3. Створiть 3 рiзних функцiї(на ваш вибiр), кожна з цих функцiй повинна повертати якийсь результат. Також створiть четверу ф-цiю, яка в тiлi викликае 3 попереднiб обробляе повернутий ними результат та також повертае результат. Таким чином ми будемо викликати 1 функцiю, а вона в своему тiлi ще 3
+    print("3. Створено функцiю, яка за допомогою трьох iнших повертае кортеж, який складаеться з послiдовностi N елементiв, починаючи з позицii START з кроком STEP. Кожен з цих елементiв помножений на деяке число M")
     start = input("\nВведiть цiле число START: ")
     count = input("Введiть кiлькiсть елементiв послiдовностi: ")
     step = input("Введiть крок STEP (залиште пустим для кроку 1): ")
@@ -210,8 +213,44 @@ def _task_3():
     print("\n------Вивiд функцii------\n{}".format(result))
 
 
+def task_4_fn(x, y):
+    """task_4_fn(x, y)
+
+            Return tuple with result of comparasion 'x' and 'y'
+            : x > y --> (1, x-y)
+            : x < y --> (-1, y-x)
+            : x == y --> (0, 0)
+    """
+    cmp = 0
+    if x > y:
+        cmp = 1
+    elif x < y:
+        cmp = -1
+    return (cmp, abs(x - y))
+
+
 def _task_4():
-    pass
+    #     4. •  Створiть 2 змiннi x та y з довiльними значеннями;
+    # •  Створiть просту умовну конструкцiю(звiсно вона повинна бути в тiлi ф-цiї), пiд час виконання якої буде перевiрятися рiвнiсть змiнних x та y.
+    # •  Удоскональте конструкцiю та додайте вiдповiднi умови, якi б при нерiвностi змiнних х та у вiдповiдь повертали рiзницю чисел.
+    # •  Повиннi опрацювати такi умови:
+    # •  x > y;       вiдповiдь - х бiльше нiж у на z
+    # •  x < y;       вiдповiдь - у бiльше нiж х на z
+    # •  x==y.     вiдповiдь - х дорiвнюе z
+    print("\n4. Створено функцiю, що порiвнюе два числа та повертае результат порiвняння та рiзницю мiж числами.")
+    try:
+        x = float(input("Введiть перше число: "))
+        y = float(input("Введiть друге число: "))
+    except:
+        print("Введено не число!")
+        return None
+    cmp, delta = task_4_fn(x, y)
+    if cmp > 0:
+        print("{0} бiльше нiж {1} на {2}".format(x, y, delta))
+    elif cmp < 0:
+        print("{1} бiльше нiж {0} на {2}".format(x, y, delta))
+    else:
+        print("{0} дорiвнюе {1}".format(x, y))
 
 
 def _task_5():
