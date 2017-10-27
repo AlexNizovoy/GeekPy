@@ -4,6 +4,7 @@ def season_1(month):
             season_1(month)
 
             Return the season to whitch the entered month belongs"""
+
     season = (month % 12) // 3
     return {
         0: "зима",
@@ -18,6 +19,7 @@ def season_2(month):
             season_2(month)
 
             Return the season to whitch the entered month belongs"""
+
     if month in (12, 1, 2):
         return "зима"
     elif month in (3, 4, 5):
@@ -48,8 +50,8 @@ def season_3(month):
         return "Невiдомий мiсяць"
 
 
-def task_1():
-    """1. (таких ф-цiй потрiбно написати 3 -> рiзними варiантами) Написати функцiю season, приймаючу 1 аргумент — номер мiсяця (вiд 1 до 12), яка буде повертати пору року, якiй цей мiсяць належить (зима, весна, лiто або осiнь)."""
+def _task_1():
+    # """1. (таких ф-цiй потрiбно написати 3 -> рiзними варiантами) Написати функцiю season, приймаючу 1 аргумент — номер мiсяця (вiд 1 до 12), яка буде повертати пору року, якiй цей мiсяць належить (зима, весна, лiто або осiнь)."""
 
     print("\nНаписати функцiю season, приймаючу 1 аргумент - номер мiсяця (вiд 1 до 12), яка буде повертати пору року, якiй цей мiсяць належить (зима, весна, лiто або осiнь).")
     print("(таких ф-цiй потрiбно написати 3 -> рiзними варiантами)")
@@ -78,27 +80,69 @@ def task_1():
         print("Мiсяць №{} - це {}.\n".format(month, func(month)))
 
 
-def task_2():
+def func_task_2(numbers, base=None):
+    """func_task_2(numbers, base=None)
+
+            Compute the sum of integers in iterable 'numbers' and return result in 'base' number system. If 'base' not specefied - use decimal
+            """
+
+    def dec(n):
+        return n
+
+    if not base:
+        base = 10
+
+    result = 0
+    for i in numbers:
+        result += i
+
+    f = {
+        2: bin,
+        8: oct,
+        10: dec,
+        16: hex
+    }.get(base, dec)
+
+    return f(result)
+
+
+def _task_2():
+    # """2. Написати функцiю, яка буде приймати декiлька значень, одне з яких значення за замовченням(повинна бути перевiрка на наявнiсть), i у випадку якщо воно є додати його до iншого агрументу, якщо немає - придумайте логiку що робити программi."""
+
+    print("\nНаписати функцiю, яка буде приймати декiлька значень, одне з яких значення за замовченням(повинна бути перевiрка на наявнiсть), i у випадку якщо воно є додати його до iншого агрументу, якщо немає - придумайте логiку що робити программi.")
+    print("\nФункцiя, що сумуе введенi агрументи (цiлi числа), а при наявностi iменованого аргумента 'base', що е основою счислення, виводить результат у вибранiй системi (2, 8, 10, 16)")
+    numbers = input("\nВведiть групу цiлих чисел (через пробiл): ").split()
+    # convert space-separated string into list
+    for i in range(len(numbers)):
+        try:
+            numbers[i] = int(numbers[i])
+        except:
+            numbers[i] = 0
+
+    try:
+        base = int(input("Введiть цiле число: "))
+    except:
+        base = None
+    print("\n------Вивiд функцii------\n{}".format(func_task_2(numbers, base)))
+
+
+def _task_3():
     pass
 
 
-def task_3():
+def _task_4():
     pass
 
 
-def task_4():
+def _task_5():
     pass
 
 
-def task_5():
+def _task_6():
     pass
 
 
-def task_6():
-    pass
-
-
-def task_7():
+def _task_7():
     pass
 
 
@@ -115,12 +159,12 @@ if __name__ == '__main__':
             print("Невiрне значення номеру завдання!")
             continue
         task = {
-            1: task_1,
-            2: task_2,
-            3: task_3,
-            4: task_4,
-            5: task_5,
-            6: task_6,
-            7: task_7
+            1: _task_1,
+            2: _task_2,
+            3: _task_3,
+            4: _task_4,
+            5: _task_5,
+            6: _task_6,
+            7: _task_7
         }.get(n, print)
         task()
