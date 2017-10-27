@@ -126,8 +126,88 @@ def _task_2():
     print("\n------Вивiд функцii------\n{}".format(func_task_2(numbers, base)))
 
 
+def task_3_fn1(start, count, step=1):
+    """task_3_fn1(start, count, step=1)
+
+            Return a tuple with 'count' elements starts from 'start' with 'step' increment/decrement
+            """
+    try:
+        step = int(step)
+    except:
+        step = 1
+
+    if step == 0:
+        step = 1
+
+    i = count * step + start
+    return tuple(range(start, i, step))
+
+
+def task_3_fn2(iterable, map_fnc=None, *args):
+    """task_3_fn2(iterable, map_fnc)
+
+            Return a list with elements from 'iterable' treated by function 'map_fnc' ('map_fnc(iterable[n])')
+            If 'map_fnc' is None or not-a-function - return 'iterable'
+            """
+    if not map_fnc or not callable(map_fnc):
+        return iterable
+
+    result = []
+    for i in iterable:
+        result.append(map_fnc(i, *args))
+
+    return result
+
+
+def task_3_fn3(x, *args):
+    """task_3_fn3(x, *args)
+
+            Return a result of multiplication 'x' to each elements in 'args'
+            """
+    result = x
+    for i in args:
+        result *= i
+    return result
+
+
+def task_3_fn4(start, count, step, multiplicator):
+    """task_3_fn4(start, count, step, multiplicator)
+
+            Return tuple of 'count' elements from 'start' with 'step' increment multiply by 'multiplicator'
+            'multiplicator' may be iterable
+            """
+    tpl = task_3_fn1(start, count, step)
+    try:
+        result = task_3_fn2(tpl, task_3_fn3, *multiplicator)
+    except:
+        result = task_3_fn2(tpl, task_3_fn3, multiplicator)
+    return tuple(result)
+
+
 def _task_3():
-    pass
+    # 3. Створiть 3 рiзних функцiї(на ваш вибiр), кожна з цих функцiй повинна повертати якийсь результат. Також створiть четверу ф-цiю, яка в тiлi викликає 3 попереднiб обробляє повернутий ними результат та також повертає результат. Таким чином ми будемо викликати 1 функцiю, а вона в своєму тiлi ще 3
+    print("3. Створено функцiю, яка за допомогою трьох iнших повертає кортеж, який складається з послiдовностi N елементiв, починаючи з позицii START з кроком STEP. Кожен з цих елементiв помножений на деяке число M")
+    start = input("\nВведiть цiле число START: ")
+    count = input("Введiть кiлькiсть елементiв послiдовностi: ")
+    step = input("Введiть крок STEP (залиште пустим для кроку 1): ")
+    multiplicator = input("Введiть число M (залиште пустим для значення 1): ")
+    try:
+        start = int(start)
+        count = int(count)
+        if step:
+            step = int(step)
+        else:
+            step = 1
+        if multiplicator:
+            multiplicator = int(multiplicator)
+        else:
+            multiplicator = 1
+    except:
+        print("Введено неправильне значення!")
+        return None
+
+    result = task_3_fn4(start, count, step, multiplicator)
+    print("\n------Вивiд функцii------\n{}".format(result))
 
 
 def _task_4():
