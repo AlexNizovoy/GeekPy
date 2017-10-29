@@ -450,8 +450,67 @@ def _task_6():
         print("\n------Вивiд функцii------\n{}".format(func(num)))
 
 
+def task_7_fn_calculator(x=0, y=0, op=''):
+    """task_7_fn_calculator(x=0, y=0, op='')
+
+        It's a simple calculator.
+        : 'x' and 'y' --> numbers (int or float)
+        : 'op' --> operation with 'x' and 'y' (str in ('+', '-', '*', '/', '//', '**', '%'))
+    """
+    if op not in ("+", "-", "*", "/", "//", "**", "%"):
+        return "Невiдома операцiя!"
+    if y == 0 and op in ("/", "//", "%"):
+        return "Дiлення на 0!"
+    # return {
+    #     '+': x + y,
+    #     '-': x - y,
+    #     '*': x * y,
+    #     '/': x / y,
+    #     '//': x // y,
+    #     '**': x ** y,
+    #     '%': x % y
+    # }.get(op)
+    # Wrong using - result computing anytime - if you put '1 * 0' - get ZeroDivisionError
+
+    result = x
+    if op == "+":
+        result += y
+    elif op == "-":
+        result -= y
+    elif op == "*":
+        result *= y
+    elif op == "**":
+        result **= y
+    elif op == "/":
+        result /= y
+    elif op == "//":
+        result //= y
+    else:
+        result %= y
+    return result
+
+
 def _task_7():
-    pass
+    # 7. ну i традицiйно -> калькулятор :) повинна бути 1 ф-цiя яка б приймала 3 аргументи - один з яких операцiя яку зробити!
+    def parse_number(s):
+        try:
+            s = int(s)
+        except:
+            try:
+                s = float(s)
+            except:
+                s = 0
+        return s
+
+    print("\n7. Функцiя - простий калькулятор.")
+    while True:
+        x = parse_number(input("Введiть перше число: "))
+        op = input("Введiть операцiю (пустий рядок для виходу): ").replace(" ", "")
+        if not len(op):
+            return None
+        y = parse_number(input("Введiть друге число: "))
+
+        print("{0} {2} {1} = {3}".format(x, y, op, task_7_fn_calculator(x, y, op)))
 
 
 if __name__ == '__main__':
