@@ -378,6 +378,10 @@ def _task_5():
 
 
 def task_6_fn_1_factorial(num):
+    """task_6_fn_1_factorial(num)
+
+        Return a factorial of integer 'num'.
+    """
     if num == 0:
         return 1
     num = abs(num)
@@ -388,6 +392,10 @@ def task_6_fn_1_factorial(num):
 
 
 def task_6_fn_2_fibonacci(num):
+    """task_6_fn_2_fibonacci(num)
+
+        Return 'num' elements of Fibonacci's sequence.
+    """
     num = abs(num)
     if num in (0, 1):
         return 0
@@ -398,6 +406,10 @@ def task_6_fn_2_fibonacci(num):
 
 
 def task_6_fn_3_simple(num):
+    """task_6_fn_3_simple(num)
+
+        Check if 'num' is simple. Return 'True' if it is.
+    """
     num = abs(num)
     if num in (0, 1, 2):
         return True
