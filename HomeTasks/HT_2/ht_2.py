@@ -1,4 +1,3 @@
-# 1. (таких ф-цiй потрiбно написати 3 -> рiзними варiантами) Написати функцiю season, приймаючу 1 аргумент — номер мiсяця (вiд 1 до 12), яка буде повертати пору року, якiй цей мiсяць належить (зима, весна, лiто або осiнь).
 def season_1(month):
     """season_1(...)
             season_1(month)
@@ -180,6 +179,7 @@ def task_3_fn4(start, count, step, multiplicator):
             'multiplicator' may be iterable
     """
     tpl = task_3_fn1(start, count, step)
+    # check for 'multiplicator' may be iterable or single number
     try:
         result = task_3_fn2(tpl, task_3_fn3, *multiplicator)
     except:
@@ -377,8 +377,65 @@ def _task_5():
     task_5_fn(hash)
 
 
+def task_6_fn_1_factorial(num):
+    if num == 0:
+        return 1
+    num = abs(num)
+    result = 1
+    for i in range(1, num + 1):
+        result *= i
+    return result
+
+
+def task_6_fn_2_fibonacci(num):
+    num = abs(num)
+    if num in (0, 1):
+        return 0
+    result = [0, 1]
+    for i in range(2, num):
+        result.append(result[i - 1] + result[i - 2])
+    return result
+
+
+def task_6_fn_3_simple(num):
+    num = abs(num)
+    if num in (0, 1, 2):
+        return True
+    for i in range(2, num):
+        if num % i == 0:
+            return False
+    return True
+
+
 def _task_6():
-    pass
+    # 6. придумайте 3 рiзних ф-цiї(немає рiзницi якi)
+    print("6. Три функцii на вибiр:")
+    print("   1. факторiал числа N")
+    print("   2. вивiд послiдовностi з N чисел Фiбоначчi")
+    print("   3. перевiрка цiлого числа на простоту (чи е воно простим)")
+    while True:
+        n = input("Введiть номер функцiї (пустий рядок для повернення в головне меню): ")
+        if not len(n):
+            return None
+        try:
+            n = int(n)
+        except:
+            print("Невiрне значення номеру завдання!")
+            continue
+        func = {
+            1: task_6_fn_1_factorial,
+            2: task_6_fn_2_fibonacci,
+            3: task_6_fn_3_simple
+        }.get(n, print)
+        num = input("Введiть цiле число: ")
+        if not len(num):
+            return None
+        try:
+            num = int(num)
+        except:
+            print("Введено не цiле число!")
+            continue
+        print("\n------Вивiд функцii------\n{}".format(func(num)))
 
 
 def _task_7():
