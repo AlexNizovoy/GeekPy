@@ -253,8 +253,128 @@ def _task_4():
         print("{0} дорiвнюе {1}".format(x, y))
 
 
+def task_5_fn(hash=None):
+    """task_5_fn(hash=None)
+
+            Return next result for string 'hash':
+            : len(hash) < 30 --> 'print' sum of numbers in 'hash' and string with letters only
+            : 30 <= len(hash) <= 50 --> 'print' len(), count of letters and numbers
+            : 50 < len(hash) --> 'print' len(), count of letters and numbers and compare it.
+                If count of numbers greater than count of letters - print sum of numbers;
+                If counts are equal - alert count;
+                If count of numbers less than count of letters - print division sum of numbers to count of letters
+            : if count of numbers is 13 or 16 --> test this numbers for valid card number (Visa or MasterCard).
+    """
+
+    def count_num_ltr(s):
+        """count_num_ltr(s)
+
+            Parse string 's' and return tuple with 'count-of-numbers', 'count-of-letters' and 'sum-all-numbers'
+        """
+        num = 0
+        ltr = 0
+        num_sum = 0
+        for i in s:
+            if i.isnumeric():
+                num += 1
+                num_sum += int(i)
+            elif i.isalpha():
+                ltr += 1
+        return num, ltr, num_sum
+
+    def check_card(card):
+        """check_card(card)
+
+            Parse string 'card' and return tuple with (bool)'result-of-check' and (str)'name-of-card'
+        """
+        def check_Luhn(card):
+            count = len(card)
+            sum = 0
+            # sum of odd right-to-left digits
+            for i in card[(count-1)::-2]:
+                sum += int(i)
+            # sum of double even right-to-left digits
+            for i in card[(count-2)::-2]:
+                tmp = int(i) * 2
+                if tmp >= 10:
+                    tmp -= 9
+                sum += tmp
+            # check for last digit of sum is 0
+            if sum % 10 == 0:
+                return True
+
+            return False
+
+        passed = False
+        if len(card) > 3 and card.isdigit():
+            first_digits = int(card[:2])
+
+            if len(card) == 13 or len(card) == 16:
+                # Check for MasterCard
+                if len(card) == 16 and 51 <= first_digits <= 55:
+                    name = "MasterCard"
+                    passed = check_Luhn(card)
+                # Check for Visa
+                elif 40 <= first_digits <= 49:
+                    name = "Visa"
+                    passed = check_Luhn(card)
+        if not passed:
+            name = "INVALID"
+
+        return passed, name
+
+    if not hash:
+        print("Передано пустий рядок!")
+        return None
+
+    num, ltr, num_sum = count_num_ltr(hash)
+    if len(hash) < 30:
+        result = []
+        for i in hash:
+            if i.isalpha():
+                result.append(i)
+        print("Сума всiх чисел: {0}\nРешта букв: {1}".format(num_sum, "".join(result)))
+    elif 30 <= len(hash) <= 50:
+        print("Довжина рядка: {0}\nКiлькiсть букв: {1}\nКiлькiсть цифр: {2}".format(len(hash), ltr, num))
+    else:
+        if num > ltr:
+            print("Сума всiх чисел: {0}".format(num_sum))
+        elif num == ltr:
+            print("Кiлькiсть букв та цифр однакова: {0}".format(num))
+        else:
+            print("Результат дiлення суми всих чисел на кiлькiсть лiтер: {0}".format(num_sum / ltr))
+
+    if num in (13, 16):
+        numbers = []
+        for i in hash:
+            if i.isnumeric():
+                numbers.append(i)
+
+        passed, name = check_card("".join(numbers))
+        if passed:
+            print("Цифри в рядку - номер валiдноi картки {}".format(name))
+        else:
+            print("Цифри в рядку не е номером валiдноi картки Visa або MasterCard")
+
+
 def _task_5():
-    pass
+    #     5. •  маемо рядок --> "f98neroi4nr0c3n30irn03ien3c0rfekdno400wenwkowe00koijn35pijnp46ij7k5j78p3kj546p465jnpoj35po6j345" -> просто потицяв по клавi
+    # •  створюете ф-цiю яка буде отримувати рядки на зразок мого, яка працюе в 4 випадках:
+    # •  якщо довжина рядка в дфапазонi 30-50 -> прiнтуе довжину, кiлькiсть букв та цифр
+    # •  якщо довжина менше 30 -> прiнтуе суму всiх чисел та окремо рядок без цифр лише з буквами
+    # •  якщо довжина бульше 50 - > ваша фантазiя
+    # •  звысно 4 все iнше
+    print("\n5. Створено функцiю, що приймае на вхiд рядок та виконуе наступнi перевiрки:")
+    print("   якщо довжина рядка менше 30 --> прiнтуе суму всiх чисел та окремо рядок без цифр лише з буквами;")
+    print("   якщо довжина в дiапазонi [30, 50] --> прiнтуе довжину, кiлькiсть букв та цифр")
+    print("   якщо довжина бiльше 50 --> прiнтуе довжину рядку, кiлькiсть лiтер та чисел та в залежностi вiд iх кiлькостi:")
+    print("       якщо кiлькiсть чисел бiльша --> прiнтуе суму чисел;")
+    print("       якщо кiлькiсть однакова --> прiнтуе цю кiлькiсть;")
+    print("       якщо кiлькiсть чисел менша --> прiнтуе результат дiлення суми всих чисел на кiлькiсть лiтер.")
+    print("   якщо кiлькiсть чисел 13 або 16 --> здiйснюеться перевiрка на належнiсть цих чисел до номера картки Visa або MasterCard.")
+
+    hash = input("\nВведiть рядок для перевiрки: ")
+    task_5_fn(hash)
 
 
 def _task_6():
