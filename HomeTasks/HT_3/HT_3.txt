@@ -1,0 +1,14 @@
+﻿1. Write a function to generate list of 100000 integer numbers and list of 100000 float numbers, numbers should be in range 0 - 99, this lists will be input parameters for next functions.
+2. Write a function to sort lists of elements using the selection sort algorithm.
+3. Write a function to sort lists of elements using the insertion sort algorithm.
+4. Write a function to sort lists of elements using the bubble sort algorithm.
+5. Use function sort() to sort lists.
+6. Check calculation time of each sorting function, time format: seconds four decimal places. 
+7. Compare sorted lists with sort() function result, results should be equal. 
+8. Upload code to GITHUB.
+9. Report in a private message that task is done.
+Expected result:
+         selection sort:  time = N, the list is sorted correctly = true
+         insertion sort:  time = N, the list is sorted correctly = true
+          bubble sort:  time = N, the list is sorted correctly= true
+...
