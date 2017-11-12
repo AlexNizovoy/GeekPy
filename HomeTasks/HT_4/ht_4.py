@@ -1,6 +1,9 @@
 import sys
 
 
+def parse_log_string(line):
+
+
 def main():
     if sys.argv >= 1:
         try:
