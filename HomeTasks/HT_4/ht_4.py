@@ -31,7 +31,10 @@ def parse_single_log_line(text):
     date_time = re.search(regex_date_time, text).group()
     # date_time = datetime.strptime(date_time, "%Y-%m-%d %H:%M:%S")
     marker = re.search(regex_marker, text).group()
-    description = text[re.search(regex_splitter, text).end():]
+    if text[-1] == "\n":
+        description = text[re.search(regex_splitter, text).end():-1]
+    else:
+        description = text[re.search(regex_splitter, text).end():]
 
     return {
         "date_time": date_time,
@@ -128,7 +131,9 @@ def main():
 
     print("Extracting not INFO records... ", end="")
     t0 = time.time()
-    with open("reports/all_data.csv", "w") as all_data:
+    # Add option <newline=""> for prevent double '\n' --> see at https://stackoverflow.com/a/3348664
+    # In Linux it's works in both variants - with and without option <newline="">
+    with open("reports/all_data.csv", "w", newline="") as all_data:
         writer = csv.writer(all_data)
         for line in parsed:
             writer.writerow([line["line_id"], line["marker"], line["date_time"], line["description"]])
@@ -137,7 +142,7 @@ def main():
 
     print("Combine unique records...", end="")
     t0 = time.time()
-    with open("reports/unique.csv", "w") as unique:
+    with open("reports/unique.csv", "w", newline="") as unique:
         writer = csv.writer(unique)
         for line in unique_descriptions(parsed):
             writer.writerow([line["count"], line["marker"], line["date_time"], line["description"]])
