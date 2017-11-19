@@ -20,4 +20,6 @@ url_item = "https://hacker-news.firebaseio.com/v0/item/{{placeholder}}.json?prin
 
 # filter settings
 from_date = "2017-11-18"  # format YYYY-MM-DD
-score = 10
+score = 0
+tag = "a"   # Remove only closed tags like <p></p>
+# If don't want remove tag - leave it empty: tag = ""

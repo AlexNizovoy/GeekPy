@@ -4,6 +4,7 @@ from datetime import datetime as dt
 import json
 import logging
 import os
+import re
 import time
 import urllib.request
 from urllib.error import URLError, HTTPError
@@ -53,6 +54,18 @@ def get_item(item_id, logger=None):
 
     return req_wrapper(url, logger, "Send request for Get item #'{id}' with \
 url='{url}'".format(id=item_id, url=url))
+
+
+def remove_tag(text):
+    result = text
+    indexes = []
+    regex = r"<(" + cfg.tag + r").*?>(.|\n)+?</(" + cfg.tag + r")>"
+    matches = re.finditer(regex, text)
+    for match in matches:
+        indexes.append((match.start(), match.end()))
+    for i in range(len(indexes) - 1, -1, -1):
+        result = result[:indexes[i][0]] + result[indexes[i][1]:]
+    return result
 
 
 def main():
@@ -119,6 +132,7 @@ category with url='{url}' by {time} ms".format(count=len(data),
         from_dt = dt.strptime(cfg.from_date, "%Y-%m-%d").timestamp()
         writer = csv.writer(result)
         title_writed = False
+        count_added = 0
         count = 0
         count_all = len(data)
         percent_prev = (count / count_all)
@@ -137,10 +151,16 @@ category with url='{url}' by {time} ms".format(count=len(data),
                 title_writed = True
             # apply filters
             if item.get("score") >= cfg.score and item.get("time") >= from_dt:
+                text = item.get("text")
+                if text and len(cfg.tag):
+                    item["text"] = remove_tag(text)
                 writer.writerow(list(item.values()))
+                count_added += 1
         print()
     t1 = time.time()
+    print("Add {count} items to output file".format(count=count_added))
     print("Write output file {0} by {1} sec.".format(csv_file, t1 - t0))
+    logger.info("Add {count} items to output file".format(count=count_added))
     logger.info("Write output file {0} by {1} sec.".format(csv_file, t1 - t0))
 
     # End of program
