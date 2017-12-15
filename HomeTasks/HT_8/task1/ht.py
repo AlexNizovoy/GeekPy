@@ -50,9 +50,13 @@ class Quotes(object):
     def __init__(self):
         pass
 
-    def add(self, text, author_id, author_title, author_url, _tags):
+    def add(self, text, author_id, author_title, author_url, tags):
+        kwargs = locals().copy()
+        kwargs.pop("self")
         Quotes.counter += 1
-        Quotes._quotes.append({"_id": Quotes.counter, "text": text, "author_id": author_id, "author_title": author_title, "author_url": author_url, "tags": _tags})
+        item = {"_id": Quotes.counter}
+        item.update(kwargs)
+        Quotes._quotes.append(item)
         return Quotes.counter
 
     def get(self, name):
@@ -73,17 +77,35 @@ class Authors(object):
     def __init__(self):
         pass
 
-    def add(self, name, url):
-        author = self.get(name)
-        if author:
+    def add(self, author_title, url, **kwargs):
+        args = locals().copy()
+        # remove unneccessary and empty arguments
+        args.pop("self")
+        if not kwargs:
+            args.pop("kwargs")
+
+        author = self.get(author_title)
+        # Check for existing author
+        if author and not kwargs:
+            return author.get("_id")
+        # If author exist and exist updates for him - apply them
+        elif author and kwargs:
+            Authors._authors[author.get("_id") - 1].update(kwargs)
             return author.get("_id")
         Authors.counter += 1
-        Authors._authors.append({"_id": Authors.counter, "name": name, "url": url})
+        item = {"_id": Authors.counter}
+        item.update(args)
+        Authors._authors.append(item)
+
         return Authors.counter
 
-    def get(self, name):
+    def get(self, author_title=None, _id=None):
+        if not author_title and not _id:
+            return None
         for author in Authors._authors:
-            if author.get("name") == name:
+            if author_title and author.get("author_title") == author_title:
+                return author
+            elif _id and author.get("_id") == _id:
                 return author
         return None
 
@@ -99,17 +121,29 @@ class Tags(object):
     def __init__(self):
         pass
 
-    def add(self, name, url):
-        tag = self.get(name)
-        if tag:
+    def add(self, tag_name, url, **kwargs):
+        args = locals().copy()
+        # remove unneccessary and empty arguments
+        args.pop("self")
+        if not kwargs:
+            args.pop("kwargs")
+
+        tag = self.get(tag_name)
+        if tag and not kwargs:
+            return tag.get("_id")
+        # If tag exist and exist updates for him - apply them
+        elif tag and kwargs:
+            Tags._tags[tag.get("_id") - 1].update(kwargs)
             return tag.get("_id")
         Tags.counter += 1
-        Tags._tags.append({"_id": Tags.counter, "name": name, "url": url})
+        item = {"_id": Tags.counter}
+        item.update(args)
+        Tags._tags.append(item)
         return Tags.counter
 
-    def get(self, name):
+    def get(self, tag_name):
         for tag in Tags._tags:
-            if tag.get("name") == name:
+            if tag.get("tag_name") == tag_name:
                 return tag
         return None
 
@@ -117,20 +151,53 @@ class Tags(object):
         return Tags._tags
 
 
-def parse_author(url, storage):
-    return {"url": url, "author_title": None, "born_date": None,
-            "born_place": None, "about": None}
+def get_soup(url):
+    r = requests.get(url)
+    soup = BeautifulSoup(r.text.encode(), "html.parser")
+
+    return soup
 
 
-def parse_tag(url, storage):
+def parse_authors(storage):
+    data = storage.get("authors").get_all()
+    count = 0
+    for author in data:
+        soup = get_soup(author.get("url"))
+        if not soup:
+            break
+
+        b_date = soup.select_one("span.author-born-date")
+        b_place = soup.select_one("span.author-born-location")
+        about = soup.select_one("div.author-description")
+        author.update({"born_date": b_date.text})
+        author.update({"born_place": b_place.text[3:]})
+        author.update({"about": about.text.strip()})
+
+        storage["authors"].add(**author)
+        count += 1
+        if count % 10 == 0:
+            print("{} of {} authors parsed.".format(count, len(data)))
+
+        save_storage(storage, "authors")
+
+
+def parse_tags(url, storage):
     return {"tag_name": None, "tag_url": None, "text": None,
             "author": None, "author_url": None}
 
 
-def save_storage(storage):
-    with open(cfg.storage_file, "wb") as f:
-        data = {"quotes": storage["quotes"].get_all(), "authors": storage["authors"].get_all(), "tags": storage["tags"].get_all()}
-        pickle.dump(data, f)
+def save_storage(storage, branch=None):
+    if not branch:
+        with open(cfg.storage_file, "wb") as f:
+            data = {k: v.get_all() for (k, v) in storage.items()}
+            pickle.dump(data, f)
+    else:
+        fname = cfg.storage_file.split(".")
+        fname[-2] = fname[-2] + '_' + branch
+        fname = ".".join(fname)
+        with open(fname, "wb") as f:
+            data = {branch: storage.get(branch).get_all()}
+            pickle.dump(data, f)
 
 
 def parse_quotes(url, storage):
@@ -138,8 +205,9 @@ def parse_quotes(url, storage):
     base_url = cfg.url
     next_page_url = ""
     while continue_parsing:
-        r = requests.get("{}{}".format(base_url, next_page_url))
-        soup = BeautifulSoup(r.text.encode(), "html.parser")
+        soup = get_soup("{}{}".format(base_url, next_page_url))
+        if not soup:
+            break
 
         quotes = soup.findAll(cfg.quote.tag, {cfg.quote.case: cfg.quote.value})
         for q in quotes:
@@ -166,7 +234,6 @@ def parse_quotes(url, storage):
             count = storage["quotes"].add(text, author_id, author_title, author_url, _tags)
             if count % 10 == 0:
                 print("{} quotes parsed".format(count))
-                print(storage["quotes"].counter)
 
         # Check for next page
         next_page = soup.find("li", {"class": "next"})
@@ -179,8 +246,11 @@ def parse_quotes(url, storage):
 
         # Save parsed page
         save_storage(storage)
+    return None
 
 
 if __name__ == '__main__':
     data = {"quotes": Quotes(), "authors": Authors(), "tags": Tags()}
     parse_quotes(cfg.url, data)
+    parse_authors(data)
+    parse_tags(data)
