@@ -20,6 +20,8 @@ class Cfg(object):
     author = Cfg_item("small", "itemprop", "author")
     tag = Cfg_item("div", "class", "tags")
 
+    quote_sel = "div.quote"
+
     def __init__(self):
         if not os.path.isdir(self.out_dir):
             os.mkdir(self.out_dir)
