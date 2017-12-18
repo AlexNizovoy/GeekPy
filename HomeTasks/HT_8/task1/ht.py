@@ -25,13 +25,16 @@
 # всі необходні скрипти, отримані данні + є інструкція як користуватись вашим
 # парсером!
 import pickle
+import json
 import requests
 import os
+import time
 from bs4 import BeautifulSoup
+from win32com.client import Dispatch
+import sqlite3
 
-import config
-
-cfg = config.Cfg()
+from config import logger
+from config import cfg
 
 
 def concat_urls(base_url, add_url):
@@ -49,20 +52,22 @@ class Quotes(object):
     def __init__(self):
         pass
 
-    def add(self, text, author_id, author_title, author_url, tags):
-        kwargs = locals().copy()
-        kwargs.pop("self")
+    def add(self, text, author_id, author_title, author_url, tags, _id=None):
+        args = locals().copy()
+        args.pop("self")
 
         # Check for existing record
         quote = self.get(text)
-        if quote:
+        if quote and _id is None:
+            return quote.get("_id")
+        elif quote and _id:
+            Quotes._quotes[quote.get("_id") - 1].update(args)
             return quote.get("_id")
 
         # create new record
         Quotes.counter += 1
-        item = {"_id": Quotes.counter}
-        item.update(kwargs)
-        Quotes._quotes.append(item)
+        args["_id"] = Quotes.counter
+        Quotes._quotes.append(args)
         return Quotes.counter
 
     def get(self, text):
@@ -83,27 +88,24 @@ class Authors(object):
     def __init__(self):
         pass
 
-    def add(self, author_title, url, **kwargs):
+    def add(self, author_title, url, _id=None, born_date=None, born_place=None, about=None):
         args = locals().copy()
         # remove unneccessary and empty arguments
         args.pop("self")
-        if not kwargs:
-            args.pop("kwargs")
 
         # Check for existing author
         author = self.get(author_title)
-        if author and not kwargs:
+        if author and _id is None:
             return author.get("_id")
         # If author exist and exist updates for him - apply them
-        elif author and kwargs:
-            Authors._authors[author.get("_id") - 1].update(kwargs)
+        elif author and _id:
+            Authors._authors[author.get("_id") - 1].update(args)
             return author.get("_id")
 
         # or create new record
         Authors.counter += 1
-        item = {"_id": Authors.counter}
-        item.update(args)
-        Authors._authors.append(item)
+        args["_id"] = Authors.counter
+        Authors._authors.append(args)
 
         return Authors.counter
 
@@ -129,27 +131,24 @@ class Tags(object):
     def __init__(self):
         pass
 
-    def add(self, tag_name, url, **kwargs):
+    def add(self, tag_name, url, _id=None, quotes=None):
         args = locals().copy()
         # remove unneccessary and empty arguments
         args.pop("self")
-        if not kwargs:
-            args.pop("kwargs")
 
         # Check for existing record
         tag = self.get(tag_name)
-        if tag and not kwargs:
+        if tag and _id is None:
             return tag.get("_id")
         # If tag exist and exist updates for him - apply them
-        elif tag and kwargs:
-            Tags._tags[tag.get("_id") - 1].update(kwargs)
+        elif tag and _id:
+            Tags._tags[tag.get("_id") - 1].update(args)
             return tag.get("_id")
 
         # or create new record
         Tags.counter += 1
-        item = {"_id": Tags.counter}
-        item.update(args)
-        Tags._tags.append(item)
+        args["_id"] = Tags.counter
+        Tags._tags.append(args)
         return Tags.counter
 
     def get(self, tag_name):
@@ -162,20 +161,51 @@ class Tags(object):
         return Tags._tags
 
 
-def get_soup(url):
-    r = requests.get(url)
-    soup = BeautifulSoup(r.text.encode(), "html.parser")
+def get_soup(url, timeout=1, count=1):
+    max_count = 4
+    # Catch network problems
+    try:
+        r = requests.get(url=url, timeout=timeout)
+    except requests.exceptions.Timeout:
+        msg = "Timeout: {}. \
+Try {} of {} (set timeout to {})".format(url, count, max_count, timeout)
+        # print(msg)
+        logger.error(msg)
+        if count >= max_count:
+            logger.error("TIMEOUT. Nothing to responce.")
+            return None
+        else:
+            return get_soup(url, timeout=timeout + 10, count=count + 1)
+    except requests.exceptions.ConnectionError:
+        msg = "ConnectionError: {}. \
+Try {} of {} (set timeout to {})".format(url, count, max_count, timeout)
+        # print(msg)
+        logger.error(msg)
+        if count >= max_count:
+            return None
+        else:
+            time.sleep(timeout)
+            return get_soup(url, timeout=timeout + 10, count=count + 1)
 
-    # TODO: Make safe (check for resp.code, catch exceptions etc.)
+    # Catch unsuccessful status codes
+    try:
+        r.raise_for_status()
+    except requests.exceptions.HTTPError as e:
+        # print(e.args[0])
+        logger.error(e.args[0])
+        return None
+
+    soup = BeautifulSoup(r.text.encode(), "lxml")
+
     return soup
 
 
-def save_storage(storage, branch=None):
-    if not branch:
-        with open(cfg.storage_file, "wb") as f:
-            data = {k: v.get_all() for (k, v) in storage.items()}
-            pickle.dump(data, f)
-    else:
+def save_storage(storage, branch):
+    # if not branch:
+    #     with open(cfg.storage_file, "wb") as f:
+    #         data = {k: v.get_all() for (k, v) in storage.items()}
+    #         pickle.dump(data, f)
+    # else:
         fname = cfg.storage_file.split(".")
         fname[-2] = fname[-2] + '_' + branch
         fname = ".".join(fname)
@@ -185,22 +215,35 @@ def save_storage(storage, branch=None):
 
 
 def load_storage(branches=None):
-    if os.path.isdir(cfg.out_dir) and os.path.isfile(cfg.storage_file):
-        with open(cfg.storage_file, 'rb') as f:
-            data = pickle.load(f)
-    elif os.path.isdir(cfg.out_dir):
-        data = {"quotes": Quotes(), "authors": Authors(), "tags": Tags()}
-        for branch in branches:
-            fname = cfg.storage_file.split(".")
-            fname[-2] = fname[-2] + '_' + branch
-            fname = ".".join(fname)
-            if os.path.isfile(fname):
-                with open(fname, "rb") as f:
-                    tmp = pickle.load(f)
-                    for item in tmp:
-                        data.get(branch).add(**item)
-        return data
-    return {"quotes": Quotes(), "authors": Authors(), "tags": Tags()}
+    data = {"quotes": Quotes(), "authors": Authors(), "tags": Tags()}
+    if os.path.isdir(cfg.out_dir):
+        # if os.path.isfile(cfg.storage_file):
+        #     with open(cfg.storage_file, 'rb') as f:
+        #         # Load storage like {"quotes": [list_of_quotes], etc.}
+        #         tmp = pickle.load(f)
+        #         logger.debug("Load from {}".format(cfg.storage_file))
+        #         # Iterate over tmp items
+        #         for branch, items in tmp.items():
+        #             for item in items:
+        #                 data.get(branch).add(**item)
+        # else:
+        #     logger.debug("{} not found. Load parts".format(cfg.storage_file))
+        if branches is not None:
+            for branch in branches:
+                fname = cfg.storage_file.split(".")
+                fname[-2] = fname[-2] + '_' + branch
+                fname = ".".join(fname)
+                if os.path.isfile(fname):
+                    with open(fname, "rb") as f:
+                        logger.debug("Load from {}".format(fname))
+                        tmp = pickle.load(f)
+                        for item in tmp.get(branch):
+                            data.get(branch).add(**item)
+                else:
+                    logger.debug("{} not found".format(fname))
+            return data
+    logger.info("Storage loaded.")
+    return data
 
 
 def parse_authors(storage):
@@ -221,11 +264,11 @@ def parse_authors(storage):
         storage["authors"].add(**author)
         count += 1
         if count % 5 == 0:
-            print("{} of {} authors parsed.".format(count, len(data)))
+            msg = "{} of {} authors parsed.".format(count, len(data))
+            logger.info(msg)
             save_storage(storage, "authors")
 
-    print("{} autors parsed".format(count))
-    save_storage(storage)
+    logger.info("Authors parsing complete. {} authors parsed".format(count))
 
 
 def parse_tags(storage):
@@ -233,22 +276,18 @@ def parse_tags(storage):
     count = 0
     for tag in data:
         continue_parsing = True
-
-        # Make pure base_url for correct pagination
-        base_url = tag.get("url").split("/")
-        if "page" in base_url:
-            idx = base_url.index("page")
-            base_url = base_url[:idx]
-        base_url = "/".join(base_url)
-
+        base_url = cfg.url
         next_page_url = ""
         # add slot for quotes with current tag
         tag["quotes"] = []
         while continue_parsing:
+            t0 = time.time()
             soup = get_soup("{}{}".format(base_url, next_page_url))
+            t1 = time.time()
+            logger.debug("Get soup for {} sec".format(t1 - t0))
             if not soup:
                 break
-
+            t0 = time.time()
             quotes = soup.select(cfg.quote_sel)
             for quote in quotes:
                 q_text = quote.select_one("span.text").text[1:-1]
@@ -260,6 +299,8 @@ def parse_tags(storage):
                 item["author_url"] = q_author_url
                 # store quote in current tag
                 tag["quotes"].append(item)
+            t1 = time.time()
+            logger.debug("Parse page for {} sec".format(t1 - t0))
 
             # Check for next page
             next_page = soup.select_one("li.next")
@@ -270,14 +311,16 @@ def parse_tags(storage):
             else:
                 continue_parsing = False
 
+        # update tag in storage
+        storage.get("tags").add(**tag)
+
         count += 1
         if count % 5 == 0:
-            print("{} of {} tags parsed.".format(count, len(data)))
+            logger.info("{} of {} tags parsed.".format(count, len(data)))
             # Save parsed page
             save_storage(storage, "tags")
 
-    print("{} tags parsed.".format(count))
-    save_storage(storage)
+    logger.info("Tags parsing complete. {} tags parsed.".format(count))
 
 
 def parse_quotes(url, storage):
@@ -322,7 +365,7 @@ def parse_quotes(url, storage):
             storage["quotes"].add(**item)
             count += 1
             if count % 5 == 0:
-                print("{} quotes parsed".format(count))
+                logger.info("{} quotes parsed".format(count))
 
         # Check for next page
         next_page = soup.find("li", {"class": "next"})
@@ -336,15 +379,134 @@ def parse_quotes(url, storage):
         # Save parsed page
         save_storage(storage, "quotes")
 
-    print("{} quotes parsed".format(count))
-    save_storage(storage)
+    logger.info("Quotes parsing complete. {} quotes parsed".format(count))
     return None
 
 
+def export_json(storage):
+    with open(cfg.export_file + "json", "w") as f:
+        data = {k: v.get_all() for (k, v) in storage.items()}
+        json.dump(data, f)
+        logger.info("Export to {} complete.".format(f.name))
+
+
+def export_xls(storage):
+    # Works only with Excel installed
+    def title_gen(ws, *args):
+        # from data like:
+        # ['ID', 'Tag', 'URL', ['Quotes','Text quote', 'Author', 'Author URL']]
+        # make title like:
+        # ID  |  Tag  |   URL   |   Quotes
+        #     |       |         |   Text quote    |   Author   |   Author URL
+        row = 1
+        col = 1
+        use_second_row = False
+        for val in args:
+            if isinstance(val, list):
+                cell1 = ws.Cells(row, col)
+                cell1.value = val[0]
+                use_second_row = True
+                for v in val[1:]:
+                    ws.Cells(row + 1, col).value = v
+                    col += 1
+                cell2 = ws.Cells(row, col)
+                ws.Range(cell1, cell2).Merge()
+            else:
+                ws.Cells(row, col).value = val
+                col += 1
+        if use_second_row:
+            row += 1
+        return row, col
+
+    def write_row(ws, row, *args):
+        col = 1
+        for val in args:
+            if isinstance(val, list):
+                loop_col = col
+                for v in val:
+                    col = loop_col
+                    for i in v:
+                        ws.Cells(row, col).value = i
+                        col += 1
+                    row += 1
+            else:
+                ws.Cells(row, col).value = val
+            col += 1
+        return row
+
+    excel = Dispatch("Excel.Application")
+    wb = excel.Workbooks.Add()
+    wsheets_count = wb.Sheets.Count
+    # Check for enough worksheets
+    while wsheets_count < len(storage.keys()):
+        wb.Worksheets.Add()
+        wsheets_count = wb.Sheets.Count
+
+    # Store authors
+    data = storage["authors"].get_all()
+    ws = wb.Sheets(1)
+    ws.Name = "Authors"
+    # generate Title
+    title_list = ["id", "Name", "Born date", "Born place", "About", "URL"]
+    row, col = title_gen(ws, *title_list)
+    for author in data:
+        row += 1
+        i = [author["_id"], author["author_title"], author["born_date"]]
+        i.extend([author["born_place"], author["about"], author["url"]])
+        row = write_row(ws, row, *i)
+
+    # Store quotes
+    data = storage["quotes"].get_all()
+    ws = wb.Sheets(2)
+    ws.Name = "Quotes"
+    # generate Title
+    title_list = ["id", "Text", "Author", "Author ID", "Author URL"]
+    title_list.append(["Tags", "Tag ID", "Tag name", "Tag URL"])
+    row, col = title_gen(ws, *title_list)
+    for quote in data:
+        row += 1
+        i = [quote["_id"], quote["text"], quote["author_title"]]
+        i.extend([quote["author_id"], quote["author_url"]])
+        i.append([[i["_id"], i["name"], i["url"]] for i in quote["tags"]])
+        row = write_row(ws, row, *i)
+
+    # Store tags
+    data = storage["tags"].get_all()
+    ws = wb.Sheets(3)
+    ws.Name = "Tags"
+    # generate Title
+    title_list = ["Tag ID", "Tag name", "Tag URL"]
+    title_list.append(["Quotes", "Text", "Author", "Author URL"])
+    row, col = title_gen(ws, *title_list)
+    for tag in data:
+        row += 1
+        i = [tag["_id"], tag["tag_name"], tag["url"]]
+        i.append([[i["text"], i["author_title"], i["author_url"]] for i in tag["quotes"]])
+        row = write_row(ws, row, *i)
+
+    wb.SaveAs(cfg.export_file + "xls")
+    wb.Close()
+    excel.Quit()
+    logger.info("Export to {} complete.".format(cfg.export_file + "xls"))
+
+
+def export_sqlite(data):
+    conn = sqlite3.connect(cfg.export_file + '.sqlite')
+    cursor = conn.cursor()
+
+    pass
+    conn.close()
+
+
 if __name__ == '__main__':
+    logger.info("Program started")
     # try to load previous storage
     data = load_storage(["quotes", "authors", "tags"])
+    logger.info("Storage loaded")
 
     parse_quotes(cfg.url, data)
     parse_authors(data)
     parse_tags(data)
+    export_json(data)
+    # export_xls(data) - глючный экспорт, пробую sqlite
+    logger.info("Program finished")
