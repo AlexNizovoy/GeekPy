@@ -24,14 +24,12 @@
 # Домашка рахується зарахованою якщо ви даєте посилання на репозиторій де є
 # всі необходні скрипти, отримані данні + є інструкція як користуватись вашим
 # парсером!
-import pickle
 import json
 import requests
 import os
 import time
 from bs4 import BeautifulSoup
-from win32com.client import Dispatch
-import sqlite3
+import xlwt
 
 from config import logger
 from config import cfg
@@ -113,7 +111,7 @@ class Authors(object):
         if not author_title and not _id:
             return None
         for author in Authors._authors:
-            if author_title and author.get("author_title") == author_title:
+            if author_title and author.get("author_title").lower() == author_title.lower():
                 return author
             elif _id and author.get("_id") == _id:
                 return author
@@ -209,9 +207,9 @@ def save_storage(storage, branch):
         fname = cfg.storage_file.split(".")
         fname[-2] = fname[-2] + '_' + branch
         fname = ".".join(fname)
-        with open(fname, "wb") as f:
+        with open(fname, "w") as f:
             data = {branch: storage.get(branch).get_all()}
-            pickle.dump(data, f)
+            json.dump(data, f)
 
 
 def load_storage(branches=None):
@@ -234,9 +232,9 @@ def load_storage(branches=None):
                 fname[-2] = fname[-2] + '_' + branch
                 fname = ".".join(fname)
                 if os.path.isfile(fname):
-                    with open(fname, "rb") as f:
+                    with open(fname, "r") as f:
                         logger.debug("Load from {}".format(fname))
-                        tmp = pickle.load(f)
+                        tmp = json.load(f)
                         for item in tmp.get(branch):
                             data.get(branch).add(**item)
                 else:
@@ -268,21 +266,27 @@ def parse_authors(storage):
             logger.info(msg)
             save_storage(storage, "authors")
 
+    save_storage(storage, "authors")
     logger.info("Authors parsing complete. {} authors parsed".format(count))
 
 
 def parse_tags(storage):
     data = storage.get("tags").get_all()
     count = 0
+    base_url = cfg.url
     for tag in data:
         continue_parsing = True
-        base_url = cfg.url
         next_page_url = ""
+        first_page = True
         # add slot for quotes with current tag
         tag["quotes"] = []
         while continue_parsing:
             t0 = time.time()
-            soup = get_soup("{}{}".format(base_url, next_page_url))
+            if first_page:
+                soup = get_soup(tag["url"])
+                first_page = False
+            else:
+                soup = get_soup("{}{}".format(base_url, next_page_url))
             t1 = time.time()
             logger.debug("Get soup for {} sec".format(t1 - t0))
             if not soup:
@@ -292,9 +296,14 @@ def parse_tags(storage):
             for quote in quotes:
                 q_text = quote.select_one("span.text").text[1:-1]
                 q_author_title = quote.select_one("small.author").text
+                try:
+                    q_author_id = storage["authors"].get(q_author_title)["_id"]
+                except:
+                    q_author_id = None
                 q_author_url = quote.select_one("span > a").get("href")
                 q_author_url = concat_urls(cfg.url, q_author_url)
                 item = {"text": q_text}
+                item["author_id"] = q_author_id
                 item["author_title"] = q_author_title
                 item["author_url"] = q_author_url
                 # store quote in current tag
@@ -320,6 +329,7 @@ def parse_tags(storage):
             # Save parsed page
             save_storage(storage, "tags")
 
+    save_storage(storage, "tags")
     logger.info("Tags parsing complete. {} tags parsed.".format(count))
 
 
@@ -379,6 +389,7 @@ def parse_quotes(url, storage):
         # Save parsed page
         save_storage(storage, "quotes")
 
+    save_storage(storage, "quotes")
     logger.info("Quotes parsing complete. {} quotes parsed".format(count))
     return None
 
@@ -390,81 +401,172 @@ def export_json(storage):
         logger.info("Export to {} complete.".format(f.name))
 
 
+# def export_xls(storage):
+# Глючный и медленный вариант. Переписан на xlwt
+#     # Works only with Excel installed
+#     def title_gen(ws, *args):
+#         # from data like:
+#         # ['ID', 'Tag', 'URL', ['Quotes','Text quote', 'Author', 'Author URL']]
+#         # make title like:
+#         # ID  |  Tag  |   URL   |   Quotes
+#         #     |       |         |   Text quote    |   Author   |   Author URL
+#         row = 1
+#         col = 1
+#         use_second_row = False
+#         for val in args:
+#             if isinstance(val, list):
+#                 cell1 = ws.Cells(row, col)
+#                 cell1.value = val[0]
+#                 use_second_row = True
+#                 for v in val[1:]:
+#                     ws.Cells(row + 1, col).value = v
+#                     col += 1
+#                 cell2 = ws.Cells(row, col)
+#                 ws.Range(cell1, cell2).Merge()
+#             else:
+#                 ws.Cells(row, col).value = val
+#                 col += 1
+#         if use_second_row:
+#             row += 1
+#         return row, col
+
+#     def write_row(ws, row, *args):
+#         col = 1
+#         for val in args:
+#             if isinstance(val, list):
+#                 loop_col = col
+#                 for v in val:
+#                     col = loop_col
+#                     for i in v:
+#                         ws.Cells(row, col).value = i
+#                         col += 1
+#                     row += 1
+#             else:
+#                 ws.Cells(row, col).value = val
+#             col += 1
+#         return row
+
+#     excel = Dispatch("Excel.Application")
+#     wb = excel.Workbooks.Add()
+#     wsheets_count = wb.Sheets.Count
+#     # Check for enough worksheets
+#     while wsheets_count < len(storage.keys()):
+#         wb.Worksheets.Add()
+#         wsheets_count = wb.Sheets.Count
+
+#     # Store authors
+#     data = storage["authors"].get_all()
+#     ws = wb.Sheets(1)
+#     ws.Name = "Authors"
+#     # generate Title
+#     title_list = ["id", "Name", "Born date", "Born place", "About", "URL"]
+#     row, col = title_gen(ws, *title_list)
+#     for author in data:
+#         row += 1
+#         i = [author["_id"], author["author_title"], author["born_date"]]
+#         i.extend([author["born_place"], author["about"], author["url"]])
+#         row = write_row(ws, row, *i)
+
+#     # Store quotes
+#     data = storage["quotes"].get_all()
+#     ws = wb.Sheets(2)
+#     ws.Name = "Quotes"
+#     # generate Title
+#     title_list = ["id", "Text", "Author", "Author ID", "Author URL"]
+#     title_list.append(["Tags", "Tag ID", "Tag name", "Tag URL"])
+#     row, col = title_gen(ws, *title_list)
+#     for quote in data:
+#         row += 1
+#         i = [quote["_id"], quote["text"], quote["author_title"]]
+#         i.extend([quote["author_id"], quote["author_url"]])
+#         i.append([[i["_id"], i["name"], i["url"]] for i in quote["tags"]])
+#         row = write_row(ws, row, *i)
+
+#     # Store tags
+#     data = storage["tags"].get_all()
+#     ws = wb.Sheets(3)
+#     ws.Name = "Tags"
+#     # generate Title
+#     title_list = ["Tag ID", "Tag name", "Tag URL"]
+#     title_list.append(["Quotes", "Text", "Author", "Author URL"])
+#     row, col = title_gen(ws, *title_list)
+#     for tag in data:
+#         row += 1
+#         i = [tag["_id"], tag["tag_name"], tag["url"]]
+#         i.append([[i["text"], i["author_title"], i["author_url"]] for i in tag["quotes"]])
+#         row = write_row(ws, row, *i)
+
+#     wb.SaveAs(cfg.export_file + "xls")
+#     wb.Close()
+#     excel.Quit()
+#     logger.info("Export to {} complete.".format(cfg.export_file + "xls"))
+
 def export_xls(storage):
-    # Works only with Excel installed
     def title_gen(ws, *args):
         # from data like:
         # ['ID', 'Tag', 'URL', ['Quotes','Text quote', 'Author', 'Author URL']]
         # make title like:
         # ID  |  Tag  |   URL   |   Quotes
         #     |       |         |   Text quote    |   Author   |   Author URL
-        row = 1
-        col = 1
+        # return next empty row
+        row = 0
+        col = 0
         use_second_row = False
         for val in args:
             if isinstance(val, list):
-                cell1 = ws.Cells(row, col)
-                cell1.value = val[0]
+                c1 = (row, col)
                 use_second_row = True
                 for v in val[1:]:
-                    ws.Cells(row + 1, col).value = v
+                    ws.write(row + 1, col, v)
                     col += 1
-                cell2 = ws.Cells(row, col)
-                ws.Range(cell1, cell2).Merge()
+                c2 = (row, col)
+                ws.write_merge(c1[0], c2[0], c1[1], c2[1], val[0])
             else:
-                ws.Cells(row, col).value = val
+                ws.write(row, col, val)
                 col += 1
+
         if use_second_row:
             row += 1
-        return row, col
+        return row + 1
 
     def write_row(ws, row, *args):
-        col = 1
+        # return next empty row
+        col = 0
         for val in args:
             if isinstance(val, list):
                 loop_col = col
                 for v in val:
                     col = loop_col
                     for i in v:
-                        ws.Cells(row, col).value = i
+                        ws.write(row, col, i)
                         col += 1
                     row += 1
             else:
-                ws.Cells(row, col).value = val
+                ws.write(row, col, val)
             col += 1
-        return row
+        return row + 1
 
-    excel = Dispatch("Excel.Application")
-    wb = excel.Workbooks.Add()
-    wsheets_count = wb.Sheets.Count
-    # Check for enough worksheets
-    while wsheets_count < len(storage.keys()):
-        wb.Worksheets.Add()
-        wsheets_count = wb.Sheets.Count
+    wb = xlwt.Workbook(encoding="utf-8")
 
     # Store authors
     data = storage["authors"].get_all()
-    ws = wb.Sheets(1)
-    ws.Name = "Authors"
+    ws = wb.add_sheet("Authors")
     # generate Title
     title_list = ["id", "Name", "Born date", "Born place", "About", "URL"]
-    row, col = title_gen(ws, *title_list)
+    row = title_gen(ws, *title_list)
     for author in data:
-        row += 1
         i = [author["_id"], author["author_title"], author["born_date"]]
         i.extend([author["born_place"], author["about"], author["url"]])
         row = write_row(ws, row, *i)
 
     # Store quotes
     data = storage["quotes"].get_all()
-    ws = wb.Sheets(2)
-    ws.Name = "Quotes"
+    ws = wb.add_sheet("Quotes")
     # generate Title
     title_list = ["id", "Text", "Author", "Author ID", "Author URL"]
     title_list.append(["Tags", "Tag ID", "Tag name", "Tag URL"])
-    row, col = title_gen(ws, *title_list)
+    row = title_gen(ws, *title_list)
     for quote in data:
-        row += 1
         i = [quote["_id"], quote["text"], quote["author_title"]]
         i.extend([quote["author_id"], quote["author_url"]])
         i.append([[i["_id"], i["name"], i["url"]] for i in quote["tags"]])
@@ -472,31 +574,32 @@ def export_xls(storage):
 
     # Store tags
     data = storage["tags"].get_all()
-    ws = wb.Sheets(3)
-    ws.Name = "Tags"
+    ws = wb.add_sheet("Tags")
     # generate Title
     title_list = ["Tag ID", "Tag name", "Tag URL"]
-    title_list.append(["Quotes", "Text", "Author", "Author URL"])
-    row, col = title_gen(ws, *title_list)
+    title_list.append(["Quotes", "Text", "Author ID", "Author", "Author URL"])
+    row = title_gen(ws, *title_list)
     for tag in data:
-        row += 1
         i = [tag["_id"], tag["tag_name"], tag["url"]]
-        i.append([[i["text"], i["author_title"], i["author_url"]] for i in tag["quotes"]])
+        tmp = [[i["text"], i["author_id"]] for i in tag["quotes"]]
+        tmp1 = [[i["author_title"], i["author_url"]] for i in tag["quotes"]]
+        # Magic here :)
+        [i.extend(k) for i, k in zip(tmp, tmp1)]
+        i.append(tmp)
+
         row = write_row(ws, row, *i)
 
-    wb.SaveAs(cfg.export_file + "xls")
-    wb.Close()
-    excel.Quit()
+    fname = cfg.export_file + "xls"
+    wb.save(fname)
     logger.info("Export to {} complete.".format(cfg.export_file + "xls"))
 
 
-def export_sqlite(data):
-    conn = sqlite3.connect(cfg.export_file + '.sqlite')
-    cursor = conn.cursor()
+def get_author(storage, name=None, _id=None):
+    data = storage.get("authors")
+    if not data:
+        return None
 
-    pass
-    conn.close()
-
+    return json.dumps(data.get(name=name, _id=_id))
 
 if __name__ == '__main__':
     logger.info("Program started")
@@ -508,5 +611,10 @@ if __name__ == '__main__':
     parse_authors(data)
     parse_tags(data)
     export_json(data)
-    # export_xls(data) - глючный экспорт, пробую sqlite
+    export_xls(data)
+
+    # Example getting author
+    print(get_author(data, _id=1))
+    print("---------")
+    print(get_author(data, name="Marilyn Monroe"))
     logger.info("Program finished")

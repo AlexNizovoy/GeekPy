@@ -16,9 +16,10 @@ class Cfg(object):
     url = "http://quotes.toscrape.com/"
 
     out_dir = "results"
-    storage_file = out_dir + os.sep + "storage.dat"
-    export_file = out_dir + os.sep + "result."  # add file extension
+    storage_file = out_dir + os.sep + "storage.json"
+    export_file = out_dir + os.sep + "result."  # runtime add file extension
     log_file = out_dir + os.sep + "scrapper.log"
+
     quote = Cfg_item("div", "class", "quote")
     text = Cfg_item("span", "itemprop", "text")
     author = Cfg_item("small", "itemprop", "author")
