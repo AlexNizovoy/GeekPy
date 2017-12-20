@@ -12,13 +12,13 @@ class Cfg_item(object):
 
 class Cfg(object):
     """Config generator for dot-notation access to settings"""
-    app_name = "Srapper"
-    url = "http://quotes.toscrape.com/"
+    APP_NAME = "Srapper"
+    URL = "http://quotes.toscrape.com/"
 
-    out_dir = "results"
-    storage_file = out_dir + os.sep + "storage.json"
-    export_file = out_dir + os.sep + "result."  # runtime add file extension
-    log_file = out_dir + os.sep + "scrapper.log"
+    OUT_DIR = "results"
+    STORAGE_FILE = OUT_DIR + os.sep + "storage.json"
+    EXPORT_FILE = OUT_DIR + os.sep + "result."  # runtime add file extension
+    LOG_FILE = OUT_DIR + os.sep + "scrapper.log"
 
     quote = Cfg_item("div", "class", "quote")
     text = Cfg_item("span", "itemprop", "text")
@@ -28,15 +28,15 @@ class Cfg(object):
     quote_sel = "div.quote"
 
     def __init__(self):
-        if not os.path.isdir(self.out_dir):
-            os.mkdir(self.out_dir)
+        if not os.path.isdir(self.OUT_DIR):
+            os.mkdir(self.OUT_DIR)
 
 
 cfg = Cfg()
 # init logging
-logger = logging.getLogger(cfg.app_name)
+logger = logging.getLogger(cfg.APP_NAME)
 logger.setLevel(logging.INFO)
-fh = logging.FileHandler(cfg.log_file)
+fh = logging.FileHandler(cfg.LOG_FILE)
 fmt = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 fh.setFormatter(fmt)
 fh.setLevel(logging.INFO)
@@ -47,7 +47,7 @@ ch.setFormatter(fmt)
 ch.setLevel(logging.DEBUG)
 logger.addHandler(ch)
 # add error log
-err = logging.FileHandler(cfg.log_file + '_errors.log')
+err = logging.FileHandler(cfg.LOG_FILE + '_errors.log')
 err.setFormatter(fmt)
 err.setLevel(logging.ERROR)
 logger.addHandler(err)

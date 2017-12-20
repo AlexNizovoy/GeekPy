@@ -200,11 +200,11 @@ Try {} of {} (set timeout to {})".format(url, count, max_count, timeout)
 
 def save_storage(storage, branch):
     # if not branch:
-    #     with open(cfg.storage_file, "wb") as f:
+    #     with open(cfg.STORAGE_FILE, "wb") as f:
     #         data = {k: v.get_all() for (k, v) in storage.items()}
     #         pickle.dump(data, f)
     # else:
-        fname = cfg.storage_file.split(".")
+        fname = cfg.STORAGE_FILE.split(".")
         fname[-2] = fname[-2] + '_' + branch
         fname = ".".join(fname)
         with open(fname, "w") as f:
@@ -214,21 +214,21 @@ def save_storage(storage, branch):
 
 def load_storage(branches=None):
     data = {"quotes": Quotes(), "authors": Authors(), "tags": Tags()}
-    if os.path.isdir(cfg.out_dir):
-        # if os.path.isfile(cfg.storage_file):
-        #     with open(cfg.storage_file, 'rb') as f:
+    if os.path.isdir(cfg.OUT_DIR):
+        # if os.path.isfile(cfg.STORAGE_FILE):
+        #     with open(cfg.STORAGE_FILE, 'rb') as f:
         #         # Load storage like {"quotes": [list_of_quotes], etc.}
         #         tmp = pickle.load(f)
-        #         logger.debug("Load from {}".format(cfg.storage_file))
+        #         logger.debug("Load from {}".format(cfg.STORAGE_FILE))
         #         # Iterate over tmp items
         #         for branch, items in tmp.items():
         #             for item in items:
         #                 data.get(branch).add(**item)
         # else:
-        #     logger.debug("{} not found. Load parts".format(cfg.storage_file))
+        #     logger.debug("{} not found. Load parts".format(cfg.STORAGE_FILE))
         if branches is not None:
             for branch in branches:
-                fname = cfg.storage_file.split(".")
+                fname = cfg.STORAGE_FILE.split(".")
                 fname[-2] = fname[-2] + '_' + branch
                 fname = ".".join(fname)
                 if os.path.isfile(fname):
@@ -273,7 +273,7 @@ def parse_authors(storage):
 def parse_tags(storage):
     data = storage.get("tags").get_all()
     count = 0
-    base_url = cfg.url
+    base_url = cfg.URL
     for tag in data:
         continue_parsing = True
         next_page_url = ""
@@ -301,7 +301,7 @@ def parse_tags(storage):
                 except:
                     q_author_id = None
                 q_author_url = quote.select_one("span > a").get("href")
-                q_author_url = concat_urls(cfg.url, q_author_url)
+                q_author_url = concat_urls(cfg.URL, q_author_url)
                 item = {"text": q_text}
                 item["author_id"] = q_author_id
                 item["author_title"] = q_author_title
@@ -395,7 +395,7 @@ def parse_quotes(url, storage):
 
 
 def export_json(storage):
-    with open(cfg.export_file + "json", "w") as f:
+    with open(cfg.EXPORT_FILE + "json", "w") as f:
         data = {k: v.get_all() for (k, v) in storage.items()}
         json.dump(data, f)
         logger.info("Export to {} complete.".format(f.name))
@@ -496,10 +496,10 @@ def export_json(storage):
 #         i.append([[i["text"], i["author_title"], i["author_url"]] for i in tag["quotes"]])
 #         row = write_row(ws, row, *i)
 
-#     wb.SaveAs(cfg.export_file + "xls")
+#     wb.SaveAs(cfg.EXPORT_FILE + "xls")
 #     wb.Close()
 #     excel.Quit()
-#     logger.info("Export to {} complete.".format(cfg.export_file + "xls"))
+#     logger.info("Export to {} complete.".format(cfg.EXPORT_FILE + "xls"))
 
 def export_xls(storage):
     def title_gen(ws, *args):
@@ -589,9 +589,9 @@ def export_xls(storage):
 
         row = write_row(ws, row, *i)
 
-    fname = cfg.export_file + "xls"
+    fname = cfg.EXPORT_FILE + "xls"
     wb.save(fname)
-    logger.info("Export to {} complete.".format(cfg.export_file + "xls"))
+    logger.info("Export to {} complete.".format(cfg.EXPORT_FILE + "xls"))
 
 
 def get_author(storage, name=None, _id=None):
@@ -607,7 +607,7 @@ if __name__ == '__main__':
     data = load_storage(["quotes", "authors", "tags"])
     logger.info("Storage loaded")
 
-    parse_quotes(cfg.url, data)
+    parse_quotes(cfg.URL, data)
     parse_authors(data)
     parse_tags(data)
     export_json(data)

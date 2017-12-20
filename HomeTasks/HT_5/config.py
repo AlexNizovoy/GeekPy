@@ -1,18 +1,18 @@
-app_name = "exampleApp"
+APP_NAME = "exampleApp"
 
 # filesystem settings
-out_dir = "results"
-log_file = "hn_parser.log"
-out_file = "report.csv"
+OUT_DIR = "results"
+LOG_FILE = "hn_parser.log"
+OUT_FILE = "report.csv"
 
 # categories settings
-categories = [
+CATEGORIES = [
     "askstories",
     "showstories",
     "newstories",
     "jobstories"
 ]
-default_category = "newstories"
+DEFAULT_CATEGORY = "newstories"
 
 # url settings
 url_category = "https://hacker-news.firebaseio.com/v0/{{placeholder}}.json?print=pretty"

@@ -72,25 +72,25 @@ def main():
     # get command-line args
     arg_parser = argparse.ArgumentParser()
     arg_parser.add_argument("-c", "--category", type=str,
-                            default=cfg.default_category,
-                            choices=cfg.categories, help="name of category")
+                            default=cfg.DEFAULT_CATEGORY,
+                            choices=cfg.CATEGORIES, help="name of category")
     cat_name = arg_parser.parse_args().category
 
     create_dir = False
     create_log_file = False
 
     # Check for existing directory and log-file
-    if not os.path.isdir(cfg.out_dir):
-        os.mkdir(cfg.out_dir)
+    if not os.path.isdir(cfg.OUT_DIR):
+        os.mkdir(cfg.OUT_DIR)
         create_dir = True
 
-    if not os.path.isfile(cfg.out_dir + os.sep + cfg.log_file):
+    if not os.path.isfile(cfg.OUT_DIR + os.sep + cfg.LOG_FILE):
         create_log_file = True
 
     # init logging
-    logger = logging.getLogger(cfg.app_name)
+    logger = logging.getLogger(cfg.APP_NAME)
     logger.setLevel(logging.INFO)
-    fh = logging.FileHandler(cfg.out_dir + os.sep + cfg.log_file)
+    fh = logging.FileHandler(cfg.OUT_DIR + os.sep + cfg.LOG_FILE)
     fmt = logging.Formatter(
         '%(asctime)s - %(name)s - %(levelname)s - %(message)s')
     fh.setFormatter(fmt)
@@ -100,10 +100,10 @@ def main():
         opt=arg_parser.parse_args()))
     if create_dir:
         logger.info("Create output directory '{dir_name}'.".format(
-            dir_name=cfg.out_dir))
+            dir_name=cfg.OUT_DIR))
     if create_log_file:
         logger.info("Create log-file '{log_file}'.".format(
-            log_file=cfg.out_dir + os.sep + cfg.log_file))
+            log_file=cfg.OUT_DIR + os.sep + cfg.LOG_FILE))
 
     # get list of item's numbers in selected category
     url = cfg.url_category.replace("{{placeholder}}", cat_name)
@@ -125,7 +125,7 @@ category with url='{url}' by {time} ms".format(count=len(data),
         finish(logger, 3,
                "There is no items receive from '{cat_name}' category!".format(
                    cat_name=cat_name))
-    csv_file = cfg.out_dir + os.sep + cfg.out_file
+    csv_file = cfg.OUT_DIR + os.sep + cfg.OUT_FILE
 
     t0 = time.time()
     with open(csv_file, "w", newline="", encoding="utf-8") as result:
