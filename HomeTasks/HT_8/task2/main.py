@@ -1,3 +1,4 @@
+import re
 import requests
 import time
 from bs4 import BeautifulSoup
@@ -67,20 +68,33 @@ def parser(url, data):
         tr_list = soup.select("table.base1 > tbody > tr")
         name_list = [extract_name(i) for i in tr_list]
         data.extend(name_list)
-        next_url = soup.select_one("div.pagescode a.next")
-        if next_url:
-            next_url = next_url.get("href")
+        next_url_tag = soup.select_one("div.pagescode a.next")
+        if next_url_tag:
+            next_url = next_url_tag.get("href")
             logger.debug("Next_url = {}".format(next_url))
         else:
-            logger.debug("next_url not found")
-            logger.debug("requests = {}".format(r))
-            with open("sout_fall.html", 'w') as f:
-                f.write(soup.decode())
             continue_parsing = False
+            logger.debug("next_url not found")
+            hit_limit_tag = soup.select_one('body > p')
+            if hit_limit_tag:
+                logger.debug("found hit_limit_tag!")
+                text = hit_limit_tag.text
+                r = re.search(r"(\d+)( secon)", text)
+                if r:
+                    wait = int(r.groups()[0])
+                    wait += 1
+                    logger.debug("sleep for {} seconds".format(wait))
+                    time.sleep(wait)
+                    continue_parsing = True
+        if not continue_parsing:
+            with open("last_page.html", 'w') as f:
+                    f.write(soup.decode())
+
         count += 1
-        if count % 3 == 0:
-            time.sleep(3)
         logger.info("{} pages parsed ({} domains)".format(count, len(data)))
+        if count % 5 == 0:
+            # add sleep time for prevent hit the rate limiter
+            time.sleep(10)
     return None
 
 if __name__ == '__main__':
