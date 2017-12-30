@@ -6,14 +6,27 @@ if __name__ == '__main__':
 
 APP_NAME = "Srapper_Del_Domains"
 URL = "https://www.expireddomains.net/deleted-info-domains/"
+URL_IF_LOGGED_IN = "https://member.expireddomains.net/domains/expiredinfo/"
 
 OUT_DIR = "results"
 STORAGE_FILE = OUT_DIR + os.sep + "storage.json"
 EXPORT_FILE = OUT_DIR + os.sep + "result."  # runtime add file extension
 LOG_FILE = OUT_DIR + os.sep + "scrapper.log"
 
+# During parsing title will be filled
+title = ""
+
+# Set it to True for load and export previous saved domains from storage
+EXPORT_ONLY = False
+
 if not os.path.isdir(OUT_DIR):
     os.mkdir(OUT_DIR)
+
+HEADERS = {
+    "User-Agent": "Mozilla/5.0 (Windows NT 5.1; rv:52.0) Gecko/20100101 Firefox/52.0",
+}
+USER = "PPKzavod"
+PASSWORD = "12345678"
 
 
 # init logging
