@@ -97,8 +97,10 @@ def parser(storage, last_url=None):
         url = cfg.URL_IF_LOGGED_IN
 
     base_url = "/".join(url.split("/")[:3])
-    next_url = storage.get("last_url") or url[len(base_url):]
-
+    if cfg.CONTINUE_PREVIOUS:
+        next_url = storage.get("last_url") or url[len(base_url):]
+    else:
+        next_url = url[len(base_url):]
     # Get page title
     soup, r = get_soup(base_url + next_url, session=session)
     storage["title"] = soup.select_one("title").text
@@ -183,7 +185,10 @@ def export_storage(data):
 
 if __name__ == '__main__':
     logger.info("Program started")
-    storage = load_storage()
+    if cfg.CONTINUE_PREVIOUS:
+        storage = load_storage()
+    else:
+        storage = {"data": [], "last_url": None, "title": ""}
     if not cfg.EXPORT_ONLY:
         try:
             parser(storage)

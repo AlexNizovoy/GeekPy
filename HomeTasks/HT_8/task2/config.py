@@ -18,6 +18,7 @@ title = ""
 
 # Set it to True for load and export previous saved domains from storage
 EXPORT_ONLY = False
+CONTINUE_PREVIOUS = False
 
 if not os.path.isdir(OUT_DIR):
     os.mkdir(OUT_DIR)
