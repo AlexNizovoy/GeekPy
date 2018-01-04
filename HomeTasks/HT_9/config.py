@@ -6,7 +6,7 @@ APP_NAME = "exampleApp"
 # filesystem settings
 OUT_DIR = "results"
 LOG_FILE = OUT_DIR + os.sep + "hn_parser.log"
-OUT_FILE = OUT_DIR + os.sep + "{datestamp}.html"
+OUT_FILE = OUT_DIR + os.sep + "hn_parser_{datestamp}.html"
 STORAGE_FILE = OUT_DIR + os.sep + "storage.pkl"
 
 # categories settings

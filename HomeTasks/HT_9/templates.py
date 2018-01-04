@@ -88,9 +88,3 @@ category = """
                 </table>
             </div>
 """
-
-item = """
-<tr>
-    <td></td>
-</tr>
-"""

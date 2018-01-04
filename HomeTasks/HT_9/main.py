@@ -92,7 +92,8 @@ Try {} of {} (set timeout to {})".format(url, count, MAX_COUNT, timeout)
                     skipped += 1
                     continue
                 rec_data = self.get_item(record)
-                if rec_data.get("score") < cfg.score or rec_data.get("time") < from_dt:
+                if rec_data.get("score") < cfg.score or \
+                   rec_data.get("time") < from_dt:
                     skipped += 1
                     continue
                 text = rec_data.get("text")
@@ -152,21 +153,61 @@ class HTML_Export(object):
     def __init__(self):
         pass
 
-    def export(self, data):
-        pass
+    def _make_title(self, data):
+        """Get iterable 'data' with name of fields and return list with
+        elements ['id', 'type', 'score', 'time', 'by', 'title', 'text', 'url',
+        and rest]. If some of listed elements not present in 'data' - they
+        skipped.
+        """
+        tmp = list(data)
+        count = 0
+        for i in ["id", "type", "score", "time", "by", "title", "text", "url"]:
+            if i in tmp:
+                idx = tmp.index(i)
+                tmp[count], tmp[idx] = tmp[idx], tmp[count]
+                count += 1
+        return tmp
 
-    def item(self, data, sequence):
+    def export(self, data):
+        output = templates.base
+        style = templates.style
+        result = []
+        for name, category in data.values():
+            # generate title from existing keys of all items in category
+            sequence = []
+            for i in category:
+                sequence.extend(i.keys())
+            sequence = list(set(sequence))
+            sequence = self._make_title(sequence)
+            cat_html = templates.category
+            thead = self.item(sequence)
+            data_html = self.item(category, sequence)
+            cat_html = cat_html.format(name=name.capitalize(),
+                                       table_head=thead, data=data_html)
+            result.append(cat_html)
+        output = output.format(style=style, categories="\n".join(result))
+        datestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+        with open(cfg.OUT_FILE.format(datestamp=datestamp), "w") as f:
+            f.write(output)
+
+    def item(self, data=None, sequence=None):
         """Get item like {"name2": "val2", "name1": "val1"} and
-        'sequense' like ["name1", "name2"] (for ordered values)
+        'sequence' like ["name1", "name2"] (for ordered output values)
         return HTML-text like
+        If record in 'data' not contains item from 'sequence' - put None
         <tr>
             <td>val1</td>
             <td>val2</td>
         </tr>
         """
+        if data is None and sequence is None:
+            return "\n"
         result = ["<tr>"]
         for i in sequence:
-            result.append("<td>{}</td>".format(data.get(i)))
+            if data is None:
+                result.append("<td>{}</td>".format(i.upper()))
+            else:
+                result.append("<td>{}</td>".format(data.get(i)))
         result.append("</tr>")
         return "\n".join(result)
 
