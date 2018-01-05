@@ -1,0 +1,298 @@
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+        <style>
+        
+tr, td, th {
+    border-collapse: collapse;
+    border: black solid 1px;
+    padding: 2px;
+    text-align: left;
+    vertical-align: top;
+}
+th {
+    text-align: center;
+}
+tr:nth-child(even) {
+    background: #CCC
+}
+.accordion {
+    background-color: #eee;
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    transition: 0.4s;
+}
+.active, .accordion:hover {
+    background-color: #ccc;
+}
+.accordion:after {
+    content: '\002B';
+    color: #777;
+    font-weight: bold;
+    float: right;
+    margin-left: 5px;
+}
+.active:after {
+    content: "\2212";
+}
+.panel {
+    padding: 0 18px;
+    background-color: white;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+}
+
+        </style>
+        <title>Hacker News | AlexNizovoy's parser</title>
+    </head>
+    <body>
+        <h1>Hacker News</h1>
+        <div id="categories">
+            
+            <button class="accordion">Jobstories</button>
+            <div class="panel">
+                <table>
+                    <thead><tr>
+<th>ID</th>
+<th>TYPE</th>
+<th>SCORE</th>
+<th>TIME</th>
+<th>BY</th>
+<th>TITLE</th>
+<th>TEXT</th>
+<th>URL</th>
+</tr></thead>
+                    <tbody><tr>
+<td>16078201</td>
+<td>job</td>
+<td>1</td>
+<td>2018-01-05 14:37:46</td>
+<td>jweins</td>
+<td>Head of Offline Marketing in SE Asia at Dahmakan (YC S17)</td>
+<td>None</td>
+<td>https://boards.greenhouse.io/dahmakan/jobs/4004976002#.Wk4XzFT1XdQ</td>
+</tr>
+<tr>
+<td>16077307</td>
+<td>job</td>
+<td>1</td>
+<td>2018-01-05 10:14:37</td>
+<td>prats226</td>
+<td>NanoNets (YC W17) Is Hiring Founding Data Scientist in San Francisco</td>
+<td>None</td>
+<td>https://angel.co/nanonets/jobs/232249-founding-data-scientist</td>
+</tr>
+<tr>
+<td>16076514</td>
+<td>job</td>
+<td>1</td>
+<td>2018-01-05 06:23:46</td>
+<td>joshbuckley</td>
+<td>Mino Games Is Hiring a Back End Programmer in Montreal</td>
+<td>None</td>
+<td>https://mino-games.workable.com/jobs/415933</td>
+</tr>
+<tr>
+<td>16075625</td>
+<td>job</td>
+<td>1</td>
+<td>2018-01-05 03:05:15</td>
+<td>justin</td>
+<td>Atrium (YC W18) is hiring for 10+ positions</td>
+<td>Atrium helps passionate entrepreneurs build meaningful companies by providing them with great legal advice. We’re shaking up the $160B legal industry by building radically better legal services. Our team of entrepreneurs, developers, product managers, and lawyers are dedicated to solving the inefficiencies in the corporate law practice with technology, business innovation, and transparent pricing. We build software that enables our lawyers to provide dramatically more efficient, transparent, and responsive legal services.<p>We want to scale our team 20% in Q1 for both LLP (Legal Side) and LTS (Management, Eng, Ops...) positions! Apply below or send our link to a friend who would be interested.<p>Happy New Year!<p>- The A-Team<p>_______________________________________________________<p>LLP<p>Account Executive - <p>Corporate Associate - <p>Corporate Paralegal - <p>_______________________________________________________<p>LTS<p>Engineering Manager - <p>Business Operations Associate -
+<p>Machine Learning Engineer - <p>Software Engineer (mid-level) - <p>Software Engineer (Full Stack) - <p>_______________________________________________________<p>For all jobs: </td>
+<td>None</td>
+</tr>
+<tr>
+<td>16074359</td>
+<td>job</td>
+<td>1</td>
+<td>2018-01-04 23:46:44</td>
+<td>jkottapa</td>
+<td>Ubiq (YC S17) Is Hiring a Full-Stack Developer in Waterloo, Canada</td>
+<td>As a Full Stack Developer at Ubiq, you will be focusing on engineering, implementing, and maintaining core software and technical systems to support the products at Ubiq.<p>You will be working out of our Kitchener, Canada office. You will be actively involved in engineering and designing the features of the core product following agile methodologies as well as test-driven development.The main focus of the role is to ensure the development of a high quality of the product that meets or exceeds the expectations of our stakeholders.<p>Challenges Involved:<p>- Scalability<p>- High availability<p>- Heavy emphasis on security<p>Skills desired:<p>- Be a well-rounded software developer with experience backed opinions<p>- Believe strongly in writing testable and maintainable code<p>- Love to learn and extend their skills<p>Requirements:<p>- Web Front End UI&#x2F;UX Development with React.js, HTML5, CSS3<p>- Strong web development experience is required<p>- Strong understanding of fundamental web service technologies including oAuth and REST is highly preferred<p>- Understanding of relational databases and SQL<p>- Experience with mobile development is a plus<p>- Knowledge of real-time communication, networking principles and concepts is a plus<p>Benefits:- Between 0.1-0.5% equity stake<p>Please email: team@goubiq.com</td>
+<td>None</td>
+</tr>
+<tr>
+<td>16072624</td>
+<td>job</td>
+<td>1</td>
+<td>2018-01-04 20:18:59</td>
+<td>d8niel</td>
+<td>Drchrono (YC11) needs VP Engineering: Build stuff that matters in healthcare</td>
+<td>None</td>
+<td>https://www.drchrono.com/jobs/description/VP%20of%20Software%20Engineering/?show_study_material=1</td>
+</tr>
+<tr>
+<td>16069255</td>
+<td>job</td>
+<td>1</td>
+<td>2018-01-04 12:32:50</td>
+<td>spinwang</td>
+<td>TetraScience (YC S15) Is Hiring Senior Software Engineers to Make Science Better</td>
+<td>None</td>
+<td>https://tetrascience.workable.com/jobs/410837</td>
+</tr>
+<tr>
+<td>16068520</td>
+<td>job</td>
+<td>1</td>
+<td>2018-01-04 08:51:12</td>
+<td>drabie</td>
+<td>Tovala (YC W16) is hiring a React engineer and first product manager</td>
+<td>None</td>
+<td>http://www.tovala.com/careers</td>
+</tr>
+<tr>
+<td>16067542</td>
+<td>job</td>
+<td>1</td>
+<td>2018-01-04 04:37:17</td>
+<td>irvinglin</td>
+<td>Join Human Dx to empower anyone with the world's collective medical insight</td>
+<td>None</td>
+<td>https://www.humandx.org/team</td>
+</tr>
+<tr>
+<td>16065739</td>
+<td>job</td>
+<td>1</td>
+<td>2018-01-04 00:09:29</td>
+<td>jperichon</td>
+<td>Checkr (YC S14) is hiring ML engineers to build the future of online trust</td>
+<td>None</td>
+<td>http://grnh.se/gxdah31</td>
+</tr>
+<tr>
+<td>16065565</td>
+<td>job</td>
+<td>1</td>
+<td>2018-01-03 23:51:01</td>
+<td>chasb</td>
+<td>Aptible (YC S14) is hiring for growth ops</td>
+<td>None</td>
+<td>https://jobs.lever.co/aptible/76002f12-82b0-4b51-be97-f17eccdd1384?source=HackerNews</td>
+</tr>
+<tr>
+<td>16062909</td>
+<td>job</td>
+<td>1</td>
+<td>2018-01-03 19:27:51</td>
+<td>arram</td>
+<td>Seeking hands-on Software Engineering Manager to be poised for growth</td>
+<td>At ZeroCater - we help bring companies together over shared meals. We’ve scaled to well over $100M in sales with minimal funding while feeding hungry offices across six markets.<p>As we move deeper into corporate food programs, we’re looking to grow our &lt; 10 person engineering team with a Software Engineering Manager to help grow and scale our business. This hands-on leader will be responsible for mentoring a small team, building &amp; improving code across the entire stack, and establishing and participating in cross-functional teams to build new functionality with a focus on creating delight for clients.<p>This is a high visibility role that will be groomed to be a Director, so will need to sit at our San Francisco headquarters.</td>
+<td>None</td>
+</tr>
+<tr>
+<td>16060484</td>
+<td>job</td>
+<td>1</td>
+<td>2018-01-03 14:41:36</td>
+<td>steveddaniels</td>
+<td>Able Health is hiring Rails engineers to help doctors improve care</td>
+<td>None</td>
+<td>https://ablehealth.com/jobs/senior-application-engineer/</td>
+</tr>
+<tr>
+<td>16059492</td>
+<td>job</td>
+<td>1</td>
+<td>2018-01-03 10:50:46</td>
+<td>sangwen</td>
+<td>Smarking (YC W15) Is Hiring Sr.PM in SF</td>
+<td>None</td>
+<td>https://jobs.lever.co/smarking/e75f2eb0-c227-47c8-8ceb-9ceb1bb907b7</td>
+</tr>
+<tr>
+<td>16058344</td>
+<td>job</td>
+<td>1</td>
+<td>2018-01-03 06:18:23</td>
+<td>jon_dahl</td>
+<td>Mux is hiring engineers to help build the best video streaming stack</td>
+<td>We&#x27;re a team of video experts (creators of Zencoder, Video.js, Demuxed, etc.) working to solve an important problem: how do companies stream video well, at scale, on any device, at low cost? Think Twilio for video.<p>Mux Video is an API-first platform designed by video experts to make beautiful video possible for for every development team. Powered by data, encoding and delivery are self-optimizing to work perfectly on every device, every time.<p>Unlike everyone else in the video technology space, Mux Video is developer focused, API driven, and powered by data.<p>See  for more.<p>Apply at .</td>
+<td>None</td>
+</tr>
+<tr>
+<td>16057269</td>
+<td>job</td>
+<td>1</td>
+<td>2018-01-03 02:27:33</td>
+<td>katyashe</td>
+<td>Noora Health Seeking Health Data/Researcher for Director of Impact Role (India)</td>
+<td>None</td>
+<td>https://goo.gl/PaKtvv</td>
+</tr>
+<tr>
+<td>16055567</td>
+<td>job</td>
+<td>1</td>
+<td>2018-01-02 22:59:47</td>
+<td>mkong1</td>
+<td>GiveCampus (YC S15) helping schools raise money more efficiently</td>
+<td>GiveCampus is a Y Combinator-backed company that builds fundraising software for educational institutions. We&#x27;re working to bring actual innovation to the space, and solve the hair-on-fire problems fundraisers face. We&#x27;re tired of schools being stuck with crappy software that never changes.<p>We&#x27;re growing at an awesome pace, and now need more motivated engineers to help us build out the features and products schools want! Michael Seibel, CEO of YC, expects us to be a household name in the next few years: . We were also covered by the Washington Post last year (), and we have grown the number of schools using us by more than 5x since the article was published.<p>We&#x27;re still a small team, so if you&#x27;re looking to join a fast-growing startup and have an immediate impact, we&#x27;re looking for both full-stack (Ruby on Rails, Postgres) and front-end engineers with at least 2 years of professional experience. Our current team was previously with Facebook, Amazon, and Intel.<p>Please no recruiters or dev shops.<p>Reach out to careers@givecampus.com with a bit about why you&#x27;re passionate about education, and a project you&#x27;ve working on that you&#x27;re particularly proud of.  We&#x27;re based in DC with an office in SF, so we&#x27;re looking to hire in both locations.</td>
+<td>None</td>
+</tr>
+<tr>
+<td>16052855</td>
+<td>job</td>
+<td>1</td>
+<td>2018-01-02 18:27:23</td>
+<td>kanjun</td>
+<td>Join Sourceress (YC S17) as tech lead to build AI to get people jobs that matter</td>
+<td>None</td>
+<td>https://www.sourceress.com/jobs</td>
+</tr>
+<tr>
+<td>16050271</td>
+<td>job</td>
+<td>1</td>
+<td>2018-01-02 08:27:08</td>
+<td>jstreebin</td>
+<td>EasyPost is hiring</td>
+<td>None</td>
+<td>https://www.easypost.com/jobs</td>
+</tr></tbody>
+                </table>
+            </div>
+
+        </div>
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        <script>
+        var acc = document.getElementsByClassName("accordion");
+        for (var i = 0; i < acc.length; i++) {
+            acc[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                var panel = this.nextElementSibling;
+                if (panel.style.maxHeight){
+                    panel.style.maxHeight = null;
+                } else {
+                    panel.style.maxHeight = panel.scrollHeight + "px";
+                }
+                for (var k = 0; k < acc.length; k++) {
+                    if ((acc[k] != this) && (acc[k].nextElementSibling.style.maxHeight)) {
+                        acc[k].classList.toggle("active")
+                        acc[k].nextElementSibling.style.maxHeight = null;
+                    }
+                }
+            });
+        }
+
+        </script>
+    </body>
+</html>

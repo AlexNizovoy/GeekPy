@@ -32,7 +32,7 @@ class Parser(object):
     categories = []
     processed_id = []
 
-    def __init__(self, category):
+    def __init__(self, category, clear_storage=True):
         if category.lower() == "all":
             self.categories = cfg.CATEGORIES
         elif category.lower() in cfg.CATEGORIES:
@@ -40,7 +40,10 @@ class Parser(object):
         else:
             logger.error("{} is not valid category!".format(category))
             self.categories = []
+        if not clear_storage:
+            self._load_storage()
 
+    def _load_storage(self):
         if os.path.isdir(cfg.OUT_DIR) and os.path.isfile(cfg.STORAGE_FILE):
             with open(cfg.STORAGE_FILE, "rb") as f:
                 self.processed_id = pickle.load(f)
@@ -100,7 +103,6 @@ Try {} of {} (set timeout to {})".format(url, count, MAX_COUNT, timeout)
                 if text and len(cfg.tag):
                     rec_data["text"] = remove_tag(text)
                 records.append(rec_data)
-                self.processed_id.append(record)
                 count += 1
                 if count % 10 == 0:
                     print("In category '{}' get {} records from {}". format(
@@ -129,6 +131,7 @@ Try {} of {} (set timeout to {})".format(url, count, MAX_COUNT, timeout)
         except Exception:
             logger.error("Request return not-JSON data!")
             return None
+        self.processed_id.append(item_id)
         return data
 
     def get_category(self, category):
@@ -168,30 +171,43 @@ class HTML_Export(object):
                 count += 1
         return tmp
 
-    def export(self, data):
+    def export(self, data, raw=False):
+        """If 'raw == True' write 'data' to output file without
+        """
         output = templates.base
         style = templates.style
-        result = []
-        for name, category in data.values():
-            # generate title from existing keys of all items in category
-            sequence = []
-            for i in category:
-                sequence.extend(i.keys())
-            sequence = list(set(sequence))
-            sequence = self._make_title(sequence)
-            cat_html = templates.category
-            thead = self.item(sequence)
-            data_html = self.item(category, sequence)
-            cat_html = cat_html.format(name=name.capitalize(),
-                                       table_head=thead, data=data_html)
-            result.append(cat_html)
-        output = output.format(style=style, categories="\n".join(result))
+        script = templates.script
+        if not raw:
+            result = []
+            for name, category in data.items():
+                # generate title from existing keys of all items in category
+                sequence = []
+                for i in category:
+                    sequence.extend(i.keys())
+                sequence = list(set(sequence))
+                sequence = self._make_title(sequence)
+                cat_html = templates.category
+                thead = self.item(sequence=sequence)
+                data_html = []
+                for record in category:
+                    data_html.append(self.item(record, sequence))
+                data_html = "\n".join(data_html)
+                cat_html = cat_html.format(name=name.capitalize(),
+                                           table_head=thead, data=data_html)
+                result.append(cat_html)
+            output = output.format(style=style, categories="\n".join(result),
+                                   script=script)
+        else:
+            output = output.format(style=style, categories=data, script=script)
+
         datestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
-        with open(cfg.OUT_FILE.format(datestamp=datestamp), "w") as f:
+        fname = cfg.OUT_FILE.format(datestamp=datestamp)
+        with open(fname, "w", encoding="utf-8") as f:
             f.write(output)
+        return fname
 
     def item(self, data=None, sequence=None):
-        """Get item like {"name2": "val2", "name1": "val1"} and
+        """Get 'data' like {"name2": "val2", "name1": "val1"} and
         'sequence' like ["name1", "name2"] (for ordered output values)
         return HTML-text like
         If record in 'data' not contains item from 'sequence' - put None
@@ -205,7 +221,11 @@ class HTML_Export(object):
         result = ["<tr>"]
         for i in sequence:
             if data is None:
-                result.append("<td>{}</td>".format(i.upper()))
+                result.append("<th>{}</th>".format(i.upper()))
+            elif i == "time":
+                unix_time = data.get(i)
+                str_unix_time = str(datetime.fromtimestamp(unix_time))
+                result.append("<td>{}</td>".format(str_unix_time))
             else:
                 result.append("<td>{}</td>".format(data.get(i)))
         result.append("</tr>")
@@ -217,8 +237,13 @@ def main():
     arg_parser = argparse.ArgumentParser()
     arg_parser.add_argument("-c", "--category", type=str,
                             default=cfg.DEFAULT_CATEGORY,
-                            choices=cfg.CATEGORIES, help="name of category")
+                            choices=["all"] + cfg.CATEGORIES,
+                            help="name of category. Use '-c all' for process \
+over all categories.")
+    arg_parser.add_argument("-clr", action="store_true",
+                            help="use it for clear storage of processed items")
     cat_name = arg_parser.parse_args().category
+    clear_storage = arg_parser.parse_args().clr
 
     create_dir = False
     create_log_file = False
@@ -253,9 +278,20 @@ def main():
         logger.info("Create log-file '{log_file}'.".format(
             log_file=cfg.LOG_FILE))
 
-    parser = Parser(cat_name)
+    parser = Parser(cat_name, clear_storage=clear_storage)
     data = parser.get_records()
-
+    count = 0
+    for i in data.values():
+        count += len(i)
+    logger.info("TOTAL get {} records.".format(count))
+    exporter = HTML_Export()
+    if count == 0:
+        msg = templates.err_msg
+        fname = exporter.export(msg, raw=True)
+    else:
+        fname = exporter.export(data)
+    logger.info("Output file '{}' generated".format(fname))
+    logger.info("Program finished.")
 
 if __name__ == '__main__':
     main()

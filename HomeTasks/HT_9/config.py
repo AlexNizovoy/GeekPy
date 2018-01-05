@@ -16,7 +16,7 @@ CATEGORIES = [
     "beststories",
     "askstories",
     "showstories",
-    "jobstories"
+    "jobstories",
 ]
 DEFAULT_CATEGORY = "all"
 

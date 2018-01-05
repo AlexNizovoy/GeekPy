@@ -1,4 +1,4 @@
-base = r"""
+
 <!doctype html>
 <html lang="en">
     <head>
@@ -8,26 +8,7 @@ base = r"""
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
         <style>
-        {style}
-        </style>
-        <title>Hacker News | AlexNizovoy's parser</title>
-    </head>
-    <body>
-        <h1>Hacker News</h1>
-        <div id="categories">
-            {categories}
-        </div>
-        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-        <script>
-        {script}
-        </script>
-    </body>
-</html>
-"""
-
-style = r"""
+        
 tr, td, th {
     border-collapse: collapse;
     border: black solid 1px;
@@ -73,9 +54,27 @@ tr:nth-child(even) {
     overflow: hidden;
     transition: max-height 0.2s ease-out;
 }
-"""
 
-script = r"""var acc = document.getElementsByClassName("accordion");
+        </style>
+        <title>Hacker News | AlexNizovoy's parser</title>
+    </head>
+    <body>
+        <h1>Hacker News</h1>
+        <div id="categories">
+            <div class="alert alert-warning" role="alert">
+    There is no records to display!
+</div>
+<div class="alert alert-info" role="alert">
+    Change filter settings (in <code>config.py</code>) or clear storage of
+    processed items (run script with <code>-clr</code> option)
+</div>
+
+        </div>
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        <script>
+        var acc = document.getElementsByClassName("accordion");
         for (var i = 0; i < acc.length; i++) {
             acc[i].addEventListener("click", function() {
                 this.classList.toggle("active");
@@ -93,22 +92,7 @@ script = r"""var acc = document.getElementsByClassName("accordion");
                 }
             });
         }
-"""
-category = """
-            <button class="accordion">{name}</button>
-            <div class="panel">
-                <table>
-                    <thead>{table_head}</thead>
-                    <tbody>{data}</tbody>
-                </table>
-            </div>
-"""
 
-err_msg = """<div class="alert alert-warning" role="alert">
-    There is no records to display!
-</div>
-<div class="alert alert-info" role="alert">
-    Change filter settings (in <code>config.py</code>) or clear storage of
-    processed items (run script with <code>-clr</code> option)
-</div>
-"""
+        </script>
+    </body>
+</html>
