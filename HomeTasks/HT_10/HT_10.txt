@@ -1,0 +1,31 @@
+﻿HT_9
+
+
+Модифікація парсеру https://docs.google.com/document/d/1VrP-n7vUVNqYBrjMNcPnFQNn_9L1rWajWIbQAjIKa3U/edit 
+1. Для кожної з категорій створити таблицю в БД з відповідними полями.
+2. При парсингу даних по АПІ, дані повинні записуватись в базу даних в таблицю з відповідною категорією.
+3. При записі строки в таблицю повинна відбуватись перевірка наявності даного запису в базі, якщо запис вже присутній то замість операції  INSERT повинна застосовуватись операція UPDATE.
+
+4. Вивід в  HTML повинен здійснюватися з БД.
+5. Створити Backup(резервне копіювання) створеної БД.
+
+
+________________
+
+
+
+
+
+
+import psycopg2
+ 
+conn = psycopg2.connect(dbname='my_database', user='username')
+cursor = conn.cursor()
+ 
+# Выполняем запрос.
+cursor.execute("SELECT * FROM table_name")
+row = cursor.fetchone()
+ 
+# Закрываем подключение.
+cursor.close()
+conn.close()
