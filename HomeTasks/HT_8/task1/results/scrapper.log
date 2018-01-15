@@ -1,0 +1,130 @@
+2017-12-19 16:27:09,127 - Srapper - INFO - Program started
+2017-12-19 16:27:09,142 - Srapper - INFO - Storage loaded
+2017-12-19 16:27:09,267 - Srapper - INFO - 5 quotes parsed
+2017-12-19 16:27:09,267 - Srapper - INFO - 10 quotes parsed
+2017-12-19 16:27:09,392 - Srapper - INFO - 15 quotes parsed
+2017-12-19 16:27:09,408 - Srapper - INFO - 20 quotes parsed
+2017-12-19 16:27:09,533 - Srapper - INFO - 25 quotes parsed
+2017-12-19 16:27:09,533 - Srapper - INFO - 30 quotes parsed
+2017-12-19 16:27:09,674 - Srapper - INFO - 35 quotes parsed
+2017-12-19 16:27:09,674 - Srapper - INFO - 40 quotes parsed
+2017-12-19 16:27:09,814 - Srapper - INFO - 45 quotes parsed
+2017-12-19 16:27:09,814 - Srapper - INFO - 50 quotes parsed
+2017-12-19 16:27:09,986 - Srapper - INFO - 55 quotes parsed
+2017-12-19 16:27:09,986 - Srapper - INFO - 60 quotes parsed
+2017-12-19 16:27:10,127 - Srapper - INFO - 65 quotes parsed
+2017-12-19 16:27:10,127 - Srapper - INFO - 70 quotes parsed
+2017-12-19 16:27:10,299 - Srapper - INFO - 75 quotes parsed
+2017-12-19 16:27:10,299 - Srapper - INFO - 80 quotes parsed
+2017-12-19 16:27:10,455 - Srapper - INFO - 85 quotes parsed
+2017-12-19 16:27:10,455 - Srapper - INFO - 90 quotes parsed
+2017-12-19 16:27:10,611 - Srapper - INFO - 95 quotes parsed
+2017-12-19 16:27:10,611 - Srapper - INFO - 100 quotes parsed
+2017-12-19 16:27:10,674 - Srapper - INFO - Quotes parsing complete. 100 quotes parsed
+2017-12-19 16:27:11,392 - Srapper - INFO - 5 of 50 authors parsed.
+2017-12-19 16:27:12,080 - Srapper - INFO - 10 of 50 authors parsed.
+2017-12-19 16:27:12,767 - Srapper - INFO - 15 of 50 authors parsed.
+2017-12-19 16:27:13,455 - Srapper - INFO - 20 of 50 authors parsed.
+2017-12-19 16:27:14,158 - Srapper - INFO - 25 of 50 authors parsed.
+2017-12-19 16:27:14,846 - Srapper - INFO - 30 of 50 authors parsed.
+2017-12-19 16:27:15,517 - Srapper - INFO - 35 of 50 authors parsed.
+2017-12-19 16:27:16,189 - Srapper - INFO - 40 of 50 authors parsed.
+2017-12-19 16:27:16,908 - Srapper - INFO - 45 of 50 authors parsed.
+2017-12-19 16:27:17,580 - Srapper - INFO - 50 of 50 authors parsed.
+2017-12-19 16:27:17,596 - Srapper - INFO - Authors parsing complete. 50 authors parsed
+2017-12-19 16:27:18,111 - Srapper - INFO - 5 of 137 tags parsed.
+2017-12-19 16:27:18,846 - Srapper - INFO - 10 of 137 tags parsed.
+2017-12-19 16:27:19,564 - Srapper - INFO - 15 of 137 tags parsed.
+2017-12-19 16:27:20,205 - Srapper - INFO - 20 of 137 tags parsed.
+2017-12-19 16:27:20,689 - Srapper - INFO - 25 of 137 tags parsed.
+2017-12-19 16:27:21,174 - Srapper - INFO - 30 of 137 tags parsed.
+2017-12-19 16:27:21,674 - Srapper - INFO - 35 of 137 tags parsed.
+2017-12-19 16:27:22,174 - Srapper - INFO - 40 of 137 tags parsed.
+2017-12-19 16:27:22,689 - Srapper - INFO - 45 of 137 tags parsed.
+2017-12-19 16:27:23,189 - Srapper - INFO - 50 of 137 tags parsed.
+2017-12-19 16:27:23,674 - Srapper - INFO - 55 of 137 tags parsed.
+2017-12-19 16:27:24,189 - Srapper - INFO - 60 of 137 tags parsed.
+2017-12-19 16:27:24,689 - Srapper - INFO - 65 of 137 tags parsed.
+2017-12-19 16:27:25,189 - Srapper - INFO - 70 of 137 tags parsed.
+2017-12-19 16:27:25,689 - Srapper - INFO - 75 of 137 tags parsed.
+2017-12-19 16:27:26,189 - Srapper - INFO - 80 of 137 tags parsed.
+2017-12-19 16:27:26,674 - Srapper - INFO - 85 of 137 tags parsed.
+2017-12-19 16:27:27,189 - Srapper - INFO - 90 of 137 tags parsed.
+2017-12-19 16:27:27,689 - Srapper - INFO - 95 of 137 tags parsed.
+2017-12-19 16:27:28,189 - Srapper - INFO - 100 of 137 tags parsed.
+2017-12-19 16:27:28,674 - Srapper - INFO - 105 of 137 tags parsed.
+2017-12-19 16:27:29,189 - Srapper - INFO - 110 of 137 tags parsed.
+2017-12-19 16:27:29,689 - Srapper - INFO - 115 of 137 tags parsed.
+2017-12-19 16:27:30,174 - Srapper - INFO - 120 of 137 tags parsed.
+2017-12-19 16:27:30,689 - Srapper - INFO - 125 of 137 tags parsed.
+2017-12-19 16:27:31,189 - Srapper - INFO - 130 of 137 tags parsed.
+2017-12-19 16:27:31,689 - Srapper - INFO - 135 of 137 tags parsed.
+2017-12-19 16:27:31,924 - Srapper - INFO - Tags parsing complete. 137 tags parsed.
+2017-12-19 16:27:31,986 - Srapper - INFO - Export to results\result.json complete.
+2017-12-19 16:27:32,111 - Srapper - INFO - Export to results\result.xls complete.
+2017-12-19 16:27:32,111 - Srapper - INFO - Program finished
+2017-12-19 17:44:12,049 - Srapper - INFO - Program started
+2017-12-19 17:44:12,064 - Srapper - INFO - Storage loaded
+2017-12-19 17:44:12,267 - Srapper - INFO - 5 quotes parsed
+2017-12-19 17:44:12,283 - Srapper - INFO - 10 quotes parsed
+2017-12-19 17:44:12,439 - Srapper - INFO - 15 quotes parsed
+2017-12-19 17:44:12,439 - Srapper - INFO - 20 quotes parsed
+2017-12-19 17:44:12,580 - Srapper - INFO - 25 quotes parsed
+2017-12-19 17:44:12,596 - Srapper - INFO - 30 quotes parsed
+2017-12-19 17:44:12,736 - Srapper - INFO - 35 quotes parsed
+2017-12-19 17:44:12,736 - Srapper - INFO - 40 quotes parsed
+2017-12-19 17:44:12,892 - Srapper - INFO - 45 quotes parsed
+2017-12-19 17:44:12,892 - Srapper - INFO - 50 quotes parsed
+2017-12-19 17:44:13,049 - Srapper - INFO - 55 quotes parsed
+2017-12-19 17:44:13,049 - Srapper - INFO - 60 quotes parsed
+2017-12-19 17:44:13,189 - Srapper - INFO - 65 quotes parsed
+2017-12-19 17:44:13,221 - Srapper - INFO - 70 quotes parsed
+2017-12-19 17:44:13,361 - Srapper - INFO - 75 quotes parsed
+2017-12-19 17:44:13,377 - Srapper - INFO - 80 quotes parsed
+2017-12-19 17:44:13,517 - Srapper - INFO - 85 quotes parsed
+2017-12-19 17:44:13,517 - Srapper - INFO - 90 quotes parsed
+2017-12-19 17:44:13,674 - Srapper - INFO - 95 quotes parsed
+2017-12-19 17:44:13,674 - Srapper - INFO - 100 quotes parsed
+2017-12-19 17:44:13,736 - Srapper - INFO - Quotes parsing complete. 100 quotes parsed
+2017-12-19 17:44:14,392 - Srapper - INFO - 5 of 50 authors parsed.
+2017-12-19 17:44:15,096 - Srapper - INFO - 10 of 50 authors parsed.
+2017-12-19 17:44:15,814 - Srapper - INFO - 15 of 50 authors parsed.
+2017-12-19 17:44:16,517 - Srapper - INFO - 20 of 50 authors parsed.
+2017-12-19 17:44:17,189 - Srapper - INFO - 25 of 50 authors parsed.
+2017-12-19 17:44:17,908 - Srapper - INFO - 30 of 50 authors parsed.
+2017-12-19 17:44:18,580 - Srapper - INFO - 35 of 50 authors parsed.
+2017-12-19 17:44:19,267 - Srapper - INFO - 40 of 50 authors parsed.
+2017-12-19 17:44:19,986 - Srapper - INFO - 45 of 50 authors parsed.
+2017-12-19 17:44:20,689 - Srapper - INFO - 50 of 50 authors parsed.
+2017-12-19 17:44:20,721 - Srapper - INFO - Authors parsing complete. 50 authors parsed
+2017-12-19 17:44:21,189 - Srapper - INFO - 5 of 137 tags parsed.
+2017-12-19 17:44:21,939 - Srapper - INFO - 10 of 137 tags parsed.
+2017-12-19 17:44:22,689 - Srapper - INFO - 15 of 137 tags parsed.
+2017-12-19 17:44:23,330 - Srapper - INFO - 20 of 137 tags parsed.
+2017-12-19 17:44:23,846 - Srapper - INFO - 25 of 137 tags parsed.
+2017-12-19 17:44:24,361 - Srapper - INFO - 30 of 137 tags parsed.
+2017-12-19 17:44:24,861 - Srapper - INFO - 35 of 137 tags parsed.
+2017-12-19 17:44:25,361 - Srapper - INFO - 40 of 137 tags parsed.
+2017-12-19 17:44:25,924 - Srapper - INFO - 45 of 137 tags parsed.
+2017-12-19 17:44:26,439 - Srapper - INFO - 50 of 137 tags parsed.
+2017-12-19 17:44:26,939 - Srapper - INFO - 55 of 137 tags parsed.
+2017-12-19 17:44:27,486 - Srapper - INFO - 60 of 137 tags parsed.
+2017-12-19 17:44:28,002 - Srapper - INFO - 65 of 137 tags parsed.
+2017-12-19 17:44:28,533 - Srapper - INFO - 70 of 137 tags parsed.
+2017-12-19 17:44:29,049 - Srapper - INFO - 75 of 137 tags parsed.
+2017-12-19 17:44:29,549 - Srapper - INFO - 80 of 137 tags parsed.
+2017-12-19 17:44:30,049 - Srapper - INFO - 85 of 137 tags parsed.
+2017-12-19 17:44:30,549 - Srapper - INFO - 90 of 137 tags parsed.
+2017-12-19 17:44:31,096 - Srapper - INFO - 95 of 137 tags parsed.
+2017-12-19 17:44:31,611 - Srapper - INFO - 100 of 137 tags parsed.
+2017-12-19 17:44:32,142 - Srapper - INFO - 105 of 137 tags parsed.
+2017-12-19 17:44:32,674 - Srapper - INFO - 110 of 137 tags parsed.
+2017-12-19 17:44:33,205 - Srapper - INFO - 115 of 137 tags parsed.
+2017-12-19 17:44:33,783 - Srapper - INFO - 120 of 137 tags parsed.
+2017-12-19 17:44:34,299 - Srapper - INFO - 125 of 137 tags parsed.
+2017-12-19 17:44:34,799 - Srapper - INFO - 130 of 137 tags parsed.
+2017-12-19 17:44:35,330 - Srapper - INFO - 135 of 137 tags parsed.
+2017-12-19 17:44:35,580 - Srapper - INFO - Tags parsing complete. 137 tags parsed.
+2017-12-19 17:44:35,642 - Srapper - INFO - Export to results\result.json complete.
+2017-12-19 17:44:35,783 - Srapper - INFO - Export to results\result.xls complete.
+2017-12-19 17:44:35,783 - Srapper - INFO - Program finished
