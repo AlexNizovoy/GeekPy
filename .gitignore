@@ -53,7 +53,7 @@ coverage.xml
 *.pot
 
 # Django stuff:
-*.log
+# *.log - temporary disable for HT_10 and above
 local_settings.py
 
 # Flask stuff:

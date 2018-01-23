@@ -1,0 +1,35 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+        <link rel="stylesheet" href="{% static 'stories/style.css' %}" type="text/css"/>
+
+        <title>{% if title %}{{ title }} | {% endif %}Hacker News | AlexNizovoy's parser</title>
+    </head>
+    <body>
+        <h1>Hacker News</h1>
+        <!-- Form for get new records -->
+        <form class="form-inline" action="/" method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                {{ form }}
+            </div>
+            <button type="submit" class="btn btn-default">Get new records</button>
+        </form>
+
+        <div id="categories">
+            {% block categories %}
+
+            {% endblock categories %}
+        </div>
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        <script src="{% static 'stories/script.js' %}"></script>
+    </body>
+</html>
