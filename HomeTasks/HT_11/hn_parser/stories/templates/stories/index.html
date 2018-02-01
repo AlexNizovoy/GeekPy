@@ -1,4 +1,5 @@
 {% load static %}
+{% load get_cat_records %}
 <!doctype html>
 <html lang="en">
     <head>
@@ -14,22 +15,51 @@
     <body>
         <h1>Hacker News</h1>
         <!-- Form for get new records -->
-        <form class="form-inline" action="/" method="POST">
+        <form id="parse_form" class="form-inline" action="/" method="POST">
             {% csrf_token %}
             <div class="form-group">
                 {{ form }}
             </div>
-            <button type="submit" class="btn btn-default">Get new records</button>
+            <button type="submit" id="buttonSubmit" class="btn btn-default">Get new records</button>
+            <span id="status">After update records, browser refresh automatically</span>
         </form>
 
         <div id="categories">
-            {% block categories %}
+            {% for category in categories %}
+            {% get_cat_records category as cat_records %}
+            <button class="accordion">{{ category|capfirst }} ({{ cat_records|length }})</button>
+            <div class="panel">
+                {% if cat_records %}
+                <table>
+                    <thead><tr>
+                    <!-- Make title -->
+                    {% for key in cat_records.0.fields %}
+                        <th>{{ key|upper }}</th>
+                    {% endfor %}
+                    </tr></thead>
 
-            {% endblock categories %}
+                    <tbody>
+                        {% for story in cat_records %}
+                        <tr>
+                            {% for item in story.items %}
+                                <td>{{ item }}</td>
+                            {% endfor %}
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+
+                {% endif %}
+            </div>
+
+
+            {% endfor %}
+
         </div>
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        <script src="http://malsup.github.com/jquery.form.js"></script>
         <script src="{% static 'stories/script.js' %}"></script>
     </body>
 </html>

@@ -1,6 +1,6 @@
 from django import forms
 
-from . import config as cfg
+from stories import config as cfg
 
 
 class GetNewRecordsForm(forms.Form):

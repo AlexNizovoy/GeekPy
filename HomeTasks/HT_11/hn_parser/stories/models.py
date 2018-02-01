@@ -3,37 +3,49 @@ from .helpers import Record
 
 
 class Askstories(Record):
+    fields = Record.fields[:] + ['text', 'descendants', 'kids']
+
     text = models.TextField(null=True)
     descendants = models.IntegerField(null=True)
     kids = models.TextField(null=True)
 
 
 class Beststories(Record):
-    url = models.URLField(null=True)
+    fields = Record.fields[:] + ['url', 'text', 'descendants', 'kids']
+    # change URLField to TextField, because TextField == charfield(200)
+    url = models.TextField(null=True)
     text = models.TextField(null=True)
     descendants = models.IntegerField(null=True)
     kids = models.TextField(null=True)
 
 
 class Newstories(Record):
-    url = models.URLField(null=True)
+    fields = Record.fields[:] + ['url', 'text', 'descendants', 'kids']
+
+    url = models.TextField(null=True)
     text = models.TextField(null=True)
     descendants = models.IntegerField(null=True)
     kids = models.TextField(null=True)
 
 
 class Topstories(Record):
-    url = models.URLField(null=True)
+    fields = Record.fields[:] + ['url', 'text', 'descendants', 'kids']
+
+    url = models.TextField(null=True)
     text = models.TextField(null=True)
     descendants = models.IntegerField(null=True)
     kids = models.TextField(null=True)
 
 
 class Jobstories(Record):
-    url = models.URLField(null=True)
+    fields = Record.fields[:] + ['url']
+
+    url = models.TextField(null=True)
 
 
 class Showstories(Record):
-    url = models.URLField(null=True)
+    fields = Record.fields[:] + ['url', 'descendants', 'kids']
+
+    url = models.TextField(null=True)
     descendants = models.IntegerField(null=True)
     kids = models.TextField(null=True)

@@ -4,17 +4,8 @@ import os
 APP_NAME = "HackerNewsParser"
 
 # filesystem settings
-OUT_DIR = "results"
-LOG_FILE = OUT_DIR + os.sep + "hn_parser.log"
-OUT_FILE = OUT_DIR + os.sep + "hn_parser_{datestamp}.html"
-STORAGE_FILE = OUT_DIR + os.sep + "storage.pkl"
-
-# Database settings
-DB_HOST = "localhost"
-DB_HOST_PORT = 5432
-DB_NAME = "hn_parser"
-DB_USER = "postgres"
-DB_PASS = "1595159"
+LOG_DIR = "log"
+LOG_FILE = LOG_DIR + os.sep + "hn_parser.log"
 
 # categories settings
 CATEGORIES = [
