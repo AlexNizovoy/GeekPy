@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ subcategory }}{% endblock %}
+
+
+{% block content %}
+    {{ subcategory }} <br>
+
+    {% for product in subcategory.product_set.all %}
+        <a href="{% url 'product:product-details' product.id %}">{{ product.title }}</a> <br>
+    {% endfor %}
+
+{% endblock %}

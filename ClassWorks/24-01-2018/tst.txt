@@ -1,0 +1,5 @@
+virtualenv -p python3 env
+
+mkdir 
+mkdir env
+source env/bin/activate

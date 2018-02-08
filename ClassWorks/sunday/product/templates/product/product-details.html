@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %}{{ product.title }}{% endblock %}
+
+
+{% block content %}
+    {{ product.title }}
+
+    <form action="{% url 'product:cart' %}" method="POST">
+        {% csrf_token %}
+        <input type="hidden" name="next" value="{{ request.path }}">
+        <input type="hidden" name="product_id" value="{{ product.id }}">
+
+        <button type="submit">Add to cart!</button>
+    </form>
+{% endblock %}

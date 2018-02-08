@@ -1,0 +1,9 @@
+{% extends 'example/base.html' %}
+{% block title %}
+Categories | Example
+{% endblock title %}
+{% block content %}
+{% for category in categories %}
+<p>ID = <b>{{ category.id }}</b>, {{ category.name }}</p>
+{% endfor %}
+{% endblock content %}
