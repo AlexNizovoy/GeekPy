@@ -1,0 +1,1 @@
+It's a "Polls application" from Django 1.11 tutorial
