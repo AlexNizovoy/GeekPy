@@ -73,9 +73,8 @@ def task_add(request, project_id):
 
 def change_state(request, task_id):
     task = get_object_or_404(Task, pk=task_id)
-    state = task.change_state()
+    task.change_state()
     referer = request.META.get("HTTP_REFERER",
                                reverse('todo:project-details',
                                        args=(task.project_id,)))
-    print("referer = ", referer, '\nstate = ', state)
     return HttpResponseRedirect(referer)
