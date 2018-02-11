@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Details
+{% endblock %}
+
+{% block content %}
+    <h1>Project details</h1>
+<table>
+    <tbody>
+        <tr>
+            <th>Title:</th>
+            <td>{{ project.title }}</td>
+        </tr>
+        <tr>
+            <th>Description:</th>
+            <td>{{ project.description }}</td>
+        </tr>
+        <tr>
+            <th>Date start:</th>
+            <td>{{ project.date_start }}</td>
+        </tr>
+        <tr>
+            <th>Deadline date:</th>
+            <td>{{ project.date_deadline }}</td>
+        </tr>
+        <tr>
+            <th>Is DONE?:</th>
+            <td>
+                {% if project.is_done %}
+                    <span class="alert-success">DONE</span>
+                    {% else %}
+                    <span class="alert-info">IN PROGRESS</span>
+                {% endif %}
+            </td>
+        </tr>
+        <tr>
+            <th>Date finish:</th>
+            <td>
+                {% if project.is_done %}
+                    <span class="alert-success">{{ project.date_finish }}</span>
+                    {% else %}
+                    <span class="alert-info">IN PROGRESS</span>
+                {% endif %}
+            </td>
+        </tr>
+        <tr>
+            <th colspan="2">TODO tasks:</th>
+        </tr>
+        <tr>
+            <th colspan="2"><a href="{% url 'todo:task-add' project.pk %}" class="btn btn-success">Add new TODO task</a></th>
+        </tr>
+        <tr>
+            <td>ID</td>
+            <td>Title</td>
+            <td>Description</td>
+            <td>Date add</td>
+            <td>Is Done?</td>
+            <td>Date check</td>
+        </tr>
+        {% for task in project.task_set.all %}
+            <tr>
+                <td>{{ task.pk }}</td>
+                <td>{{ task.title }}</td>
+                <td>{{ task.description }}</td>
+                <td>{{ task.date_add }}</td>
+                <td><a href="{% url 'todo:change-state' task.pk %}"
+                    {% if task.is_done %}
+                    class="alert-success">DONE
+                    {% else %}
+                    class="alert-info">IN PROGRESS
+                    {% endif %}</a></td>
+                <td>{% if task.is_done %}
+                    <span class="alert-success">{{ task.date_check }}</span>
+                    {% else %}
+                    <span class="alert-info">IN PROGRESS</span>
+                    {% endif %}</td>
+            </tr>
+        {% empty %}
+             <p>It looks like you have not task yet</p>
+        {% endfor %}
+
+    </tbody>
+</table>
+{% endblock %}

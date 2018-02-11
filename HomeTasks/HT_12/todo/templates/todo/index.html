@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'todo/style.css' %}">
+{% endblock %}
+
+{% block title %}
+TODO Application
+{% endblock %}
+
+{% block content %}
+    <h1>List of Projects</h1>
+    <a href="{% url 'todo:project-add' %}" class="btn btn-success">Add new Project</a>
+    {% if projects %}
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>Date start</th>
+                    <th>Date of Deadline</th>
+                    <th>Is Done?</th>
+                    <th>Date finish</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for project in projects %}
+                <tr onclick='window.location.href="{% url 'todo:project-details' project.pk %}"; return false' title="Click for details" class="clickable">
+                    <td>{{ project.pk }}</td>
+                    <td>{{ project.title }}</td>
+                    <td>{{ project.description }}</td>
+                    <td>{{ project.date_start }}</td>
+                    <td>{{ project.date_deadline }}</td>
+                    <td>{% if project.is_done %}
+                    <span class="alert-success">DONE</span>
+                    {% else %}
+                    <span class="alert-info">IN PROGRESS</span>
+                    {% endif %}</td>
+                    <td>{% if project.is_done %}
+                    {{ project.date_finish }}
+                    {% else %}
+                    <span class="alert-info">IN PROGRESS</span>
+                    {% endif %}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+    <p>It looks like you have not projects yet</p>
+    {% endif %}
+
+{% endblock %}
