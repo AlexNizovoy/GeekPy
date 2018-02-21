@@ -1,0 +1,8 @@
+<aside>
+    <ul class="nav navbar" data-spy="affix" data-offset-top="70">
+        <li>Categories:</li>
+        {% for category in categories %}
+        <li><a href="{% url 'stories:category-details' category=category.name %}">{{ category.name|capfirst }}</a></li>
+        {% endfor %}
+    </ul>
+</aside>

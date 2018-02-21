@@ -6,6 +6,7 @@ import re
 import requests
 import time
 
+from stories.models import Category, Story
 import hn_parser.config as cfg
 
 
@@ -128,12 +129,12 @@ def parse_stories(category_name, token):
         if text and len(cfg.tag):
             rec_data["text"] = remove_tag(text)
         # rename unsupported field-names
-        if rec_data.get('type'):
-            rec_data['rec_type'] = rec_data.get('type')
-            del rec_data['type']
-        if rec_data.get('id'):
-            rec_data['rec_id'] = rec_data.get('id')
-            del rec_data['id']
+        # if rec_data.get('type'):
+        #     rec_data['rec_type'] = rec_data.get('type')
+        #     del rec_data['type']
+        # if rec_data.get('id'):
+        #     rec_data['rec_id'] = rec_data.get('id')
+        #     del rec_data['id']
 
         result.append(rec_data)
         count += 1
@@ -142,7 +143,6 @@ def parse_stories(category_name, token):
                 category_name, count, len(cat_records))
         # store value in cache for 100 seconds
         cache.set(token, msg, 100)
-        print(token, cache.get(token))
 
         if count % 10 == 0:
             print(msg)
@@ -154,7 +154,27 @@ def parse_stories(category_name, token):
     return result
 
 
-def write_records(data):
+def write_records(data, token):
+    rename_fields = [('story_id', 'id'), ('story_type', 'type')]
+    count = 0
+    all_count = len(data)
     for story in data:
-        pass
-    return None
+        # rename fields in received records to fields in Models
+        for (i, k) in rename_fields:
+            if not story.get(i):
+                # write new field only if it not present
+                story[i] = story.get(k)
+            if k in story.keys():
+                del story[k]
+        # get or create Category from DB
+        category = Category.objects.get_or_create(name=story['story_type'])[0]
+        # add foreign key
+        story['story_type'] = category
+        Story.objects.update_or_create(story_id=story['story_id'], defaults=story)
+        count += 1
+        if count % 5 == 0:
+            msg = "In DB write {} records from {}".format(count, all_count)
+            # store value in cache for 100 seconds
+            cache.set(token, msg, 100)
+
+    return count
