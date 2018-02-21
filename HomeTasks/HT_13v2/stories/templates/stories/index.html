@@ -1,0 +1,34 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+        <div id="categories">
+            {% for category in categories %}
+            <button class="accordion">{{ category.name|capfirst }} ({{ category.story_set.all|length }})</button>
+            <div class="panel table-responsive">
+                {% if category.story_set.all %}
+                <table>
+                    <thead><tr>
+                    <!-- Make title -->
+                    {% for key in category.story_set.all.0.keys %}
+                        <th>{{ key|upper }}</th>
+                    {% endfor %}
+                    </tr></thead>
+
+                    <tbody>
+                        {% for story in category.story_set.all %}
+                        <tr>
+                            {% for value in story.values %}
+                                <td>{{ value|safe }}</td>
+                            {% endfor %}
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+
+                {% endif %}
+            </div>
+            {% endfor %}
+
+        </div>
+
+{% endblock %}
