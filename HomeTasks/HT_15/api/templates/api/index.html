@@ -1,0 +1,37 @@
+{% extends 'base/base.html' %}
+
+{% block title %}
+API index
+{% endblock %}
+
+{% block content %}
+    <div>
+        <h1>Інформація про користування API</h1>
+        <h3>Отримання записів по категоріях:</h3>
+        <p><code>http://<var>{ website-root }</var>/api/<var>{ category }</var>/</code></p>
+        
+        <h3>Отримання запису по його ID (використовується ID з сайту Hacker News):</h3>
+        <p><code>http://<var>{ website-root }</var>/api/<var>{ ID }</var>/</code></p>
+        <p>або</p>
+        <p><code>http://<var>{ website-root }</var>/api/<var>{ category }</var>/<var>{ ID }</var>/</code></p>
+
+        <h3>Отримання можливих категорій для парсингу:</h3>
+        <p><code>http://<var>{ website-root }</var>/api/parse</code></p>
+
+        <h3>Запуск парсера по категорії:</h3>
+        <p><code>http://<var>{ website-root }</var>/api/parse/<var>{ category }</var>/?email=<var>{ email }</var></code></p>
+    
+        <p>Визначення термінів:</p>
+        <dl>
+            <dt>website-root</dt>
+            <dd>Назва сайту</dd>
+            <dt>category</dt>
+            <dd>Категорія або тип статті. Підтримуються як категорії, що зумовлені процесом отримання записів з Hacker News (jobstories, showstories, newstories і т.д.) так і категорії (типи) записів, які отримуються (job, ask, story і т.д.) </dd>
+            <dt>ID</dt>
+            <dd>ID запису з сайту Hacker News</dd>
+            <dt>email</dt>
+            <dd>email-адреса для отримання звіту про парсинг</dd>
+        </dl>
+    
+    </div>
+{% endblock %}

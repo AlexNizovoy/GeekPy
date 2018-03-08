@@ -1,0 +1,30 @@
+{% extends 'base/base.html' %}
+{% block content %}
+    <h1>Звіт про парсинг сайту:</h1>
+    <table>
+        <tr>
+            <th>Дата:</th>
+            <td>{% now "SHORT_DATETIME_FORMAT"%}</td>
+        </tr>
+        <tr>
+            <th>Назва категорії:</th>
+            <td>{{ category_name }}</td>
+        </tr>
+        <tr>
+            <th>Зібрано записів:</th>
+            <td>{{ count }}</td>
+        </tr>
+        <tr>
+            <th>Час на отримання записів:</th>
+            <td>{{ time_parse }} с.</td>
+        </tr>
+        <tr>
+            <th>Час на запис до БД:</th>
+            <td>{{ time_write }} с.</td>
+        </tr>
+        <tr>
+            <th>Загальний час:</th>
+            <td>{{ time_total }} с.</td>
+        </tr>
+    </table>
+{% endblock %}

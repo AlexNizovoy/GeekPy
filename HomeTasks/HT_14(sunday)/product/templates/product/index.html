@@ -3,8 +3,13 @@
 {% block title %}Main Products{% endblock %}
 
 {% block content %}
+    <h1>Main Products</h1>
     {% for product in products %}
-        {{ product.title }} <br>
+        <div class="product">
+            <h2><a href="{% url 'product:product-details' product.id %}">{{ product.title }}</a></h2>
+            <p>Price: {{ product.price }}</p>
+        </div>
+
         {% empty %}
         No products!
     {% endfor %}

@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% block title %}Checkout{% endblock %}
+
+{% block content %}
+{% if checkout_done %}
+    {% if order_id %}
+        <h1>Congratulations!</h1>
+        <p>Your order #{{ order_id }} received.</p>
+    {% else %}
+        <p>Something going wrong - not received order ID</p>
+    {% endif %}
+    <a href="{% url 'product:index' %}" class="btn btn-default">Continue shopping</a>
+{% else %}
+    <h1>Our order:</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Total Price</th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <td colspan="3">TOTAL:</td>
+                <td>{{ cart.get_total_cost }}</td>
+            </tr>
+        </tfoot>
+        <tbody>
+        {% for product in cart.get_products %}
+            <tr>
+                <td>{{ product.product }}</td>
+                <td>{{ product.price }}</td>
+                <td>{{ product.quantity }}</td>
+                <td>{{ product.total_price }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <h1>Delivery details:</h1>
+    <p>Please enter some details about you:</p>
+    <form action="{% url 'order:checkout' %}" method="POST">
+        {% csrf_token %}
+        <table>
+            <tbody>
+                {{ form.as_table }}
+            </tbody>
+        </table>
+
+        <input type="submit" name="submit" value="Send order" class="btn btn-success btn-lg">
+        <a href="{% url 'product:index' %}" class="btn btn-default">Continue shopping</a>
+    </form>
+{% endif %}
+{% endblock %}

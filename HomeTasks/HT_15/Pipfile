@@ -1,0 +1,33 @@
+[[source]]
+
+url = "https://pypi.python.org/simple"
+verify_ssl = true
+name = "pypi"
+
+
+[requires]
+
+python_version = "3.6"
+
+
+[packages]
+
+dj-database-url = "==0.4.2"
+django = "*"
+gunicorn = "==19.7.1"
+"psycopg2" = "==2.7.3.2"
+whitenoise = "==3.3.1"
+certifi = "==2018.1.18"
+chardet = "==3.0.4"
+idna = "==2.6"
+pytz = "==2018.3"
+requests = "==2.18.4"
+"urllib3" = "==1.22"
+python-binary-memcached = "*"
+django-bmemcached = "*"
+celery = "*"
+djangorestframework = "*"
+
+
+[dev-packages]
+

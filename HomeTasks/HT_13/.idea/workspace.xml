@@ -2,17 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d1719c6a-d222-439b-abf6-d14d5a50f7b0" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/hn_parser/urls.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/stories/templates/base/base.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/stories/templates/base/footer.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/stories/templates/base/header.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/stories/templates/base/sidebar.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/stories/templates/stories/category.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/stories/urls.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/tst.py" />
       <change beforePath="$PROJECT_DIR$/../../ClassWorks/10-01-2018/01.sql" afterPath="$PROJECT_DIR$/../../ClassWorks/10-01-2018/01.sql" />
       <change beforePath="$PROJECT_DIR$/../../ClassWorks/17-01-2018/mysite/bimbo/admin.py" afterPath="$PROJECT_DIR$/../../ClassWorks/17-01-2018/mysite/bimbo/admin.py" />
       <change beforePath="$PROJECT_DIR$/../../ClassWorks/17-01-2018/mysite/bimbo/apps.py" afterPath="$PROJECT_DIR$/../../ClassWorks/17-01-2018/mysite/bimbo/apps.py" />
@@ -107,30 +96,6 @@
       <change beforePath="$PROJECT_DIR$/../HT_12_polls/polls/tests.py" afterPath="$PROJECT_DIR$/../HT_12_polls/polls/tests.py" />
       <change beforePath="$PROJECT_DIR$/../HT_12_polls/polls/urls.py" afterPath="$PROJECT_DIR$/../HT_12_polls/polls/urls.py" />
       <change beforePath="$PROJECT_DIR$/../HT_12_polls/polls/views.py" afterPath="$PROJECT_DIR$/../HT_12_polls/polls/views.py" />
-      <change beforePath="$PROJECT_DIR$/.idea/HT_13.iml" afterPath="$PROJECT_DIR$/.idea/HT_13.iml" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Django_Lib.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Django_Lib.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/HT_13.txt" afterPath="$PROJECT_DIR$/HT_13.txt" />
-      <change beforePath="$PROJECT_DIR$/base/settings.py" afterPath="$PROJECT_DIR$/base/settings.py" />
-      <change beforePath="$PROJECT_DIR$/base/urls.py" afterPath="$PROJECT_DIR$/base/urls.py" />
-      <change beforePath="$PROJECT_DIR$/base/wsgi.py" afterPath="$PROJECT_DIR$/base/wsgi.py" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
-      <change beforePath="$PROJECT_DIR$/hn_parser/admin.py" afterPath="$PROJECT_DIR$/hn_parser/admin.py" />
-      <change beforePath="$PROJECT_DIR$/hn_parser/apps.py" afterPath="$PROJECT_DIR$/hn_parser/apps.py" />
-      <change beforePath="$PROJECT_DIR$/hn_parser/helpers.py" afterPath="$PROJECT_DIR$/hn_parser/helpers.py" />
-      <change beforePath="$PROJECT_DIR$/hn_parser/migrations/0001_initial.py" afterPath="$PROJECT_DIR$/hn_parser/migrations/0001_initial.py" />
-      <change beforePath="$PROJECT_DIR$/hn_parser/migrations/0002_auto_20180213_1855.py" afterPath="$PROJECT_DIR$/hn_parser/migrations/0002_auto_20180213_1855.py" />
-      <change beforePath="$PROJECT_DIR$/hn_parser/models.py" afterPath="$PROJECT_DIR$/stories/models.py" />
-      <change beforePath="$PROJECT_DIR$/hn_parser/tests.py" afterPath="$PROJECT_DIR$/hn_parser/tests.py" />
-      <change beforePath="$PROJECT_DIR$/hn_parser/views.py" afterPath="$PROJECT_DIR$/hn_parser/views.py" />
-      <change beforePath="$PROJECT_DIR$/log/hn_parser.log" afterPath="$PROJECT_DIR$/log/hn_parser.log" />
-      <change beforePath="$PROJECT_DIR$/manage.py" afterPath="$PROJECT_DIR$/manage.py" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" afterPath="$PROJECT_DIR$/requirements.txt" />
-      <change beforePath="$PROJECT_DIR$/stories/admin.py" afterPath="$PROJECT_DIR$/stories/admin.py" />
-      <change beforePath="$PROJECT_DIR$/stories/apps.py" afterPath="$PROJECT_DIR$/stories/apps.py" />
-      <change beforePath="$PROJECT_DIR$/stories/tests.py" afterPath="$PROJECT_DIR$/stories/tests.py" />
-      <change beforePath="$PROJECT_DIR$/stories/views.py" afterPath="$PROJECT_DIR$/stories/views.py" />
       <change beforePath="$PROJECT_DIR$/../HT_14(sunday)/manage.py" afterPath="$PROJECT_DIR$/../HT_14(sunday)/manage.py" />
       <change beforePath="$PROJECT_DIR$/../HT_2/HT_2.txt" afterPath="$PROJECT_DIR$/../HT_2/HT_2.txt" />
       <change beforePath="$PROJECT_DIR$/../HT_3/HT_3.txt" afterPath="$PROJECT_DIR$/../HT_3/HT_3.txt" />

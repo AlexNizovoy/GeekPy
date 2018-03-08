@@ -1,0 +1,37 @@
+<header>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-6 text-left">
+                <a href="{% url 'stories:index' %}"><h1>Hacker News</h1></a>
+            </div>
+            <div class="col-sm-6 text-right">
+                <span>Parser by Alex Nyzovyi</span>
+            </div>
+        </div>
+    </div>
+    <nav class="navbar navbar-inverse">
+            <div class="navbar-header">
+                <a href="{% url 'stories:index' %}" class="navbar-brand">HN Parser</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li><a href="{% url 'stories:index' %}">Home</a></li>
+                {% if categories %}
+                    {% for category in categories %}
+                    <li><a href="{% url 'stories:category-details' category=category.name %}">{{ category.name|capfirst }}</a></li>
+                    {% endfor %}
+                {% endif %}
+                <li><a href="{% url 'api:index' %}">About API</a></li>
+            </ul>
+
+           <!-- Form for get new records -->
+           <form id="parse_form" class="navbar-form navbar-right" action="{% url 'hn_parser:index' %}" method="POST">
+                {% csrf_token %}
+                <div class="form-group">
+                    {{ form }}
+                </div>
+                <button type="submit" id="buttonSubmit" class="btn btn-default">Get new records</button>
+                <br>
+                <span id="status">After update records, browser refresh automatically</span>
+           </form>
+    </nav>
+</header>

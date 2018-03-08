@@ -7,7 +7,10 @@
     {{ subcategory }} <br>
 
     {% for product in subcategory.product_set.all %}
-        <a href="{% url 'product:product-details' product.id %}">{{ product.title }}</a> <br>
+         <div class="product">
+            <h2><a href="{% url 'product:product-details' product.id %}">{{ product.title }}</a></h2>
+            <p>Price: {{ product.price }}</p>
+        </div>
     {% endfor %}
 
 {% endblock %}

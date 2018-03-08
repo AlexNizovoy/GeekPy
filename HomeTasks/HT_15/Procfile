@@ -1,0 +1,2 @@
+web: gunicorn base.wsgi
+worker: celery -A api worker -l info

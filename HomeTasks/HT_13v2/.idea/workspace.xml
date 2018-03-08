@@ -1,129 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="104927d5-7fa2-4592-882d-6766679d461f" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/stories/templates/stories/index.html" />
-      <change beforePath="$PROJECT_DIR$/../../ClassWorks/10-01-2018/01.sql" afterPath="$PROJECT_DIR$/../../ClassWorks/10-01-2018/01.sql" />
-      <change beforePath="$PROJECT_DIR$/../../ClassWorks/17-01-2018/mysite/bimbo/admin.py" afterPath="$PROJECT_DIR$/../../ClassWorks/17-01-2018/mysite/bimbo/admin.py" />
-      <change beforePath="$PROJECT_DIR$/../../ClassWorks/17-01-2018/mysite/bimbo/apps.py" afterPath="$PROJECT_DIR$/../../ClassWorks/17-01-2018/mysite/bimbo/apps.py" />
-      <change beforePath="$PROJECT_DIR$/../../ClassWorks/17-01-2018/mysite/bimbo/migrations/0001_initial.py" afterPath="$PROJECT_DIR$/../../ClassWorks/17-01-2018/mysite/bimbo/migrations/0001_initial.py" />
-      <change beforePath="$PROJECT_DIR$/../../ClassWorks/17-01-2018/mysite/bimbo/models.py" afterPath="$PROJECT_DIR$/../../ClassWorks/17-01-2018/mysite/bimbo/models.py" />
-      <change beforePath="$PROJECT_DIR$/../../ClassWorks/17-01-2018/mysite/bimbo/tests.py" afterPath="$PROJECT_DIR$/../../ClassWorks/17-01-2018/mysite/bimbo/tests.py" />
-      <change beforePath="$PROJECT_DIR$/../../ClassWorks/17-01-2018/mysite/bimbo/views.py" afterPath="$PROJECT_DIR$/../../ClassWorks/17-01-2018/mysite/bimbo/views.py" />
-      <change beforePath="$PROJECT_DIR$/../../ClassWorks/17-01-2018/mysite/manage.py" afterPath="$PROJECT_DIR$/../../ClassWorks/17-01-2018/mysite/manage.py" />
-      <change beforePath="$PROJECT_DIR$/../../ClassWorks/17-01-2018/mysite/mysite/settings.py" afterPath="$PROJECT_DIR$/../../ClassWorks/17-01-2018/mysite/mysite/settings.py" />
-      <change beforePath="$PROJECT_DIR$/../../ClassWorks/17-01-2018/mysite/mysite/urls.py" afterPath="$PROJECT_DIR$/../../ClassWorks/17-01-2018/mysite/mysite/urls.py" />
-      <change beforePath="$PROJECT_DIR$/../../ClassWorks/17-01-2018/mysite/mysite/wsgi.py" afterPath="$PROJECT_DIR$/../../ClassWorks/17-01-2018/mysite/mysite/wsgi.py" />
-      <change beforePath="$PROJECT_DIR$/../../ClassWorks/17-01-2018/mysite/templates/message.html" afterPath="$PROJECT_DIR$/../../ClassWorks/17-01-2018/mysite/templates/message.html" />
-      <change beforePath="$PROJECT_DIR$/../../ClassWorks/24-01-2018/prj/base/settings.py" afterPath="$PROJECT_DIR$/../../ClassWorks/24-01-2018/prj/base/settings.py" />
-      <change beforePath="$PROJECT_DIR$/../../ClassWorks/24-01-2018/prj/base/urls.py" afterPath="$PROJECT_DIR$/../../ClassWorks/24-01-2018/prj/base/urls.py" />
-      <change beforePath="$PROJECT_DIR$/../../ClassWorks/24-01-2018/prj/base/wsgi.py" afterPath="$PROJECT_DIR$/../../ClassWorks/24-01-2018/prj/base/wsgi.py" />
-      <change beforePath="$PROJECT_DIR$/../../ClassWorks/24-01-2018/prj/example/admin.py" afterPath="$PROJECT_DIR$/../../ClassWorks/24-01-2018/prj/example/admin.py" />
-      <change beforePath="$PROJECT_DIR$/../../ClassWorks/24-01-2018/prj/example/apps.py" afterPath="$PROJECT_DIR$/../../ClassWorks/24-01-2018/prj/example/apps.py" />
-      <change beforePath="$PROJECT_DIR$/../../ClassWorks/24-01-2018/prj/example/migrations/0001_initial.py" afterPath="$PROJECT_DIR$/../../ClassWorks/24-01-2018/prj/example/migrations/0001_initial.py" />
-      <change beforePath="$PROJECT_DIR$/../../ClassWorks/24-01-2018/prj/example/migrations/0002_auto_20180131_1947.py" afterPath="$PROJECT_DIR$/../../ClassWorks/24-01-2018/prj/example/migrations/0002_auto_20180131_1947.py" />
-      <change beforePath="$PROJECT_DIR$/../../ClassWorks/24-01-2018/prj/example/models.py" afterPath="$PROJECT_DIR$/../../ClassWorks/24-01-2018/prj/example/models.py" />
-      <change beforePath="$PROJECT_DIR$/../../ClassWorks/24-01-2018/prj/example/templates/example/base.html" afterPath="$PROJECT_DIR$/../../ClassWorks/24-01-2018/prj/example/templates/example/base.html" />
-      <change beforePath="$PROJECT_DIR$/../../ClassWorks/24-01-2018/prj/example/templates/example/index.html" afterPath="$PROJECT_DIR$/../../ClassWorks/24-01-2018/prj/example/templates/example/index.html" />
-      <change beforePath="$PROJECT_DIR$/../../ClassWorks/24-01-2018/prj/example/tests.py" afterPath="$PROJECT_DIR$/../../ClassWorks/24-01-2018/prj/example/tests.py" />
-      <change beforePath="$PROJECT_DIR$/../../ClassWorks/24-01-2018/prj/example/views.py" afterPath="$PROJECT_DIR$/../../ClassWorks/24-01-2018/prj/example/views.py" />
-      <change beforePath="$PROJECT_DIR$/../../ClassWorks/24-01-2018/prj/manage.py" afterPath="$PROJECT_DIR$/../../ClassWorks/24-01-2018/prj/manage.py" />
-      <change beforePath="$PROJECT_DIR$/../HT_10/HT_10.txt" afterPath="$PROJECT_DIR$/../HT_10/HT_10.txt" />
-      <change beforePath="$PROJECT_DIR$/../HT_10/SQL helpers.sql" afterPath="$PROJECT_DIR$/../HT_10/SQL helpers.sql" />
-      <change beforePath="$PROJECT_DIR$/../HT_10/results/hn_parser.log" afterPath="$PROJECT_DIR$/../HT_10/results/hn_parser.log" />
-      <change beforePath="$PROJECT_DIR$/../HT_10/results/hn_parser_2018-01-15_18-56-31.html" afterPath="$PROJECT_DIR$/../HT_10/results/hn_parser_2018-01-15_18-56-31.html" />
-      <change beforePath="$PROJECT_DIR$/../HT_11/HT_11.txt" afterPath="$PROJECT_DIR$/../HT_11/HT_11.txt" />
-      <change beforePath="$PROJECT_DIR$/../HT_11/hn_parser/hn_parser/settings.py" afterPath="$PROJECT_DIR$/../HT_11/hn_parser/hn_parser/settings.py" />
-      <change beforePath="$PROJECT_DIR$/../HT_11/hn_parser/hn_parser/urls.py" afterPath="$PROJECT_DIR$/../HT_11/hn_parser/hn_parser/urls.py" />
-      <change beforePath="$PROJECT_DIR$/../HT_11/hn_parser/hn_parser/wsgi.py" afterPath="$PROJECT_DIR$/../HT_11/hn_parser/hn_parser/wsgi.py" />
-      <change beforePath="$PROJECT_DIR$/../HT_11/hn_parser/log/hn_parser.log" afterPath="$PROJECT_DIR$/../HT_11/hn_parser/log/hn_parser.log" />
-      <change beforePath="$PROJECT_DIR$/../HT_11/hn_parser/manage.py" afterPath="$PROJECT_DIR$/../HT_11/hn_parser/manage.py" />
-      <change beforePath="$PROJECT_DIR$/../HT_11/hn_parser/stories/admin.py" afterPath="$PROJECT_DIR$/../HT_11/hn_parser/stories/admin.py" />
-      <change beforePath="$PROJECT_DIR$/../HT_11/hn_parser/stories/apps.py" afterPath="$PROJECT_DIR$/../HT_11/hn_parser/stories/apps.py" />
-      <change beforePath="$PROJECT_DIR$/../HT_11/hn_parser/stories/migrations/0001_initial.py" afterPath="$PROJECT_DIR$/../HT_11/hn_parser/stories/migrations/0001_initial.py" />
-      <change beforePath="$PROJECT_DIR$/../HT_11/hn_parser/stories/migrations/0002_auto_20180128_2150.py" afterPath="$PROJECT_DIR$/../HT_11/hn_parser/stories/migrations/0002_auto_20180128_2150.py" />
-      <change beforePath="$PROJECT_DIR$/../HT_11/hn_parser/stories/models.py" afterPath="$PROJECT_DIR$/../HT_11/hn_parser/stories/models.py" />
-      <change beforePath="$PROJECT_DIR$/../HT_11/hn_parser/stories/static/stories/script.js" afterPath="$PROJECT_DIR$/../HT_11/hn_parser/stories/static/stories/script.js" />
-      <change beforePath="$PROJECT_DIR$/../HT_11/hn_parser/stories/static/stories/style.css" afterPath="$PROJECT_DIR$/../HT_11/hn_parser/stories/static/stories/style.css" />
-      <change beforePath="$PROJECT_DIR$/../HT_11/hn_parser/stories/templates/stories/index.html" afterPath="$PROJECT_DIR$/../HT_11/hn_parser/stories/templates/stories/index.html" />
-      <change beforePath="$PROJECT_DIR$/../HT_11/hn_parser/stories/templates/stories/stories.html" afterPath="$PROJECT_DIR$/../HT_11/hn_parser/stories/templates/stories/stories.html" />
-      <change beforePath="$PROJECT_DIR$/../HT_11/hn_parser/stories/tests.py" afterPath="$PROJECT_DIR$/../HT_11/hn_parser/stories/tests.py" />
-      <change beforePath="$PROJECT_DIR$/../HT_11/hn_parser/stories/views.py" afterPath="$PROJECT_DIR$/../HT_11/hn_parser/stories/views.py" />
-      <change beforePath="$PROJECT_DIR$/../HT_12/.idea/codeStyles/codeStyleConfig.xml" afterPath="$PROJECT_DIR$/../HT_12/.idea/codeStyles/codeStyleConfig.xml" />
-      <change beforePath="$PROJECT_DIR$/../HT_12/.idea/dataSources/8a4a3bf5-955b-4217-802b-7fb6df32d311.xml" afterPath="$PROJECT_DIR$/../HT_12/.idea/dataSources/8a4a3bf5-955b-4217-802b-7fb6df32d311.xml" />
-      <change beforePath="$PROJECT_DIR$/../HT_12/.idea/libraries/Django_Lib.xml" afterPath="$PROJECT_DIR$/../HT_12/.idea/libraries/Django_Lib.xml" />
-      <change beforePath="$PROJECT_DIR$/../HT_12/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../HT_12/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/../HT_12/base/settings.py" afterPath="$PROJECT_DIR$/../HT_12/base/settings.py" />
-      <change beforePath="$PROJECT_DIR$/../HT_12/base/urls.py" afterPath="$PROJECT_DIR$/../HT_12/base/urls.py" />
-      <change beforePath="$PROJECT_DIR$/../HT_12/base/wsgi.py" afterPath="$PROJECT_DIR$/../HT_12/base/wsgi.py" />
-      <change beforePath="$PROJECT_DIR$/../HT_12/manage.py" afterPath="$PROJECT_DIR$/../HT_12/manage.py" />
-      <change beforePath="$PROJECT_DIR$/../HT_12/requirements.txt" afterPath="$PROJECT_DIR$/../HT_12/requirements.txt" />
-      <change beforePath="$PROJECT_DIR$/../HT_12/todo/admin.py" afterPath="$PROJECT_DIR$/../HT_12/todo/admin.py" />
-      <change beforePath="$PROJECT_DIR$/../HT_12/todo/apps.py" afterPath="$PROJECT_DIR$/../HT_12/todo/apps.py" />
-      <change beforePath="$PROJECT_DIR$/../HT_12/todo/forms.py" afterPath="$PROJECT_DIR$/../HT_12/todo/forms.py" />
-      <change beforePath="$PROJECT_DIR$/../HT_12/todo/migrations/0001_initial.py" afterPath="$PROJECT_DIR$/../HT_12/todo/migrations/0001_initial.py" />
-      <change beforePath="$PROJECT_DIR$/../HT_12/todo/migrations/0002_auto_20180210_1547.py" afterPath="$PROJECT_DIR$/../HT_12/todo/migrations/0002_auto_20180210_1547.py" />
-      <change beforePath="$PROJECT_DIR$/../HT_12/todo/migrations/0003_auto_20180211_1214.py" afterPath="$PROJECT_DIR$/../HT_12/todo/migrations/0003_auto_20180211_1214.py" />
-      <change beforePath="$PROJECT_DIR$/../HT_12/todo/migrations/0004_auto_20180211_1221.py" afterPath="$PROJECT_DIR$/../HT_12/todo/migrations/0004_auto_20180211_1221.py" />
-      <change beforePath="$PROJECT_DIR$/../HT_12/todo/migrations/0005_auto_20180211_1226.py" afterPath="$PROJECT_DIR$/../HT_12/todo/migrations/0005_auto_20180211_1226.py" />
-      <change beforePath="$PROJECT_DIR$/../HT_12/todo/migrations/0006_auto_20180211_1410.py" afterPath="$PROJECT_DIR$/../HT_12/todo/migrations/0006_auto_20180211_1410.py" />
-      <change beforePath="$PROJECT_DIR$/../HT_12/todo/migrations/0007_task_is_done.py" afterPath="$PROJECT_DIR$/../HT_12/todo/migrations/0007_task_is_done.py" />
-      <change beforePath="$PROJECT_DIR$/../HT_12/todo/models.py" afterPath="$PROJECT_DIR$/../HT_12/todo/models.py" />
-      <change beforePath="$PROJECT_DIR$/../HT_12/todo/static/todo/style.css" afterPath="$PROJECT_DIR$/../HT_12/todo/static/todo/style.css" />
-      <change beforePath="$PROJECT_DIR$/../HT_12/todo/templates/base.html" afterPath="$PROJECT_DIR$/../HT_12/todo/templates/base.html" />
-      <change beforePath="$PROJECT_DIR$/../HT_12/todo/templates/navbar.html" afterPath="$PROJECT_DIR$/../HT_12/todo/templates/navbar.html" />
-      <change beforePath="$PROJECT_DIR$/../HT_12/todo/templates/todo/index.html" afterPath="$PROJECT_DIR$/../HT_12/todo/templates/todo/index.html" />
-      <change beforePath="$PROJECT_DIR$/../HT_12/todo/templates/todo/project_details.html" afterPath="$PROJECT_DIR$/../HT_12/todo/templates/todo/project_details.html" />
-      <change beforePath="$PROJECT_DIR$/../HT_12/todo/templates/todo/project_form.html" afterPath="$PROJECT_DIR$/../HT_12/todo/templates/todo/project_form.html" />
-      <change beforePath="$PROJECT_DIR$/../HT_12/todo/templates/todo/task_form.html" afterPath="$PROJECT_DIR$/../HT_12/todo/templates/todo/task_form.html" />
-      <change beforePath="$PROJECT_DIR$/../HT_12/todo/tests.py" afterPath="$PROJECT_DIR$/../HT_12/todo/tests.py" />
-      <change beforePath="$PROJECT_DIR$/../HT_12/todo/urls.py" afterPath="$PROJECT_DIR$/../HT_12/todo/urls.py" />
-      <change beforePath="$PROJECT_DIR$/../HT_12/todo/views.py" afterPath="$PROJECT_DIR$/../HT_12/todo/views.py" />
-      <change beforePath="$PROJECT_DIR$/../HT_12_polls/.idea/codeStyles/Project.xml" afterPath="$PROJECT_DIR$/../HT_12_polls/.idea/codeStyles/Project.xml" />
-      <change beforePath="$PROJECT_DIR$/../HT_12_polls/.idea/codeStyles/codeStyleConfig.xml" afterPath="$PROJECT_DIR$/../HT_12_polls/.idea/codeStyles/codeStyleConfig.xml" />
-      <change beforePath="$PROJECT_DIR$/../HT_12_polls/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../HT_12_polls/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/../HT_12_polls/manage.py" afterPath="$PROJECT_DIR$/../HT_12_polls/manage.py" />
-      <change beforePath="$PROJECT_DIR$/../HT_12_polls/mysite/settings.py" afterPath="$PROJECT_DIR$/../HT_12_polls/mysite/settings.py" />
-      <change beforePath="$PROJECT_DIR$/../HT_12_polls/mysite/urls.py" afterPath="$PROJECT_DIR$/../HT_12_polls/mysite/urls.py" />
-      <change beforePath="$PROJECT_DIR$/../HT_12_polls/mysite/wsgi.py" afterPath="$PROJECT_DIR$/../HT_12_polls/mysite/wsgi.py" />
-      <change beforePath="$PROJECT_DIR$/../HT_12_polls/polls/admin.py" afterPath="$PROJECT_DIR$/../HT_12_polls/polls/admin.py" />
-      <change beforePath="$PROJECT_DIR$/../HT_12_polls/polls/apps.py" afterPath="$PROJECT_DIR$/../HT_12_polls/polls/apps.py" />
-      <change beforePath="$PROJECT_DIR$/../HT_12_polls/polls/migrations/0001_initial.py" afterPath="$PROJECT_DIR$/../HT_12_polls/polls/migrations/0001_initial.py" />
-      <change beforePath="$PROJECT_DIR$/../HT_12_polls/polls/models.py" afterPath="$PROJECT_DIR$/../HT_12_polls/polls/models.py" />
-      <change beforePath="$PROJECT_DIR$/../HT_12_polls/polls/static/polls/style.css" afterPath="$PROJECT_DIR$/../HT_12_polls/polls/static/polls/style.css" />
-      <change beforePath="$PROJECT_DIR$/../HT_12_polls/polls/templates/polls/detail.html" afterPath="$PROJECT_DIR$/../HT_12_polls/polls/templates/polls/detail.html" />
-      <change beforePath="$PROJECT_DIR$/../HT_12_polls/polls/templates/polls/index.html" afterPath="$PROJECT_DIR$/../HT_12_polls/polls/templates/polls/index.html" />
-      <change beforePath="$PROJECT_DIR$/../HT_12_polls/polls/templates/polls/results.html" afterPath="$PROJECT_DIR$/../HT_12_polls/polls/templates/polls/results.html" />
-      <change beforePath="$PROJECT_DIR$/../HT_12_polls/polls/tests.py" afterPath="$PROJECT_DIR$/../HT_12_polls/polls/tests.py" />
-      <change beforePath="$PROJECT_DIR$/../HT_12_polls/polls/urls.py" afterPath="$PROJECT_DIR$/../HT_12_polls/polls/urls.py" />
-      <change beforePath="$PROJECT_DIR$/../HT_12_polls/polls/views.py" afterPath="$PROJECT_DIR$/../HT_12_polls/polls/views.py" />
-      <change beforePath="$PROJECT_DIR$/../HT_13/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../HT_13/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/../HT_14(sunday)/manage.py" afterPath="$PROJECT_DIR$/../HT_14(sunday)/manage.py" />
-      <change beforePath="$PROJECT_DIR$/../HT_2/HT_2.txt" afterPath="$PROJECT_DIR$/../HT_2/HT_2.txt" />
-      <change beforePath="$PROJECT_DIR$/../HT_3/HT_3.txt" afterPath="$PROJECT_DIR$/../HT_3/HT_3.txt" />
-      <change beforePath="$PROJECT_DIR$/../HT_4/openerp-server.log" afterPath="$PROJECT_DIR$/../HT_4/openerp-server.log" />
-      <change beforePath="$PROJECT_DIR$/../HT_5/results/hn_parser.log" afterPath="$PROJECT_DIR$/../HT_5/results/hn_parser.log" />
-      <change beforePath="$PROJECT_DIR$/../HT_5/results/report.csv" afterPath="$PROJECT_DIR$/../HT_5/results/report.csv" />
-      <change beforePath="$PROJECT_DIR$/../HT_6/Domashka.txt" afterPath="$PROJECT_DIR$/../HT_6/Domashka.txt" />
-      <change beforePath="$PROJECT_DIR$/../HT_6/ht_6_3.py" afterPath="$PROJECT_DIR$/../HT_6/ht_6_3.py" />
-      <change beforePath="$PROJECT_DIR$/../HT_8/Hometask.txt" afterPath="$PROJECT_DIR$/../HT_8/Hometask.txt" />
-      <change beforePath="$PROJECT_DIR$/../HT_8/task1/README.txt" afterPath="$PROJECT_DIR$/../HT_8/task1/README.txt" />
-      <change beforePath="$PROJECT_DIR$/../HT_8/task1/results/scrapper.log" afterPath="$PROJECT_DIR$/../HT_8/task1/results/scrapper.log" />
-      <change beforePath="$PROJECT_DIR$/../HT_8/task2/README.txt" afterPath="$PROJECT_DIR$/../HT_8/task2/README.txt" />
-      <change beforePath="$PROJECT_DIR$/../HT_8/task2/last_page.html" afterPath="$PROJECT_DIR$/../HT_8/task2/last_page.html" />
-      <change beforePath="$PROJECT_DIR$/../HT_8/task2/results/result.txt" afterPath="$PROJECT_DIR$/../HT_8/task2/results/result.txt" />
-      <change beforePath="$PROJECT_DIR$/../HT_8/task2/results/scrapper.log" afterPath="$PROJECT_DIR$/../HT_8/task2/results/scrapper.log" />
-      <change beforePath="$PROJECT_DIR$/../HT_8/task2/results/scrapper.log_errors.log" afterPath="$PROJECT_DIR$/../HT_8/task2/results/scrapper.log_errors.log" />
-      <change beforePath="$PROJECT_DIR$/../HT_9/HT_9.txt" afterPath="$PROJECT_DIR$/../HT_9/HT_9.txt" />
-      <change beforePath="$PROJECT_DIR$/../HT_9/results/hn_parser.log" afterPath="$PROJECT_DIR$/../HT_9/results/hn_parser.log" />
-      <change beforePath="$PROJECT_DIR$/../HT_9/results/hn_parser_2018-01-05_16-44-19.html" afterPath="$PROJECT_DIR$/../HT_9/results/hn_parser_2018-01-05_16-44-19.html" />
-      <change beforePath="$PROJECT_DIR$/../HT_9/results/hn_parser_2018-01-05_16-50-57.html" afterPath="$PROJECT_DIR$/../HT_9/results/hn_parser_2018-01-05_16-50-57.html" />
-      <change beforePath="$PROJECT_DIR$/../HT_9/results/hn_parser_2018-01-05_16-51-49.html" afterPath="$PROJECT_DIR$/../HT_9/results/hn_parser_2018-01-05_16-51-49.html" />
-      <change beforePath="$PROJECT_DIR$/../../Misc/2/new_year.py" afterPath="$PROJECT_DIR$/../../Misc/2/new_year.py" />
-      <change beforePath="$PROJECT_DIR$/../../Misc/3/calendar.css" afterPath="$PROJECT_DIR$/../../Misc/3/calendar.css" />
-      <change beforePath="$PROJECT_DIR$/../../Misc/3/use_calendar.py" afterPath="$PROJECT_DIR$/../../Misc/3/use_calendar.py" />
+    <list default="true" id="3ae9c358-d5b4-47fd-a5b5-3fa629a577f3" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/stories/static/stories/script.js" afterPath="$PROJECT_DIR$/stories/static/stories/script.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -157,6 +37,13 @@
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="main: schema" type="90513b60:SqliteImplModel$Schema" />
       </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="Django default" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="main: schema" type="90513b60:SqliteImplModel$Schema" />
+        <item name="stories_storycategory: table" type="ffe0bd85:SqliteImplModel$Table" />
+      </path>
     </expand>
     <select />
   </component>
@@ -164,45 +51,26 @@
     <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="admin.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/stories/admin.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="26" lean-forward="true" selection-start-line="5" selection-start-column="26" selection-end-line="5" selection-end-column="26" />
-              <folding>
-                <element signature="e#0#32#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="models.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/stories/models.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="44" column="38" lean-forward="false" selection-start-line="44" selection-start-column="38" selection-end-line="44" selection-end-column="38" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/stories/views.py" />
-        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/f9912c30-87a6-4ef5-acbe-81fa1ef13179/console.sql" />
-        <option value="$PROJECT_DIR$/hn_parser/helpers.py" />
+        <option value="$PROJECT_DIR$/base/urls.py" />
+        <option value="$PROJECT_DIR$/hn_parser/urls.py" />
+        <option value="$PROJECT_DIR$/stories/urls.py" />
         <option value="$PROJECT_DIR$/stories/templates/stories/index.html" />
+        <option value="$PROJECT_DIR$/stories/templates/base/header.html" />
+        <option value="$PROJECT_DIR$/stories/templates/base/sidebar.html" />
+        <option value="$PROJECT_DIR$/stories/templates/base/base.html" />
+        <option value="$PROJECT_DIR$/Procfile" />
+        <option value="$PROJECT_DIR$/base/settings.py" />
+        <option value="$PROJECT_DIR$/.bashrc" />
+        <option value="$PROJECT_DIR$/hn_parser/views.py" />
         <option value="$PROJECT_DIR$/stories/static/stories/script.js" />
-        <option value="$PROJECT_DIR$/stories/static/stories/style.css" />
-        <option value="$PROJECT_DIR$/stories/admin.py" />
-        <option value="$PROJECT_DIR$/stories/models.py" />
       </list>
     </option>
   </component>
@@ -217,11 +85,11 @@
     <option name="width" value="637" />
     <option name="height" value="698" />
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+  <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectView">
-    <navigator currentView="ProjectPane" proportions="" version="1">
+    <navigator currentView="Scope" currentSubView="Project Files" proportions="" version="1">
       <flattenPackages />
       <showMembers />
       <showModules />
@@ -235,23 +103,33 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
-              <item name="HT_13v2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="HT_13v2" type="462c0819:PsiDirectoryNode" />
+              <item name="HT_13v3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="HT_13v3" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="HT_13v2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="HT_13v2" type="462c0819:PsiDirectoryNode" />
+              <item name="HT_13v3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="HT_13v3" type="462c0819:PsiDirectoryNode" />
+              <item name="base" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="HT_13v3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="HT_13v3" type="462c0819:PsiDirectoryNode" />
               <item name="hn_parser" type="462c0819:PsiDirectoryNode" />
             </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope">
+        <subPane subId="Project Files">
+          <expand>
             <path>
-              <item name="HT_13v2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="HT_13v2" type="462c0819:PsiDirectoryNode" />
-              <item name="stories" type="462c0819:PsiDirectoryNode" />
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="HT_13v2" type="cbb8eebc:String" user="HT_13v2" />
             </path>
           </expand>
           <select />
@@ -263,13 +141,8 @@
   <component name="PropertiesComponent">
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.django.DjangoModulesConfigurable" />
-  </component>
-  <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/stories/templates/stories" />
-    </key>
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../HT_14" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -284,19 +157,18 @@
     </option>
   </component>
   <component name="RunManager">
-    <configuration name="HT_13v2" type="Python.DjangoServer" factoryName="Django server">
+    <configuration name="HT_13v3" type="Python.DjangoServer" factoryName="Django server">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
-        <env name="DJANGO_SETTINGS_MODULE" value="base.settings" />
       </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="HT_13v2" />
+      <module name="HT_13v3" />
       <option name="launchJavascriptDebuger" value="false" />
       <option name="port" value="8000" />
       <option name="host" value="" />
@@ -316,40 +188,60 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="104927d5-7fa2-4592-882d-6766679d461f" name="Default" comment="" />
-      <created>1519240464064</created>
+      <changelist id="3ae9c358-d5b4-47fd-a5b5-3fa629a577f3" name="Default" comment="" />
+      <created>1519298789424</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1519240464064</updated>
+      <updated>1519298789424</updated>
     </task>
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1" y="0" width="1368" height="741" extended-state="6" />
-    <editor active="true" />
+    <frame x="726" y="0" width="1368" height="741" extended-state="6" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32901135" sideWeight="0.5030303" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32901135" sideWeight="0.4969697" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32901135" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32901135" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32954547" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="SciView" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32847896" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32901135" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3241491" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16287878" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32954547" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="SciView" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3987034" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
+    <layout-to-restore>
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32847896" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32847896" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="combo" />
+      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="SciView" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -358,11 +250,13 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <option name="time" value="1" />
+    </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/hn_parser/migrations/__init__.py">
+    <entry file="file://$PROJECT_DIR$/base/settings.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -370,85 +264,150 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://table:/ff37da2f/f9912c30-87a6-4ef5-acbe-81fa1ef13179/main.django_content_type">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://table:/ff37da2f/f9912c30-87a6-4ef5-acbe-81fa1ef13179/main.django_session">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://table:/ff37da2f/f9912c30-87a6-4ef5-acbe-81fa1ef13179/main.stories_category">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hn_parser/views.py">
+    <entry file="file://$PROJECT_DIR$/stories/templates/stories/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-135">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#35#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://table:/ff37da2f/f9912c30-87a6-4ef5-acbe-81fa1ef13179/main.stories_storytype">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://table:/ff37da2f/f9912c30-87a6-4ef5-acbe-81fa1ef13179/main.django_migrations">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://table:/ff37da2f/f9912c30-87a6-4ef5-acbe-81fa1ef13179/main.stories_story">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/f9912c30-87a6-4ef5-acbe-81fa1ef13179/console.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="75">
+          <caret line="5" column="12" lean-forward="false" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="12" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/stories/templates/stories/category.html">
+    <entry file="file://$PROJECT_DIR$/base/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-135">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/stories/templates/base/base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-90">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="255">
+          <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/stories/templates/base/header.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-180">
+        <state relative-caret-position="210">
+          <caret line="14" column="18" lean-forward="false" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/stories/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="465">
+          <caret line="31" column="46" lean-forward="false" selection-start-line="31" selection-start-column="46" selection-end-line="31" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/base/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/base/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="645">
+          <caret line="44" column="1" lean-forward="false" selection-start-line="44" selection-start-column="1" selection-end-line="44" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/base/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/base/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1245">
+          <caret line="84" column="47" lean-forward="true" selection-start-line="84" selection-start-column="47" selection-end-line="84" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/requirements.txt" />
+    <entry file="file://$PROJECT_DIR$/hn_parser/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/stories/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/stories/templates/base/sidebar.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="24" lean-forward="false" selection-start-line="4" selection-start-column="24" selection-end-line="6" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/stories/templates/base/footer.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/base/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/stories/templates/base/header.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="18" lean-forward="false" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/stories/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="465">
+          <caret line="31" column="46" lean-forward="false" selection-start-line="31" selection-start-column="46" selection-end-line="31" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/stories/templates/base/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/stories/templates/stories/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="12" lean-forward="false" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Pipfile.lock">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Pipfile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
@@ -456,62 +415,70 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/stories/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#0#32#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/hn_parser/helpers.py">
+    <entry file="file://$PROJECT_DIR$/.bashrc">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="309">
-          <caret line="174" column="38" lean-forward="false" selection-start-line="174" selection-start-column="38" selection-end-line="174" selection-end-column="38" />
-          <folding>
-            <element signature="e#0#35#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/stories/templates/stories/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="7" column="46" lean-forward="false" selection-start-line="7" selection-start-column="46" selection-end-line="7" selection-end-column="46" />
+        <state relative-caret-position="30">
+          <caret line="2" column="7" lean-forward="false" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/stories/static/stories/script.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="301">
-          <caret line="22" column="5" lean-forward="true" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
+        <state relative-caret-position="243">
+          <caret line="107" column="23" lean-forward="true" selection-start-line="107" selection-start-column="23" selection-end-line="107" selection-end-column="23" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/stories/static/stories/style.css">
+    <entry file="file://$PROJECT_DIR$/hn_parser/helpers.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-194">
-          <caret line="44" column="1" lean-forward="true" selection-start-line="44" selection-start-column="1" selection-end-line="44" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/stories/admin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="26" lean-forward="true" selection-start-line="5" selection-start-column="26" selection-end-line="5" selection-end-column="26" />
+        <state relative-caret-position="195">
+          <caret line="13" column="34" lean-forward="false" selection-start-line="13" selection-start-column="34" selection-end-line="13" selection-end-column="34" />
           <folding>
-            <element signature="e#0#32#0" expanded="true" />
+            <element signature="e#0#35#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/stories/models.py">
+    <entry file="file://$PROJECT_DIR$/hn_parser/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="44" column="38" lean-forward="false" selection-start-line="44" selection-start-column="38" selection-end-line="44" selection-end-column="38" />
+        <state relative-caret-position="900">
+          <caret line="60" column="17" lean-forward="false" selection-start-line="60" selection-start-column="17" selection-end-line="60" selection-end-column="17" />
+          <folding>
+            <element signature="e#0#35#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Procfile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="13" lean-forward="false" selection-start-line="0" selection-start-column="13" selection-end-line="0" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/base/wsgi.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/base/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="24">
+          <caret line="118" column="61" lean-forward="false" selection-start-line="118" selection-start-column="61" selection-end-line="118" selection-end-column="61" />
           <folding />
         </state>
       </provider>

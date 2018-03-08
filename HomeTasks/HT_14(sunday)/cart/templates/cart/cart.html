@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block title %}Cart{% endblock %}
+
+{% block content %}
+    <table>
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Total Price</th>
+                <th colspan="2">Change options</th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <td colspan="3">TOTAL:</td>
+                <td>{{ cart.get_total_cost }}</td>
+            </tr>
+        </tfoot>
+        <tbody>
+        {% for product in cart.get_products %}
+            <form action="{% url 'cart:change' %}" method="POST">
+                {% csrf_token %}
+                <input type="hidden" name="product_id" value="{{ product.product.id }}">
+                <tr>
+                    <td>{{ product.product }}</td>
+                    <td>{{ product.price }}</td>
+                    <td><input type="number" name="quantity" min="1" value="{{ product.quantity }}" pattern="^\d+$" title="Integer number, great than zero"></td>
+                    <td>{{ product.total_price }}</td>
+                    <td><label for="delete"><input type="checkbox" name="delete">Delete?</label></td>
+                    <td><input type="submit" value="Change"></td>
+                </tr>
+            </form>
+        {% empty %}
+            <p>Your cart is empty!</p>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{% url 'product:index' %}" class="btn btn-default">Continue shopping</a>
+    <a href="{% url 'order:checkout' %}" class="btn btn-success btn-lg">Checkout</a>
+    <a href="{% url 'cart:clear' %}" class="btn btn-danger">Clear cart!</a>
+
+{% endblock %}

@@ -22,6 +22,8 @@ def index(request):
             return HttpResponse(json.dumps(response),
                                 content_type='application/json')
         token = request.POST.get('csrfmiddlewaretoken')
+        # for test
+        # token = 'token'
         form_data_category = form.cleaned_data.get('category').lower()
         if form_data_category == 'all':
             # parse all categories
@@ -53,14 +55,17 @@ def index(request):
 def status(request):
     if request.method == 'GET':
         response = {'success': True}
-        if request.GET.get('key'):
-            if cache.get(request.GET.get('key')):
-                value = cache.get(request.GET['key'])
+        token = request.GET.get('key')
+        # for test:
+        # token = 'token'
+        if token:
+            if cache.get(token):
+                value = cache.get(token)
                 response['msg'] = value
             else:
                 response['success'] = False
                 response['error'] = 'No csrf value in cache'
-                response['key'] = request.GET.get('key')
+                response['key'] = token
         else:
             response['success'] = False
             response['error'] = 'No parameter key in GET request'

@@ -15,9 +15,11 @@
             </div>
             <ul class="nav navbar-nav">
                 <li><a href="{% url 'stories:index' %}">Home</a></li>
-                {% for category in categories %}
-                <li><a href="{% url 'stories:category-details' category=category.name %}">{{ category.name|capfirst }}</a></li>
-                {% endfor %}
+                {% if categories %}
+                    {% for category in categories %}
+                    <li><a href="{% url 'stories:category-details' category=category.name %}">{{ category.name|capfirst }}</a></li>
+                    {% endfor %}
+                {% endif %}
             </ul>
 
            <!-- Form for get new records -->

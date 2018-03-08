@@ -1,0 +1,33 @@
+{% extends 'base/base.html' %}
+
+{% block title %}
+View category | {{ block.super }}
+{% endblock %}
+
+{% block content %}
+        <div id="stories" class="table-responsive">
+            {% if stories %}
+            <table>
+                <thead><tr>
+                <!-- Make title -->
+                {% for key in stories.0.keys %}
+                    <th>{{ key|upper }}</th>
+                {% endfor %}
+                </tr></thead>
+
+                <tbody>
+                    {% for story in stories %}
+                    <tr>
+                        {% for value in story.values %}
+                            <td>{{ value|safe }}</td>
+                        {% endfor %}
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
+            {% endif %}
+        </div>
+
+
+{% endblock %}
