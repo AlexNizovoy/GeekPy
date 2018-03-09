@@ -12,7 +12,7 @@ from hn_parser.helpers import parse_stories, write_records
 
 
 @app.task
-def parsing(category_name, email):
+def parsing(category_name, email, base_url=None):
     t0 = time.time()
     data = parse_stories(category_name)
     t1 = time.time()
@@ -23,7 +23,8 @@ def parsing(category_name, email):
                'count': count,
                'time_parse': t1 - t0,
                'time_write': t2 - t1,
-               'time_total': t2 - t0
+               'time_total': t2 - t0,
+               'base_url': base_url
                }
     send_mail(**context)
 
@@ -37,7 +38,7 @@ def send_mail(**kwargs):
     msg['Subject'] = 'Звіт про роботу парсера'
     msg['From'] = addr_from
     msg['To'] = addr_to
-    html = render_to_string('api/email.html', context=kwargs)
+    html = render_to_string('api/email.html', context=kwargs, request=kwargs.get('request'))
     text = render_to_string('api/plain_text.html', context=kwargs)
     part1 = MIMEText(text, 'plain')
     part2 = MIMEText(html, 'html')

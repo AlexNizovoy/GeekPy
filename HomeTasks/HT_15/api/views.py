@@ -67,21 +67,21 @@ def parser_categories(request):
 
 
 def start_parsing(request, story_type):
-    # try get admin username (or email if exist) as email
+    # try get admin username (or email if exist) as email. Use last superuser
     users = User.objects.all()
     superusers = []
-    email = []
+    email = ''
     for user in users:
         if user.is_superuser:
             superusers.append(user)
     for user in superusers:
         try:
             validate_email(user.username)
-            email.append(user.username)
+            email= user.username
         except ValidationError:
             try:
                 validate_email(user.email)
-                email.append(user.email)
+                email = user.email
             except ValidationError:
                 pass
     if not email:
@@ -91,8 +91,9 @@ def start_parsing(request, story_type):
         except ValidationError:
             email = cfg.EMAIL_REPORT_FALLBACK
 
-    parsing.delay(story_type, email)
-    msg = {'message': f'Parsing started. After finish email will be send to {email}'}
+    base_url = request.build_absolute_uri('/')[:-1]
+    parsing.delay(story_type, email, base_url)
+    msg = {'message': f'Parsing started from {base_url}. After finish email will be send to {email}'}
     return JsonResponse(msg, safe=False)
 
 

@@ -1,0 +1,1 @@
+It's a textfile for test SMTP sending e-mails
