@@ -1,0 +1,22 @@
+Congratulations!
+Your order #{{ order.id }} received.
+
+Title            Price   Quantity    Total Price
+{% for product in order.items.all %}
+{{ product.product }}       {{ product.price }} {{ product.currency }}     {{ product.quantity }}     {{ product.cost }} {{ product.currency }}
+{% endfor %}
+
+TOTAL:
+{{ order.total_cost }} {{ order.currency }}
+
+
+Delivery details:
+First name: {{ order.first_name }}
+Last name: {{ order.last_name }}
+Phone number: {{ order.phone_number }}
+
+Shipping address details:
+Country: {{ order.delivery_country }}
+State: {{ order.delivery_state }}
+City: {{ order.delivery_city }}
+Address: {{ order.delivery_address }}

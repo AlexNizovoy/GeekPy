@@ -1,0 +1,121 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block headincludes %}
+    <link rel="stylesheet" href="{% static 'base/style/accordion.css' %}">
+{% endblock %}
+{% block footerincludes %}
+    <script src="{% static 'base/js/accordion.js' %}"></script>
+{% endblock %}
+
+{% block title %}About API | {% endblock %}
+
+{% block content %}
+    <div class="">
+        <h1>Інформація про користування API</h1>
+        <h2>Робота за валютами</h2>
+        <button class="accordion">Отримання переліку доступних валют (GET):</button>
+        <div class="panel">
+        <ul>
+            <li><p><code>http://<var>{ website-root }</var>/api/currency</code> - усі валюти, API режим. <a href="{% url 'product:api-currency' %}">Приклад</a></p></li>
+            <li><p><code>http://<var>{ website-root }</var>/api/currency.json</code> - усі валюти, JSON-об'єкт. <a href="{% url 'product:api-currency' format='json' %}">Приклад</a></p></li>
+            <li><p><code>http://<var>{ website-root }</var>/api/currency/dump</code> - усі валюти, XLS файл. <a href="{% url 'product:api-currency-dump' %}">Приклад</a></p></li>
+            <li><p><code>http://<var>{ website-root }</var>/api/currency/dump?email=<var>{ email }</var></code> - отримати XLS файл на пошту</p></li>
+            <li><p><code>http://<var>{ website-root }</var>/api/currency/default</code> - отримати валюту за замовчуванням. <a href="{% url 'product:api-currency-default' %}">Приклад</a></p></li>
+            <li><p><code>http://<var>{ website-root }</var>/api/currency/<var>{ code }</var></code> - отримати валюту за її трьохбуквенним кодом. <a href="{% url 'product:api-currency-detail' code='uah' %}">Приклад</a></p></li>
+        </ul>
+        </div>
+        <button class="accordion">Оновлення валют (POST):</button>
+        <div class="panel">
+        <ul>
+            <li><p><code>http://<var>{ website-root }</var>/api/currency</code> - створення або оновлення існуючої валюти</p>
+                <ul>
+                    <li>POST data (приклад):<br>
+                    <pre>{
+    "code": "EUR",
+    "title": "Євро",
+    "ratio": "0.8086",
+    "default": false
+}</pre>
+                    </li>
+                    <li>або форма наступного вигляду:
+                        <br>
+        <form action="{% url 'product:api-currency' %}" method="POST">
+            {% csrf_token %}
+            <fieldset>
+                <legend>Додати валюту:</legend>
+                <table>
+                {{ forms.currency_add.as_table }}
+                </table>
+                    <input type="submit" value="Додати">
+            </fieldset>
+        </form>
+
+                    </li>
+                </ul>
+            </li>
+            <li><p><code>http://<var>{ website-root }</var>/api/currency/dump</code> - створення або оновлення існуючих валют з XLS файлу</p>
+                <ul>
+                    <li>
+                        <form action="{% url 'product:api-currency-dump' %}" method="POST" enctype="multipart/form-data">
+                            <fieldset>
+                                <legend>Додати або оновити валюти (з xls-файла):</legend>
+                                <table>
+                                {% csrf_token %}
+                                {{ forms.currency_upload.as_table }}
+                                </table>
+
+                            </fieldset>
+                        </form>
+                    </li>
+                </ul>
+            </li>
+
+            <li><p><code>http://<var>{ website-root }</var>/api/currency/default</code> - встановити валюту за замовчуванням</p>
+                <ul>
+                    <li>POST data (приклад):<br>
+                    <pre>{
+    "code": "USD"
+}</pre>
+                    </li>
+                </ul>
+            </li>
+
+        </ul>
+        </div>
+
+        <h2>Робота з продуктами</h2>
+        <button class="accordion">Отримання запису продукту (GET):</button>
+        <div class="panel">
+            <ul>
+                <li><p><code>http://<var>{ website-root }</var>/api/product/<var>{ ID }</var></code> - отримати продукт по його ID. <a href="{% url 'product:api-product-detail' pk=1 %}">Приклад</a></p></li>
+                <li><p><code>http://<var>{ website-root }</var>/api/product/<var>{ ID }</var>?currency=<var>{ code }</var></code> - отримати продукт по його ID в валюті <var>{ code }</var> (трьохбуквенний код валюти). Якщо валюта з таким кодом не знайдено - повернеться значення з використанням валюти за замовчуванням. <a href="{% url 'product:api-product-detail' pk=1 %}?currency=usd">Приклад</a></p></li>
+            </ul>
+        </div>
+        <button class="accordion">Робота зі списком категорій/підкатегорій (GET):</button>
+        <div class="panel">
+            <ul>
+                <li><p><code>http://<var>{ website-root }</var>/api/categories</code> - отримати список доступних категорій <a href="{% url 'product:api-categories' %}">Приклад</a></p></li>
+                <li><p><code>http://<var>{ website-root }</var>/api/subcategory/<var>{ ID }</var></code> - отримати список продуктів у вибраній підкатегорії. <a href="{% url 'product:api-subcategory' pk=1 %}">Приклад</a></p></li>
+            </ul>
+        </div>
+        <button class="accordion">Робота зі списком виробників (GET):</button>
+        <div class="panel">
+            <ul>
+                <li><p><code>http://<var>{ website-root }</var>/api/vendors</code> - отримати список виробників. <a href="{% url 'product:api-vendors' %}">Приклад</a></p></li>
+                <li><p><code>http://<var>{ website-root }</var>/api/vendors/<var>{ ID }</var></code> - отримати список продуктів вибраного виробника. <a href="{% url 'product:api-vendors-details' pk=1 %}">Приклад</a></p></li>
+                <li><p>TODO: <code>http://<var>{ website-root }</var>/api/vendors/<var>{ ID }</var>?subcategory=<var>{ Subcategory_ID }</var></code> - отримати список продуктів вибраного виробника по окремій підкатегорії. <a href="{% url 'product:api-vendors-details' pk=1 %}?subcategory=1">Приклад</a></p></li>
+            </ul>
+        </div>
+{#        <hr>#}
+{#        <p>Визначення термінів:</p>#}
+{#        <dl>#}
+{#            <dt>website-root</dt>#}
+{#            <dd>Назва сайту</dd>#}
+{#            <dt>ID</dt>#}
+{#            <dd>ID запису з сайту Hacker News</dd>#}
+{#            <dt>email</dt>#}
+{#            <dd>email-адреса для отримання звіту про парсинг</dd>#}
+{#        </dl>#}
+
+    </div>
+{% endblock %}

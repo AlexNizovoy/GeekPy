@@ -1,0 +1,22 @@
+<aside>
+    <div class="navbar">
+    <a href="#">Все разделы:</a>
+    {% for category in categories %}
+        {% if category.subcategories.all|length %}
+            <div class="dropdown">
+                <button class="dropbtn">{{ category.title|capfirst }}
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    {% for subcategory in category.subcategories.all %}
+                        <a href="{% url 'product:subcategory-details' subcategory.id %}">{{ subcategory.title|capfirst }}</a>
+                    {% endfor %}
+                </div>
+            </div>
+
+        {% else %}
+            <a href="#" class="dropbtn">{{ category.title|capfirst }}</a>
+        {% endif %}
+    {% endfor %}
+    </div>
+</aside>

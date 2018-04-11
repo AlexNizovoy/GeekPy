@@ -1,0 +1,28 @@
+{% load static %}
+{% spaceless %}
+<div class="col-4">
+    <div class="card">
+        <a href="{% url 'product:product-details' product.id %}"><img src="{% if product.image %}
+    {{ product.image }}
+    {% else %}
+    {% static 'base/no_image.gif' %}
+    {% endif %}" class="card-img-top" alt="{{ product.title }}"></a>
+        <div class="card-body">
+            <a href="{% url 'product:product-details' product.id %}" class="card-title">{{ product.title }}</a>
+            <div class="row align-items-center">
+                    <span class="price">{{ product.get_price.0|floatformat:2 }} </span>
+                    <span class="currency">{{ product.get_price.1 }}</span>
+            </div>
+            <div class="row justify-content-end">
+                {% if not product.out_of_stock %}
+                    <a href="#" class="btn btn-primary" data-product-id="{{ product.id }}" data-action="add-to-cart">
+                        <span class="oi oi-cart" title="Add to cart" aria-hidden="true"></span> В корзину
+                    </a>
+                {% else %}
+                    <a href="#" class="btn btn-secondary disabled" disabled="">Нет в наличии</a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endspaceless %}

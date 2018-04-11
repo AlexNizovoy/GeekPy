@@ -1,0 +1,66 @@
+{% extends 'order/mail_base.html' %}
+{% block content %}
+    <h1>Congratulations!</h1>
+    <p>Your order #{{ order.id }} received.</p>
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Total Price</th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <td colspan="3">TOTAL:</td>
+                <td>{{ order.total_cost }} {{ order.currency }}</td>
+            </tr>
+        </tfoot>
+        <tbody>
+        {% for product in order.items.all %}
+            <tr>
+                <td>{{ product.product }}</td>
+                <td>{{ product.price }} {{ product.currency }}</td>
+                <td>{{ product.quantity }}</td>
+                <td>{{ product.cost }} {{ product.currency }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <h1>Delivery details:</h1>
+    <table class="table">
+        <tr>
+            <th>First name</th>
+            <td>{{ order.first_name }}</td>
+        </tr>
+        <tr>
+            <th>Last name</th>
+            <td>{{ order.last_name }}</td>
+        </tr>
+        <tr>
+            <th>Phone number</th>
+            <td>{{ order.phone_number }}</td>
+        </tr>
+        <tr>
+            <th colspan="2">Shipping address details</th>
+        </tr>
+        <tr>
+            <th>Country</th>
+            <td>{{ order.delivery_country }}</td>
+        </tr>
+        <tr>
+            <th>State</th>
+            <td>{{ order.delivery_state }}</td>
+        </tr>
+        <tr>
+            <th>City</th>
+            <td>{{ order.delivery_city }}</td>
+        </tr>
+        <tr>
+            <th>Address</th>
+            <td>{{ order.delivery_address }}</td>
+        </tr>
+    </table>
+{% endblock %}

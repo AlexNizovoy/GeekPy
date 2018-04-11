@@ -1,0 +1,30 @@
+{% spaceless %}
+{% load assign_tag %}
+{% load subtract %}
+{% assign surround_count 2 %}{% assign skip_loop False %}
+{#    surround_count - count of displayed pages surround of current page #}
+{# skip_loop - variable for skipping iteration in 'for' for displaying only '...' in surround page numbers #}
+    {% if products.paginator.num_pages > 1 %}
+{#        display pagination only if count of pages more than 1 #}
+        <ul class="pagination">
+        {% for page_num in products.paginator.page_range %}
+{#            insert '...' if needed and switch skip_loop #}
+            {% if not skip_loop and page_num > 1 %}
+                {% if page_num < products.number|subtract:surround_count or page_num > products.number|add:surround_count%}
+                    {% assign skip_loop True %}<li class="disabled"><a href="#">...</a></li>
+                {% endif %}
+            {% endif %}
+            {% if skip_loop %}
+                {% if page_num == products.number|subtract:surround_count or page_num == products.paginator.num_pages %}
+                    {% assign skip_loop False %}
+                {% endif %}            
+            {% endif %}
+
+            {% if not skip_loop %}
+{#                check for skip iteration #}
+                <li{% if page_num == products.number %} class="active" {% endif %}><a href="?page={{ page_num }}">{{ page_num }}</a></li>
+            {% endif %}
+        {% endfor %}
+        </ul>
+    {% endif %}
+{% endspaceless %}

@@ -1,0 +1,28 @@
+[[source]]
+
+url = "https://pypi.python.org/simple"
+verify_ssl = true
+name = "pypi"
+
+
+[packages]
+
+Django = "*"
+sendgrid = "*"
+dj-database-url = "*"
+whitenoise = "*"
+gunicorn = "*"
+djangorestframework = "*"
+"psycopg2" = "*"
+xlutils = "*"
+python-binary-memcached = "*"
+django-bmemcached = "*"
+
+
+[dev-packages]
+
+
+
+[requires]
+
+python_full_version = "3.6.4"

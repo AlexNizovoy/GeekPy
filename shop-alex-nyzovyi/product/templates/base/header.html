@@ -1,0 +1,31 @@
+{% load static %}
+<header>
+    <div class="container-fluid">
+        <div class="row header-contacts">
+            <div class="col-sm-3 text-left">
+                <a href="{% url 'product:index' %}"><img src="{% static 'base/shop-logo.jpg' %}" alt="Shop logo" title="Shop by Alex Nyzovyi"></a>
+            </div>
+            <div class="col-sm-6">
+            <span>+38 (063) 123-45-67</span>
+            <span><a href="#">Контакты</a></span>
+            <span><a href="#">Доставка</a></span>
+            </div>
+            <div class="col-sm-1">
+                <form action="{% url 'product:index' %}" method="POST" class="form-inline">
+                    {% csrf_token %}
+                    <select class="form-control" id="code" name="code" title="Валюта">
+                        {% for currency in currencies %}
+                            <option value="{{ currency.code }}" {% if currency.code == session_currency %}selected{% endif %}>{{ currency.code }}</option>
+                        {% endfor %}
+                    </select>
+                    <button type="submit" class="btn btn-primary btn-sm">Вибрати валюту</button>
+                </form>
+            </div>
+            <div class="col-sm text-right">
+                <a class="btn" href="{% url 'cart:index' %}"><span class="oi oi-cart" title="Cart"></span> Cart{% if cart.get_products %} ({{ cart.get_products|length }}){% endif %}</a>
+            </div>
+        </div>
+    </div>
+
+
+</header>
