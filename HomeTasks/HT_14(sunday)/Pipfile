@@ -7,7 +7,7 @@ name = "pypi"
 
 [packages]
 
-django = "==1.11.6"
+django = "==1.11.29"
 gunicorn = "*"
 whitenoise = "*"
 dj-database-url = "*"
